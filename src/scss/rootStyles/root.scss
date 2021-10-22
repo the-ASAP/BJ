@@ -1,0 +1,12 @@
+//Определение свойств
+:root {
+    --main-color: #333333;
+    --main-back: #f2f2f2;
+
+    --main-font: sans-serif;
+}
+
+//Создание переменных
+$mainColor: var(--main-color);
+$mainBack: var(--main-back);
+$mainFont: var(--main-font);
