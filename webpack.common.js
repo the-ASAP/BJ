@@ -1,3 +1,4 @@
+const webpack = require("webpack");
 const path = require("path");
 const glob = require("glob");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -99,5 +100,10 @@ module.exports = {
                     xhtml: true,
                 })
         ),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+            "window.jQuery": "jquery",
+        }),
     ],
 };
