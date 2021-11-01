@@ -11,12 +11,12 @@ module.exports = {
     entry: Object.assign(
         {},
         ...glob.sync("./src/js/*.js").map((jsFile) => ({
-            [jsFile.replace("./src/", "")]: `${jsFile}`.replace("./src", "."),
+            [jsFile.replace("./src/js/", "").replace(".js", "")]: `${jsFile}`.replace("./src", "."),
         }))
     ),
     output: {
-        path: path.resolve(__dirname, "dist"),
-        filename: "[name]",
+        path: path.resolve(__dirname, "build"),
+        filename: "js/[name].js",
     },
     module: {
         rules: [
@@ -39,6 +39,10 @@ module.exports = {
                     },
                     {
                         loader: "sass-loader",
+                        options: {
+                            sourceMap: true,
+                            sassOptions: { outputStyle: "expanded" },
+                        },
                     },
                 ],
             },
@@ -65,27 +69,34 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
-            filename: "css/style.css",
-            chunkFilename: "css/style.css",
+            filename: "css/[name].css",
         }),
+        // Копирование css каталога в директорию src
+        // new MiniCssExtractPlugin({
+        //     filename: "../src/css/[name].css",
+        // }),
         new CopyWebpackPlugin({
             patterns: [
                 {
-                    from: path.resolve(__dirname, "src/img"),
-                    to: path.resolve(__dirname, "dist/img"),
+                    from: path.resolve("./src/img"),
+                    to: path.resolve("./build/img"),
+                    noErrorOnMissing: true,
                 },
                 {
-                    from: path.resolve(__dirname, "src/fonts"),
-                    to: path.resolve(__dirname, "dist/fonts"),
+                    from: path.resolve("./src/fonts"),
+                    to: path.resolve("./build/fonts"),
+                    noErrorOnMissing: true,
                 },
             ],
         }),
         ...glob.sync("./src/*.html").map(
             (htmlFile) =>
                 new HtmlWebpackPlugin({
-                    inject: true,
+                    chunks: [htmlFile.replace("./src/", "").replace(".html", "")],
+                    inject: "body",
                     filename: path.basename(htmlFile),
                     template: path.basename(htmlFile),
+                    xhtml: true,
                 })
         ),
     ],

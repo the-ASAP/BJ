@@ -9,11 +9,14 @@ const common = require("./webpack.common.js");
 module.exports = merge(common, {
     mode: "production",
     optimization: {
+        minimize: true,
         minimizer: [
             new TerserPlugin({
                 extractComments: false,
             }),
-            new CssMinimizerPlugin(),
+            new CssMinimizerPlugin({
+                include: "css/[name].css",
+            }),
         ],
     },
     plugins: [

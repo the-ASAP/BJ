@@ -1,16 +1,16 @@
-/* eslint-disable prettier/prettier */
-module.exports = () => ({
-  ident: 'postcss',
-  plugins: {
-    'postcss-import': {},
-    'postcss-nesting': {},
-    'postcss-preset-env': {
-      stage: 3,
-      features: {
-        'custom-media-queries': true,
-      },
-    },
-  },
-});
+const autoprefixer = require("autoprefixer");
 
-// https://preset-env.cssdb.org/features
+module.exports = () => ({
+    ident: "postcss",
+    plugins: {
+        autoprefixer: {},
+        "postcss-import": {},
+        "postcss-nesting": {},
+        "postcss-preset-env": {
+            stage: 3,
+            features: {
+                "custom-media-queries": true,
+            },
+        },
+    },
+});
