@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const ftp = require("basic-ftp");
 require("dotenv").config();
 
