@@ -4,28 +4,34 @@ const glob = require('glob');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   target: 'web',
+  //Использование правильного пути
   context: path.resolve(__dirname, 'src'),
+  //Точки входа в приложение (все js файлы, лежащие в папке src/js)
+  //Пример объекта:
+  // { index, projects, ... }
   entry: Object.assign(
     {},
     ...glob.sync('./src/js/*.js').map((jsFile) => ({
       [jsFile.replace('./src/js/', '').replace('.js', '')]: `${jsFile}`.replace('./src', '.')
     }))
   ),
+  //Точки выхода в папке build
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'js/[name].js'
   },
   module: {
     rules: [
+      //Обработка файлов js
       {
         test: /\.js$/,
         exclude: /node_modules/,
         use: 'babel-loader'
       },
+      //Обработка файлов scss | css
       {
         test: /\.(scss|css)$/,
         use: [
@@ -47,10 +53,12 @@ module.exports = {
           }
         ]
       },
+      //Обработка файлов html
       {
         test: /\.(html)$/,
         use: 'html-loader'
       },
+      //Обработка файлов шрифтов
       {
         test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
         type: 'asset',
@@ -58,6 +66,7 @@ module.exports = {
           filename: '[path][name]-[hash][ext]'
         }
       },
+      //Обработка файлов изображений
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
         type: 'asset',
@@ -68,14 +77,15 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(),
+    // Все импорты scss файлов в каждой входной точке объединяются в один css файл с таким же именем как и входной точки и добавляются в папку build
     new MiniCssExtractPlugin({
       filename: 'css/[name].css'
     }),
-    // Копирование css каталога в директорию src
+    // Копирование css каталога в директорию src с
     new MiniCssExtractPlugin({
       filename: '../src/css/[name].css'
     }),
+    // Копирование всех шрифтов и страниц в билд (в проде минифицируется)
     new CopyWebpackPlugin({
       patterns: [
         {
@@ -90,6 +100,7 @@ module.exports = {
         }
       ]
     }),
+    // Создание html шаблонов к которому подключаются одноименные файл стилей и скриптов (даже если их не существует)
     ...glob.sync('./src/*.html').map(
       (htmlFile) =>
         new HtmlWebpackPlugin({
@@ -100,6 +111,7 @@ module.exports = {
           xhtml: true
         })
     ),
+    // Настройка Jquery
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',

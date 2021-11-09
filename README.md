@@ -1,6 +1,6 @@
 ## WEBPACK 5
 
-## ⚙️ Features
+## ⚙️ Stack
 
 - Webpack 5
 - Babel
