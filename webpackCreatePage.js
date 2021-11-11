@@ -1,4 +1,5 @@
 const fs = require('fs');
+const process = require('process');
 
 const pageName = process.argv[2];
 const htmlTemplate = `<!DOCTYPE html>
@@ -34,7 +35,7 @@ const jsTemplate = `import * as $ from 'jquery';
 const createPage = () => {
   fs.open(`./src/${pageName}.html`, 'w', (err) => {
     if (err) throw err;
-    fs.writeFileSync(`./src/${pageName}.html`, htmlTemplate, (err) => {
+    fs.writeFile(`./src/${pageName}.html`, htmlTemplate, (err) => {
       if (err) throw err;
       console.log('Html page created');
     });
@@ -42,7 +43,7 @@ const createPage = () => {
 
   fs.open(`./src/scss/${pageName}.scss`, 'w', (err) => {
     if (err) throw err;
-    fs.writeFileSync(`./src/scss/${pageName}.scss`, scssTemplate, (err) => {
+    fs.writeFile(`./src/scss/${pageName}.scss`, scssTemplate, (err) => {
       if (err) throw err;
       console.log('Scss page created');
     });
@@ -50,7 +51,7 @@ const createPage = () => {
 
   fs.open(`./src/js/${pageName}.js`, 'w', (err) => {
     if (err) throw err;
-    fs.writeFileSync(`./src/js/${pageName}.js`, jsTemplate, (err) => {
+    fs.writeFile(`./src/js/${pageName}.js`, jsTemplate, (err) => {
       if (err) throw err;
       console.log('JS page created');
     });
