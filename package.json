@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "start": "webpack serve --config webpack.dev.js",
-    "deploy": "node webpackDeploy.js"
+    "deploy": "node webpackDeploy.js",
+    "create": "node webpackCreatePage.js"
   },
   "browserslist": [
     "> 5%",
