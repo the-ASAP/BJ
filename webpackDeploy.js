@@ -18,7 +18,7 @@ async function deploy() {
     });
     await client.ensureDir('/public_html/assets/templates');
     await client.clearWorkingDir();
-    await client.uploadFromDir('dist');
+    await client.uploadFromDir('build');
   } catch (err) {
     console.log(err);
   }
