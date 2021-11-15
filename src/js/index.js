@@ -1,5 +1,5 @@
 import * as $ from 'jquery';
-import '../scss/style.scss';
+import '../scss/index.scss';
 import header from '../components/header.html';
 
 $(() => {

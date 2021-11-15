@@ -63,7 +63,7 @@ module.exports = {
         test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
         type: 'asset',
         generator: {
-          filename: '[path][name]-[hash][ext]'
+          filename: 'fonts/[name][ext]'
         }
       },
       //Обработка файлов изображений
@@ -71,7 +71,7 @@ module.exports = {
         test: /\.(gif|png|jpe?g|svg)$/i,
         type: 'asset',
         generator: {
-          filename: '[path][name]-[hash][ext]'
+          filename: 'img/[name][ext]'
         }
       }
     ]
@@ -88,11 +88,6 @@ module.exports = {
     // Копирование всех шрифтов и страниц в билд (в проде минифицируется)
     new CopyWebpackPlugin({
       patterns: [
-        {
-          from: path.resolve('./src/img'),
-          to: path.resolve('./build/img'),
-          noErrorOnMissing: true
-        },
         {
           from: path.resolve('./src/fonts'),
           to: path.resolve('./build/fonts'),

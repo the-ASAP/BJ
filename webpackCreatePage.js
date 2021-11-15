@@ -12,7 +12,7 @@ const htmlTemplate = `<!DOCTYPE html>
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no"
     />
-    <title>${pageName} Page</title>
+    <title>New Page</title>
   </head>
 
   <body>
