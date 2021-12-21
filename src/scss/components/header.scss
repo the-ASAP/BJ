@@ -8,29 +8,31 @@
         position: relative;
         width: 18px;
         height: 18px;
-        &.burger-open {
-            background-image: url('./../img/svg/icon-burger.svg');
-        }
         &.burger-close {
+            background-image: url("./../img/svg/icon-burger.svg");
+        }
+
+
+        &.burger-open {
             background-image: none;
             &::before {
                 position: absolute;
                 content: "";
                 left: 0;
-                top: 9px;
+                top: 10px;
                 width: 18px;
                 height: 1px;
-                background-color: rgba(0,0,0,0.5);
+                background-color: rgba(0, 0, 0, 0.5);
                 transform: rotate(-45deg);
             }
             &::after {
                 position: absolute;
                 content: "";
                 left: 0;
-                top: 9px;
+                top: 10px;
                 width: 18px;
                 height: 1px;
-                background-color: rgba(0,0,0,0.5);
+                background-color: rgba(0, 0, 0, 0.5);
                 transform: rotate(45deg);
             }
         }
@@ -41,28 +43,28 @@
 
     &__top-wrapper {
         position: relative;
-        
-        max-width: 1920px;
-        padding: 0 50px;
+
+        max-width: 120rem;
+        padding: 0 3.125rem;
         margin: 0 auto;
         height: 56px;
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
 
-        @media (max-width: 1600px) {
-            padding: 0 30px;
+        @media (max-width: 100rem) {
+            padding: 0 1.875rem;
         }
 
-        @media (max-width: 1023px) {
+        @media (max-width: 63.9375rem) {
             height: 39px;
         }
 
-        @media (max-width: 575px) {
-            padding: 0 20px;
+        @media (max-width: 35.9375rem) {
+            padding: 0 1.25rem;
         }
 
-        @media (max-width: 575px) {
+        @media (max-width: 35.9375rem) {
             height: 54px;
             align-items: center;
         }
@@ -71,13 +73,13 @@
     &__top-left {
         list-style: none;
         display: flex;
-        flex: 0 0 29.8125rem;
+        flex: 0 0 477px;
         justify-content: space-between;
         @media (max-width: 1023px) {
             display: none;
         }
-        @media (max-width: 1100px) {
-            flex-basis: 38rem;
+        @media (max-width: 81.25rem) {
+            flex-basis: 350px;
         }
     }
 
@@ -94,7 +96,7 @@
             border-bottom: 1px solid rgba(187, 85, 157, 0.6);
         }
 
-        @media (max-width: 1600px) {
+        @media (max-width: 100rem) {
             & span {
                 display: none;
             }
@@ -103,7 +105,7 @@
 
     &__location {
         position: relative;
-        padding-left: 23px;
+        padding-left: 1.4375rem;
         &::after {
             content: "";
             background-size: cover;
@@ -115,6 +117,12 @@
             left: 0;
             background-image: url("../img/svg/ic-location.svg");
         }
+
+        @media (max-width: 100rem) {
+            &:hover {
+                border-bottom: none;
+            }
+        }
     }
 
     &__top-center {
@@ -122,18 +130,17 @@
         left: 50%;
         transform: translateX(-50%);
         top: 58px;
-        @media (max-width: 1023px) {
-            top:36px;
+        @media (max-width: 63.9375rem) {
+            top: 36px;
         }
 
-        @media (max-width: 1023px) {
-            top:35px;
+        @media (max-width: 63.9375rem) {
+            top: 35px;
         }
 
-        @media (max-width: 410px) {
+        @media (max-width: 25.625rem) {
             top: 20px;
         }
-
     }
 
     &__main-logo {
@@ -149,7 +156,7 @@
     }
 
     &__top-right {
-        max-width: 190px;
+        max-width: 11.875rem;
         display: flex;
         justify-content: flex-end;
     }
@@ -157,16 +164,11 @@
     &__links-item {
         position: relative;
         margin-right: 22px;
-
-        @media (max-width: 575px) {
+        width: 19px;
+        height: 19px;
+        background-size: cover;
+        @media (max-width: 35.9375rem) {
             margin-right: 15px;
-        }
-
-        &::after {
-            position: absolute;
-            width: 18px;
-            height: 18px;
-            content: "";
         }
 
         &:last-child {
@@ -175,36 +177,29 @@
 
         &--icon-whishlist {
             background-image: url("./../img/svg/ic-wishlist.svg");
-            width: 19px;
-            height: 18px;
-            background-size: cover;
             &:hover {
                 background-image: url("./../img/svg/ic-wishlist--active.svg");
             }
 
-            @media (max-width: 410px) {
+            @media (max-width: 440px) {
                 display: none;
             }
         }
 
         &--icon-profile {
             background-image: url("./../img/svg/ic-profile.svg");
-            width: 19px;
-            height: 18px;
-            background-size: contain;
+
             &:hover {
                 background-image: url("./../img/svg/ic-profile--active.svg");
             }
-            @media (max-width: 410px) {
+            @media (max-width: 440px) {
                 display: none;
             }
         }
 
         &--icon-basket {
             background-image: url("./../img/svg/ic-basket.svg");
-            width: 19px;
-            height: 18px;
-            background-size: cover;
+
             &:hover {
                 background-image: url("./../img/svg/ic-basket--active.svg");
             }
@@ -212,18 +207,18 @@
     }
 
     &__wrapper {
-        max-width: 1440px;
+        max-width: 90rem;
         margin: 0 auto;
         margin-top: 58px;
         display: flex;
         justify-content: flex-end;
-        @media (max-width: 1225px) {
+        @media (max-width: 76.5625rem) {
             justify-content: space-between;
-            margin-top: 59px;
+            margin-top: 3.6875rem;
             padding: 0 30px;
         }
 
-        @media (max-width: 790px) {
+        @media (max-width: 49.375rem) {
             display: none;
         }
     }
@@ -232,17 +227,22 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        flex-grow: 1;
-        
+        @media (max-width: 76.4375rem) {
+            flex-grow: 1;
+        }
     }
 
     &__search {
-        margin-left: 87px;
-        @media (max-width: 1225px) {
+        margin-left: 5.4375rem;
+        margin-right: 2.5rem;
+
+        @media (max-width: 76.5625rem) {
             display: none;
         }
     }
 }
+
+// *********************top-menu styles***********************
 
 .top-menu {
     width: 100%;
@@ -264,20 +264,23 @@
             background: rgba(0, 0, 0, 0.3);
             width: 1px;
             height: 100%;
-            @media (max-width: 1225px) {
+            @media (max-width: 76.4375rem) {
                 display: none;
             }
         }
-        
     }
 
     &__item {
-        margin-right: 43px;
+        margin-right: 2.6875rem;
         text-transform: uppercase;
         position: relative;
-        @media (max-width: 1225px) {
-           flex-shrink: 0;
-           margin: 0;
+        @media (max-width: 76.5625rem) {
+            flex-shrink: 0;
+            margin: 0;
+        }
+
+        &--selected {
+            border-bottom: 1px solid rgba(187, 85, 157, 0.6);
         }
         &:hover {
             border-bottom: 1px solid rgba(187, 85, 157, 0.6);
@@ -301,8 +304,7 @@
             margin-right: 0;
         }
 
-        @media (max-width: 1225px) {
-            
+        @media (max-width: 76.5625rem) {
         }
     }
 
@@ -320,8 +322,10 @@
     }
 }
 
+// *********************form-search styles***********************
+
 .form-search {
-    width: 235px;
+    width: 14.6875rem;
     position: relative;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     height: 32px;
@@ -330,7 +334,7 @@
     &__input {
         font-size: 14px;
         line-height: 1.14;
-        padding: 8px 35px 8px 18px;
+        padding: 8px 2.1875rem 0.5rem 1.8125rem;
     }
 
     &__submit {
@@ -342,10 +346,15 @@
             width: 18px;
             height: 18px;
             position: absolute;
-            top: -1px;
+            top: -4px;
             left: 0px;
             bottom: -6px;
             background-image: url("./../img/svg/ic-search.svg");
         }
     }
 }
+
+
+// *********************main styles***********************
+
+

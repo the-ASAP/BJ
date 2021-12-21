@@ -1,0 +1,222 @@
+.about {
+    margin-top: 90px;
+    width: 1134px;
+    margin: 0 auto;
+    &__list {
+        width: 100%;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__button {
+        display: block;
+        cursor: pointer;
+        font-family: "Muller";
+        font-weight: 250;
+        font-size: 25px;
+        line-height: 25px;
+        letter-spacing: 0.035em;
+        color: rgba(0, 0, 0, 0.5);
+        padding-bottom: 14px;
+        border-bottom: 1px solid transparent;
+        &:hover {
+            border-bottom: 1px solid rgba(187, 85, 157, 0.6);
+            color: rgba(0, 0, 0, 1);
+        }
+    }
+
+
+    &__wrapper {
+        margin-top: 45px;
+        font-family: "Muller";
+        color: #000000;
+        display: flex;
+    }
+
+    // ******************************************about__property
+
+    &__property {
+        display: none;
+        // display: flex;
+        // justify-content: flex-start;
+    }
+
+    &__property-column {
+        width: 305px;
+        margin-right: 218px;
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &--additional {
+            display: flex;
+        }
+    }
+
+    &__additional-property {
+        padding: 0 30px 0 20px;
+        width: 270px;
+    }
+
+    &__property-row {
+        display: flex;
+        margin-bottom: 30px;
+        &--additional {
+            display: flex;
+            margin-bottom: 15px;
+            
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__propery-name {
+        font-size: 14px;
+        line-height: 14px;
+        letter-spacing: 0.035em;
+        font-weight: 300;
+        text-transform: uppercase;
+        width: 145px;
+    }
+
+    &__property-caption {
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 1;
+
+        letter-spacing: 0.035em;
+        text-transform: uppercase;
+
+        color: #000000;
+    }
+
+    &__property-value {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 14px;
+        letter-spacing: 0.035em;
+        text-transform: uppercase;
+    }
+
+    &__property-info {
+        width: 150px;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 1;
+        letter-spacing: 0.035em;
+        color: #000000;
+    }
+
+    // ******************************************about__description
+
+    &__description {
+        display: none;
+        // display: flex;
+        // justify-content: flex-start;
+    }
+
+    &__description-column {
+        width: 436px;
+        margin-right: 86px;
+    }
+
+    &__description-text {
+        margin-bottom: 10px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    // ******************************************about__info
+
+    &__info {
+        display: none;
+        width: 701px;
+        justify-content: space-between;
+    }
+
+    &__info-column {
+        width: 286px;
+        &:last-child {
+            width: 180px;
+        }
+    }
+
+    &__info-link {
+        display: block;
+        position: relative;
+        margin-bottom: 34px;
+        margin-left: 33px;
+        text-transform: uppercase;
+        font-family: "Muller";
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 14px;
+        text-align: left;
+        letter-spacing: 0.035em;
+
+        &::after {
+            position: absolute;
+            content: "";
+            width: 18px;
+            height: 18px;
+            left: -33px;
+            bottom: 0;
+        }
+
+        &--delivery::after {
+            background-image: url('./../img/svg/ic-delivery.svg');
+            background-repeat: no-repeat;
+        }   
+
+        &--payment::after {
+            background-image: url('./../img/svg/ic-payment.svg');
+            background-repeat: no-repeat;
+        }   
+
+        &--take::after {
+            background-image: url('./../img/svg/ic-take.svg');
+            background-repeat: no-repeat;
+        }   
+
+        &--callback::after {
+            background-image: url('./../img/svg/ic-callback.svg');
+            background-repeat: no-repeat;
+        } 
+
+        &--phone::after {
+            background-image: url('./../img/svg/ic-phone.svg');
+            background-repeat: no-repeat;
+        } 
+    }
+
+    &__radio--property:checked ~ .about__list .about__button--property,
+    &__radio--description:checked ~ .about__list .about__button--description,
+    &__radio--info:checked ~ .about__list .about__button--info {
+        color: rgba(0, 0, 0, 1);
+        border-bottom: 1px solid rgba(187, 85, 157, 0.6);
+    }
+
+
+    &__radio--property:checked ~ .about__wrapper .about__property {
+        display: flex;
+    }
+
+    &__radio--description:checked ~ .about__wrapper .about__description{
+        display: flex;
+    }
+
+    &__radio--info:checked ~ .about__wrapper .about__info{
+        display: flex;
+    }
+    
+}
+
+// *****************************offer class****************
+
+.offer {
+    margin-top: 90px;
+}

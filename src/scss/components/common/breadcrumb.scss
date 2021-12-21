@@ -1,0 +1,36 @@
+.breadcrumb {
+    display: flex;
+
+    &__item {
+        margin-right: 19px;
+        position: relative;
+
+        &::after {
+            position: absolute;
+            content: "/";
+            color: #000000;
+            opacity: 0.5;
+            right: -10px;
+        }
+
+        &:last-child {
+            margin-right: 0;
+            &::after {
+                display: none;
+            }
+        }
+    }
+
+    &__link {
+        font-family: "Muller";
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 1;
+        letter-spacing: 0.035em;
+        color: rgba(0, 0, 0, 0.5);
+    }
+
+    @media (max-width: 470px) {
+        display: none;
+    }
+}
