@@ -1,148 +1,295 @@
-    <!-- main-wrapper start -->
-    <div class="main__wrapper">
+<!-- main-wrapper start -->
+<div class="main__wrapper">
 
-        <!-- section "card" start -->
-        <section class="card">
+    <!-- section "card" start -->
+    <section class="card">
 
-            <!-- card__beadcrumb start -->
-            <div class="card__breadcrumb breadcrumb">
+        <!-- card__beadcrumb start -->
+        <div class="card__breadcrumb breadcrumb">
 
-                <div class="breadcrumb__item">
-                    <a href="/catalog/" class="breadcrumb__link">
-                        <span>Каталог</span>
-                    </a>
-                </div>
-
-                <div class="breadcrumb__item">
-                    <a href="/catalog/koltsa/" class="breadcrumb__link">
-                        <span>Кольца</span>
-                    </a>
-                </div>
-
-                <div class="breadcrumb__item">
-                    <a href="/catalog/koltsa/koltsa-iz-zolota/beloe-zoloto/" class="breadcrumb__link">
-                        <span>Кольца из белого золота</span>
-                    </a>
-                </div>
-
+            <div class="breadcrumb__item">
+                <a href="/catalog/" class="breadcrumb__link">
+                    <span>Каталог</span>
+                </a>
             </div>
-            <!-- card__beadcrumb end -->
 
-            <!-- product-detail start -->
-            <div class="card__product-detail product-detail">
+            <div class="breadcrumb__item">
+                <a href="/catalog/koltsa/" class="breadcrumb__link">
+                    <span>Кольца</span>
+                </a>
+            </div>
 
-                <div class="product-detail__article">
-                    Артикул: 65319207160
+            <div class="breadcrumb__item">
+                <a href="/catalog/koltsa/koltsa-iz-zolota/beloe-zoloto/" class="breadcrumb__link">
+                    <span>Кольца из белого золота</span>
+                </a>
+            </div>
+
+        </div>
+        <!-- card__beadcrumb end -->
+
+        <!-- product-detail start -->
+        <div class="card__product-detail product-detail">
+
+            <div class="product-detail__article">
+                Артикул: 65319207160
+            </div>
+
+            <!-- gallery start -->
+            <div class="product-detail__gallery gallery">
+
+                <!-- gallery__preview start -->
+                <div class="gallery__preview">
+                    <ul class="gallery__preview-list">
+                        <li class="gallery__preview-slide active">
+                            <img class="gallery__preview-picture" src="./../img/slide-preview1.jpg" alt="Slide1">
+                        </li>
+                        <li class="gallery__preview-slide">
+                            <img class="gallery__preview-picture" src="./../img/slide-preview2.jpg" alt="Slide2">
+                        </li>
+                        <li class="gallery__preview-slide">
+                            <img class="gallery__preview-picture" src="./../img/slide-preview3.jpg" alt="Slide3">
+                        </li>
+                    </ul>
                 </div>
+                <!-- gallery__preview end -->
 
-                <!-- gallery start -->
-                <div class="product-detail__gallery gallery">
-
-                    <!-- gallery__preview start -->
-                    <div class="gallery__preview">
-                        <ul class="gallery__preview-list">
-                            <li class="gallery__preview-slide active">
-                                <img class="gallery__preview-picture" src="./../img/slide-preview1.jpg" alt="Slide1">
-                            </li>
-                            <li class="gallery__preview-slide">
-                                <img class="gallery__preview-picture" src="./../img/slide-preview2.jpg" alt="Slide2">
-                            </li>
-                            <li class="gallery__preview-slide">
-                                <img class="gallery__preview-picture" src="./../img/slide-preview3.jpg" alt="Slide3">
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- gallery__preview end -->
-
-                    <!-- gallery__big start -->
-                    <div class="gallery__big">
-                        <ul class="gallery__big-list">
-                            <li class="gallery__big-slide">
-                                <img class="gallery__big-picture" src="./../img/slide-big.jpg" alt="Фото товара 1">
-                            </li>
-                            <!-- <li class="gallery__big-slide">
+                <!-- gallery__big start -->
+                <div class="gallery__big">
+                    <ul class="gallery__big-list">
+                        <li class="gallery__big-slide">
+                            <img class="zoom-img" id="zoom_01" src="./../img/image1.jpg"
+                                data-zoom-image="./../img/image2.jpg" width="411" />
+                            <!-- <img id="zoom_01" src="./../img/slide-preview1.jpg" src="./../img/slide-big.jpg" /> -->
+                            <!-- <img class="gallery__big-picture" src="./../img/slide-big.jpg" alt="Фото товара 1"> -->
+                        </li>
+                        <!-- <li class="gallery__big-slide">
                                         <img class="gallery__big-picture" src="#" alt="Фото товара2">
                                     </li>
                                     <li class="gallery__big-slide">
                                         <img class="gallery__big-picture" src="#" alt="Фото товара3">
                                     </li> -->
-                        </ul>
-                    </div>
-                    <!-- gallery__big end -->
-
+                    </ul>
                 </div>
-                <!-- gallery end -->
-
-                <!-- product-detail__column start -->
-                <div class="product-detail__column">
-
-                    <h1 class="product-detail__name">
-                        Кольцо из белого золота <br> с дорожкой из бриллиантов
-                    </h1>
-
-                    <p class="product-detail__price">
-                        13&nbsp;832&nbsp;₽
-                    </p>
-
-                    <p class="product-detail__installment">
-                        Рассрочка от 15 162 в месяц
-                    </p>
-
-                    <p class="product-detail__size-title">
-                        Выберите размер
-                    </p>
-                    <div class="product-detail__sizes-wrapper">
-                        <button class="product-detail__sizes-list">
-                            Ваш размер
-                        </button>
-                        <button class="product-detail__no-size">
-                            Нет моего размера
-                        </button>
-
-                       
-                    </div>
-                    
-                    <a class="product-detail__size-guide" href="#">
-                        Гид по размерам
-                    </a>
-
-                    <div class="product-detail__row">
-                        <a href="#" class="product-detail__buy-btn">Купить</a>
-
-                        <a href="#" class="product-detail__wishlist">
-                            <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
-                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <rect width="25" height="25" fill="url(#pattern0)" />
-                                <defs>
-                                    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-                                        <use xlink:href="#image0_2049_263" transform="scale(0.02)" />
-                                    </pattern>
-                                    <image id="image0_2049_263" width="50" height="50"
-                                        xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADqklEQVRoge3ZTYhWVRzH8c84M6A0OSlEZZaLjMFeyByL3qhFiBvNIqXcRIswjKJdLSsscFtMr1RQCW3SghZlVtAmekGKQo0WlWlBlC9l6hTOPC3OOd1bTDP33rnPfZ7g+cLlzJznf/7n97/nnHvP+V969OjRo0cH6CthO4KbsQrn4jwM4DD24AO8hq8K+luG9bgeF2MhTuEADmIX3sDXJTROy0q8h1aBaxJvY/k0/i6PNpMFfb6L0dkEMIixXIeH8DxuEkbnNMwVRmYtnhZGpyXc2UfQn/PXj0fjb8nfU1gTfcyNPkewDi9Em3SDnhBmQCkW4P3o5Di2YH6BdqfjYYzHti/HAPqxLdaN46FoOxPzheBPyEbnjKJBDOaC+F6YCmVZjv3RxzZZEN/hsgr+RoW1k4IpNDJjsiAWVeg0sST6SHN9P86fhb9FsmAen8l4pTAfj6s2Ev9mVJhK41hRg78VwjSbmMlfejptqaHTxAPxqovHBI27/stgRPY0KbKwi5IWe10My56OF6bKOTmDW2L5On6rseOJeNXFr8KLkvCCxj8DuTGWb9bYabtIGlelinwgS2K5pzE51dkbyymfgseEeTfUmJzqDAlaj6WK/IikBXmqSUUVmYzl3/rzgRyJ5cLG5FQnaTycKvKB/BLLcxqTU52k8VCqyAfyRSyvaExOda6M5eepIh/Ix7G8ujE51bkqlp9M9eMy4UlwRDgbdCvzhJdiS9iNTMnuaLChIVFVuF3QOOVoJO6LRruVO883RR8+EzRuns5wHn6Mhre2X1dp1gvaDiow/e+NxgeEnWa3MCwE0MI9RRoM4NPY4MX26SrNS4Kmj5Q4FlwqSyDc3R5dpdgsaDmJi8o2vis2/kNuu9wBVkcNLdxZ1UlKRPyOa+rRVYrrhPxBoYTDdPTjVVkwTY7MDcJJtSWkYmd9XB4UjpZpjm6crcMCbIx9tbA9aqiFfiGFmXJUz6qQvizYz1ZZmvaVdvTTJ6RDJ2Inbwmp1bpYgJ3R94SQVm3r7mItjsYOv1HPbvlafCvbtK6pwWchluJLWeZ9q2rzeAAP4s/oa5+wC2+UITwnWzcf4oIS7ZfGNumzwTPCZ4WOsRo/REEnhDs8Zxr7PmySZW1+Er65dAVnYodsdHZi8RR2i/FOzm57bNt1bMDPgsijuC332zohwZEW9KbG1ZXkbCF/nO76GJ7M/b8DZ3VMXQXuELY1KYCTuL+jimbBJUKedm/8+3/NsO46afZohL8AQdD5tJ4fnIQAAAAASUVORK5CYII=" />
-                                </defs>
-                            </svg>
-                        </a>
-
-                        <a href="#" class="product-detail__watch-live">
-                           <span>Посмотреть вживую</span> 
-                        </a>
-
-                        <a href="#" class="product-detail__share">
-                            <span>Поделиться</span>  
-                        </a>
-                    </div>
-
-
-                </div>
-                <!-- product-detail__column end -->
+                <!-- gallery__big end -->
 
             </div>
-            <!-- product-detail end -->
+            <!-- gallery end -->
+
+            <!-- product-detail__column start -->
+
+
+            <div class="product-detail__column">
+
+                <h1 class="product-detail__name">
+                    Кольцо из белого золота <br> с дорожкой из бриллиантов
+                </h1>
+
+                <p class="product-detail__price">
+                    13&nbsp;832&nbsp;₽
+                </p>
+
+                <p class="product-detail__installment">
+                    Рассрочка от 15 162 в месяц
+                </p>
+
+                <p class="product-detail__size-title">
+                    Выберите размер
+                </p>
+                <div class="product-detail__sizes-wrapper">
+                    <button class="product-detail__sizes-list">
+                        Ваш размер
+                    </button>
+                    <button class="product-detail__no-size">
+                        Нет моего размера
+                    </button>
+
+                    <div class="product-detail__modal-size-wrapper">
+                        <div class="product-detail__modal-col">
+                            <span class="product-detail__modal-size-caption">Выберите размер</span>
+
+                            <div class="custom-option">
+
+                                <div class="selectboxss product-detail__modal-option">
+                                    <div class="selectboxssvalue"><span>Ваш размер</span><img src="./../img/arrow.png"
+                                            class="arrowselect" />
+                                    </div>
+                                    <ul class="selectboxssmenu">
+                                        <li class="selectoption"><span class="flag-ru"></span> 15</li>
+                                        <li class="selectoption"><span class="flag-en"></span> 16</li>
+                                        <li class="selectoption"><span class="flag-fr"></span> 17</li>
+                                        <li class="selectoption"><span class="flag-fr"></span> 18</li>
+                                        <li class="selectoption"><span class="flag-fr"></span> 19</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="product-detail__modal-col">
+                            <button class="product-detail__no-size product-detail__no-size--modal">
+                                Нет моего размера
+                            </button>
+                        </div>
+                    </div>
+
+
+                    <div class="product-detail__modal-card modal-card modal-card--close">
+
+                        <button class="modal-card__close-btn">
+
+
+                        </button>
+                        <h3 class="modal-card__caption">Выберите желаемый размер</h3>
+                        <img src="./../img/item.jpg" alt="" class="modal-card__image">
+                        <span class="modal-card__name">Кольцо из белого золота с дорожкой из бриллиантов</span>
+
+                        <div class="selectboxss product-detail__modal-card-option">
+                            <div class="selectboxssvalue"><span>Ваш размер</span><img src="./../img/arrow.png"
+                                    class="arrowselect" />
+                            </div>
+                            <ul class="selectboxssmenu">
+                                <li class="selectoption"><span class="flag-ru"></span> 15</li>
+                                <li class="selectoption"><span class="flag-en"></span> 16</li>
+                                <li class="selectoption"><span class="flag-fr"></span> 17</li>
+                                <li class="selectoption"><span class="flag-fr"></span> 18</li>
+                                <li class="selectoption"><span class="flag-fr"></span> 19</li>
+                            </ul>
+                        </div>
+
+                        <form action="POST">
+                            <input type="text" class="modal-card__input" name="name" placeholder="Ваше имя">
+                            <input type="text" class="modal-card__input" name="phone" placeholder="Телефон">
+                            <input type="button" class="modal-card__send-button btn" value="Отправить">
+                        </form>
+                        <span class="modal-card__offerta">
+                            Нажимая на кнопку «Отправить»,
+
+                            <a href="#" class="modal-card__offerta--link">
+                                я даю согласие на обработку персональных данных
+                            </a>
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <a class="product-detail__size-guide" href="#">
+                    Гид по размерам
+                </a>
+
+                <div class="product-detail__row">
+                    <a href="#" class="product-detail__buy-btn">Купить</a>
+
+                    <a href="#" class="product-detail__wishlist">
+                        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <rect width="25" height="25" fill="url(#pattern0)" />
+                            <defs>
+                                <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_2049_263" transform="scale(0.02)" />
+                                </pattern>
+                                <image id="image0_2049_263" width="50" height="50"
+                                    xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADqklEQVRoge3ZTYhWVRzH8c84M6A0OSlEZZaLjMFeyByL3qhFiBvNIqXcRIswjKJdLSsscFtMr1RQCW3SghZlVtAmekGKQo0WlWlBlC9l6hTOPC3OOd1bTDP33rnPfZ7g+cLlzJznf/7n97/nnHvP+V969OjRo0cH6CthO4KbsQrn4jwM4DD24AO8hq8K+luG9bgeF2MhTuEADmIX3sDXJTROy0q8h1aBaxJvY/k0/i6PNpMFfb6L0dkEMIixXIeH8DxuEkbnNMwVRmYtnhZGpyXc2UfQn/PXj0fjb8nfU1gTfcyNPkewDi9Em3SDnhBmQCkW4P3o5Di2YH6BdqfjYYzHti/HAPqxLdaN46FoOxPzheBPyEbnjKJBDOaC+F6YCmVZjv3RxzZZEN/hsgr+RoW1k4IpNDJjsiAWVeg0sST6SHN9P86fhb9FsmAen8l4pTAfj6s2Ev9mVJhK41hRg78VwjSbmMlfejptqaHTxAPxqovHBI27/stgRPY0KbKwi5IWe10My56OF6bKOTmDW2L5On6rseOJeNXFr8KLkvCCxj8DuTGWb9bYabtIGlelinwgS2K5pzE51dkbyymfgseEeTfUmJzqDAlaj6WK/IikBXmqSUUVmYzl3/rzgRyJ5cLG5FQnaTycKvKB/BLLcxqTU52k8VCqyAfyRSyvaExOda6M5eepIh/Ix7G8ujE51bkqlp9M9eMy4UlwRDgbdCvzhJdiS9iNTMnuaLChIVFVuF3QOOVoJO6LRruVO883RR8+EzRuns5wHn6Mhre2X1dp1gvaDiow/e+NxgeEnWa3MCwE0MI9RRoM4NPY4MX26SrNS4Kmj5Q4FlwqSyDc3R5dpdgsaDmJi8o2vis2/kNuu9wBVkcNLdxZ1UlKRPyOa+rRVYrrhPxBoYTDdPTjVVkwTY7MDcJJtSWkYmd9XB4UjpZpjm6crcMCbIx9tbA9aqiFfiGFmXJUz6qQvizYz1ZZmvaVdvTTJ6RDJ2Inbwmp1bpYgJ3R94SQVm3r7mItjsYOv1HPbvlafCvbtK6pwWchluJLWeZ9q2rzeAAP4s/oa5+wC2+UITwnWzcf4oIS7ZfGNumzwTPCZ4WOsRo/REEnhDs8Zxr7PmySZW1+Er65dAVnYodsdHZi8RR2i/FOzm57bNt1bMDPgsijuC332zohwZEW9KbG1ZXkbCF/nO76GJ7M/b8DZ3VMXQXuELY1KYCTuL+jimbBJUKedm/8+3/NsO46afZohL8AQdD5tJ4fnIQAAAAASUVORK5CYII=" />
+                            </defs>
+                        </svg>
+                    </a>
+
+                    <a href="#" class="product-detail__watch-live">
+                        <span>Посмотреть вживую</span>
+                    </a>
+
+                    <div class="product-detail__share-wrapper">
+                        <a href="#" class="product-detail__share">
+                            <span>Поделиться</span>
+                        </a>
+                        <div class="product-detail__modal-share">
+                            <a href="#"
+                                class="product-detail__modal-share-icon product-detail__modal-share-icon--vk"></a>
+                            <a href="#"
+                                class="product-detail__modal-share-icon product-detail__modal-share-icon--fb"></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
 
 
 
-        </section>
-        <!-- section "card" end -->
 
-    </div>
-    <!-- main-wrapper end -->
+        </div>
+        <!-- product-detail__column end -->
+
+</div>
+<!-- product-detail end -->
+
+
+
+</section>
+<!-- section "card" end -->
+
+<!-- <img id="zoom_01" src="./../img/slide-preview1.jpg" src="./../img/slide-big.jpg" /> -->
+
+
+
+</div>
+<!-- main-wrapper end -->
+
+
+
+<script>
+   
+
+    let noSizeButton = document.querySelector('.product-detail__no-size--modal');
+    let modelCard = document.querySelector('.modal-card');
+    let modalCartCloseBtn = document.querySelector('.modal-card__close-btn');
+    let modelCardMobile = document.querySelector('.product-detail__no-size');
+    let btnBuy = document.querySelector('.product-detail__buy-btn');
+    let modalSalon = document.querySelector('.salon');
+    let modalWrapper = document.querySelector('.modal__wrapper');
+
+    let modalBtnClose = document.querySelector('.salon__close');
+
+    modalBtnClose.addEventListener('click', (e) => {
+
+        modalSalon.classList.remove('salon--show');
+        modalSalon.classList.add('salon--hide');
+        modalWrapper.classList.remove('active')
+    })
+
+    modalWrapper.addEventListener('click', (e) => {
+
+        modalSalon.classList.remove('salon--show');
+        modalSalon.classList.add('salon--hide');
+        modalWrapper.classList.remove('active')
+    })
+
+
+
+
+    noSizeButton.addEventListener('click', (e) => {
+        modelCard.classList.remove('modal-card--close');
+        modelCard.classList.add('modal-card--open');
+    })
+
+
+    modelCardMobile.addEventListener('click', (e) => {
+
+        modelCard.classList.remove('modal-card--close');
+        modelCard.classList.add('modal-card--open');
+    })
+
+
+    modalCartCloseBtn.addEventListener('click', (e) => {
+        modelCard.classList.remove('modal-card--open');
+        modelCard.classList.add('modal-card--close');
+    })
+
+    btnBuy.addEventListener('click', (e) => {
+        modalSalon.classList.remove('salon--hide');
+        modalSalon.classList.add('salon--show');
+        modalWrapper.classList.add('active')
+    })
+
+    $(document).ready(function () { $("#zoom_01").ezPlus()});
+</script>

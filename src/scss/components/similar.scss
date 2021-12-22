@@ -1,0 +1,196 @@
+.similar {
+    width: 1440px;
+    margin: 0 auto;
+    margin-top: 90px;
+    padding: 0 20px;
+
+    &__title {
+        font-family: "Muller";
+        font-weight: 250;
+        font-size: 32px;
+        line-height: 32px;
+
+        color: #000000;
+    }
+
+    &__buy-btn {
+        min-width: 242px;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 14px;
+        letter-spacing: 0.035em;
+        text-transform: uppercase;
+        color: #000;
+        height: 35px;
+        border: 1px solid #000;
+        // border-top-color: rgb(0, 0, 0);
+        // border-right-color: rgb(0, 0, 0);
+        // border-bottom-color: rgb(0, 0, 0);
+        // border-left-color: rgb(0, 0, 0);
+        padding: 10px 50px 7px;
+        border-color: transparent;
+
+        &:hover {
+            border-color: #bb559d;
+            color: #bb559d;
+        }
+
+        &:hover .include__price-wrap{
+            display: none;
+        }
+
+        &:hover .include__price-btn-text{
+            display: block;
+        }
+    }
+
+    &__price-wrap {
+        display: flex;
+        align-items: center;
+    }
+
+    &__price {
+        font-size: 14px;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+    }
+
+    &__price.old-price {
+        color: rgba(0, 0, 0, 0.5);
+        // text-decoration: line-through;
+        margin-right: 20px;
+    }
+
+    &__icon {
+        display: inline-block;
+        width: 1em;
+        fill: currentColor;
+        flex-shrink: 0;
+        height: 1em;
+    }
+
+    &__price-btn-text {
+        font-size: 14px;
+        line-height: 1;
+        text-transform: uppercase;
+        display: none;
+    }
+
+    &__list {
+        list-style: none;
+        display: flex;
+        padding-left: 0;
+        margin-top: 60px;
+    }
+
+    &__item {
+        width: 337px;
+        // height: 337px;
+        margin-right: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 30px;
+
+        &:hover {
+       
+            cursor: pointer;
+        }
+    }
+
+    &__item-row {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    &__item-price {
+        width: 180px;
+        justify-content: space-between;
+        font-family: "Muller";
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 14px;
+        letter-spacing: 0.035em;
+    }
+
+    &__item-icons {
+        display: flex;
+        width: 50px;
+        justify-content: space-between;
+        margin-right: 10px;
+    }
+
+    &__item-sale {
+        margin-left: 10px;
+        font-family: "Muller";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 14px;
+        /* identical to box height */
+
+        letter-spacing: 0.035em;
+
+        color: #bb559d;
+    }
+
+    &__item-image-wrapper {
+        width: 270px;
+        height: 270px;
+    }
+
+    &__item-title {
+        justify-content: center;
+        display: block;
+        font-family: "Muller";
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 14px;
+        display: flex;
+        letter-spacing: 0.035em;
+    }
+
+    &__item-info {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    &__info-name {
+        font-family: "Muller";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 12px;
+        /* identical to box height */
+
+        letter-spacing: 0.035em;
+        margin-right: 10px;
+    }
+
+    &__item-price {
+        margin-top: 30px;
+        font-family: "Muller";
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 14px;
+        /* identical to box height */
+
+        letter-spacing: 0.035em;
+
+        color: #000000;
+        display: flex;
+        // justify-content: center;
+        width: 160px;
+    }
+}

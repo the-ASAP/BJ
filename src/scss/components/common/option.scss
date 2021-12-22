@@ -1,0 +1,102 @@
+
+
+div.selectboxss {
+  
+    position: relative;
+    height: 50px;
+    border-radius: 3px;
+    border: solid 1px #000;
+    background-color: #fff;
+    cursor: pointer;
+    overflow: hidden;
+    transition: 0.3s;
+    border-left: none;
+    border-right: none;
+}
+div.selectboxss .selectboxssvalue {
+    padding: 16px 31px 0px 14px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-family: "Muller";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1;
+    /* identical to box height */
+
+    letter-spacing: 0.035em;
+    color: rgba(0, 0, 0, 0.3);
+    height: 40px;
+    margin: 0px;
+}
+div.selectboxss img.arrowselect {
+    position: absolute;
+    right: 0;
+    width: 21px;
+    padding: 0px 10px 0px 0px;
+}
+::-webkit-scrollbar {
+    background: transparent;
+    width: 0.5em;
+    position: absolute;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+    position: absolute;
+    z-index: -2;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    background: #888;
+}
+ul.selectboxssmenu {
+    background: #fff;
+    transition: 0.3s;
+    width: 100%;
+    height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden !important;
+    position: absolute;
+    margin-top: 0px;
+    display: block;
+    padding: 0px;
+    margin: 0px;
+}
+ul.selectboxssmenu > li {
+    display: block;
+    padding: 10px;
+    border-radius: 0px;
+    cursor: pointer;
+}
+ul.selectboxssmenu > li.selectoption {
+    font-family: "Muller";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 16px;
+/* identical to box height */
+
+letter-spacing: 0.035em;
+    color: rgba(0, 0, 0, 0.5);
+    padding: 7px;
+    padding-left: 5px;
+}
+ul.selectboxssmenu > li.selectoption:hover {
+    color: rgba(0, 0, 0, 1);
+    background: #e1e1e1;
+    transition: 0.2s;
+}
+.selectboxss li .flag-en,
+.selectboxss li .flag-ru,
+.selectboxss li .flag-fr,
+.selectboxss li .flag-de,
+.selectboxss li .flag-it,
+.selectboxss li .flag-es {
+    display: inline-block;
+    // background: url(flags-small.png) no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    width: 18px;
+    height: 12px;
+}
