@@ -7,7 +7,7 @@
     @media (max-width: 1000px) {
 
         max-width: none;
-       padding: 0 10px;
+        padding: 0 10px;
     }
 
     &__title {
@@ -17,6 +17,7 @@
         line-height: 32px;
 
         color: #000000;
+
     }
 
     &__buy-btn {
@@ -34,10 +35,6 @@
         color: #000;
         height: 35px;
         border: 1px solid #000;
-        // border-top-color: rgb(0, 0, 0);
-        // border-right-color: rgb(0, 0, 0);
-        // border-bottom-color: rgb(0, 0, 0);
-        // border-left-color: rgb(0, 0, 0);
         padding: 10px 50px 7px;
         border-color: transparent;
 
@@ -46,11 +43,11 @@
             color: #bb559d;
         }
 
-        &:hover .include__price-wrap{
+        &:hover .recent__price-wrap{
             display: none;
         }
 
-        &:hover .include__price-btn-text{
+        &:hover .recent__price-btn-text{
             display: block;
         }
     }
@@ -66,12 +63,24 @@
         display: flex;
         align-items: center;
         white-space: nowrap;
+        @media (max-width: 575px) {
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 14px;
+            /* identical to box height */
+
+            letter-spacing: 0.035em;
+        }
     }
 
     &__price.old-price {
         color: rgba(0, 0, 0, 0.5);
         // text-decoration: line-through;
         margin-right: 20px;
+        @media (max-width: 575px) {
+
+            display: none;
+        }
     }
 
     &__icon {
@@ -115,9 +124,19 @@
         }
 
         @media (max-width: 1000px) {
-            flex: 0 0 90%;
-            margin: 0 15px 0 0;
+            flex: 0 0 40%;
+            margin: 0 25px 0 0
         }
+
+        @media (max-width: 575px) {
+            max-width: 149px;
+            flex: 0 0 149px;
+            margin: 0 25px 0 0
+        }
+
+        
+
+
     }
 
     &__item-row {
@@ -133,7 +152,7 @@
         font-family: "Muller";
         font-weight: 500;
         font-size: 14px;
-        line-height: 14px;
+        line-height: 1;
         letter-spacing: 0.035em;
     }
 
@@ -161,6 +180,10 @@
     &__item-image-wrapper {
         width: 270px;
         height: 270px;
+        @media (max-width: 575px) {
+            max-width: 142px;
+            height: auto;
+        }
     }
 
     &__item-title {
@@ -172,6 +195,9 @@
         line-height: 14px;
         display: flex;
         letter-spacing: 0.035em;
+        @media (max-width: 575px) {
+            display: none;
+        }
     }
 
     &__item-info {
@@ -179,6 +205,9 @@
         justify-content: center;
         width: 100%;
         margin-top: 15px;
+        @media (max-width: 575px) {
+            display: none;
+        }
     }
 
     &__info-name {

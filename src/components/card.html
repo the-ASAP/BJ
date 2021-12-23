@@ -39,18 +39,24 @@
             <div class="product-detail__gallery gallery">
 
                 <!-- gallery__preview start -->
-                <div class="gallery__preview">
-                    <ul class="gallery__preview-list">
-                        <li class="gallery__preview-slide active">
-                            <img class="gallery__preview-picture" src="./../img/slide-preview1.jpg" alt="Slide1">
-                        </li>
-                        <li class="gallery__preview-slide">
-                            <img class="gallery__preview-picture" src="./../img/slide-preview2.jpg" alt="Slide2">
-                        </li>
-                        <li class="gallery__preview-slide">
-                            <img class="gallery__preview-picture" src="./../img/slide-preview3.jpg" alt="Slide3">
-                        </li>
-                    </ul>
+                <div class="gallery__preview" >
+                    
+                    
+                    <div id="gal1" class="gallery__preview-list">
+
+                        <a href=# data-image="img/slide-preview1.jpg" data-zoom-image="img/slide-preview1.jpg" class="gallery__preview-slide">
+                            <img id="zoom_03" class="gallery__preview-picture" src="../img/slide-preview1.jpg" alt="Slide1">
+                        </a>
+
+                        <a href=# data-image="img/slide-preview2.jpg" data-zoom-image="img/slide-preview2.jpg" class="gallery__preview-slide">
+                            <img id="zoom_03" class="gallery__preview-picture" src="../img/slide-preview2.jpg" alt="Slide2">
+                        </a>
+
+                        <a href=# data-image="img/slide-preview3.jpg" data-zoom-image="img/slide-preview3.jpg" class="gallery__preview-slide">
+                            <img id="zoom_03" class="gallery__preview-picture" src="../img/slide-preview3.jpg" alt="Slide2">
+                        </a>
+                     
+                    </div>
                 </div>
                 <!-- gallery__preview end -->
 
@@ -58,8 +64,8 @@
                 <div class="gallery__big">
                     <ul class="gallery__big-list">
                         <li class="gallery__big-slide">
-                            <img class="zoom-img" id="zoom_01" src="./../img/image1.jpg"
-                                data-zoom-image="./../img/image2.jpg" width="411" />
+                            <img class="gallery__big-slide-image zoom-img" id="big-img" src="./../img/slide-big.jpg"
+                                data-zoom-image="./../img/slide-big.jpg" />
                             <!-- <img id="zoom_01" src="./../img/slide-preview1.jpg" src="./../img/slide-big.jpg" /> -->
                             <!-- <img class="gallery__big-picture" src="./../img/slide-big.jpg" alt="Фото товара 1"> -->
                         </li>
@@ -220,76 +226,9 @@
         </div>
         <!-- product-detail__column end -->
 
-</div>
-<!-- product-detail end -->
-
-
-
-</section>
-<!-- section "card" end -->
-
-<!-- <img id="zoom_01" src="./../img/slide-preview1.jpg" src="./../img/slide-big.jpg" /> -->
-
-
-
+    </section>
+    <!-- section "card" end -->
 </div>
 <!-- main-wrapper end -->
 
 
-
-<script>
-   
-
-    let noSizeButton = document.querySelector('.product-detail__no-size--modal');
-    let modelCard = document.querySelector('.modal-card');
-    let modalCartCloseBtn = document.querySelector('.modal-card__close-btn');
-    let modelCardMobile = document.querySelector('.product-detail__no-size');
-    let btnBuy = document.querySelector('.product-detail__buy-btn');
-    let modalSalon = document.querySelector('.salon');
-    let modalWrapper = document.querySelector('.modal__wrapper');
-
-    let modalBtnClose = document.querySelector('.salon__close');
-
-    modalBtnClose.addEventListener('click', (e) => {
-
-        modalSalon.classList.remove('salon--show');
-        modalSalon.classList.add('salon--hide');
-        modalWrapper.classList.remove('active')
-    })
-
-    modalWrapper.addEventListener('click', (e) => {
-
-        modalSalon.classList.remove('salon--show');
-        modalSalon.classList.add('salon--hide');
-        modalWrapper.classList.remove('active')
-    })
-
-
-
-
-    noSizeButton.addEventListener('click', (e) => {
-        modelCard.classList.remove('modal-card--close');
-        modelCard.classList.add('modal-card--open');
-    })
-
-
-    modelCardMobile.addEventListener('click', (e) => {
-
-        modelCard.classList.remove('modal-card--close');
-        modelCard.classList.add('modal-card--open');
-    })
-
-
-    modalCartCloseBtn.addEventListener('click', (e) => {
-        modelCard.classList.remove('modal-card--open');
-        modelCard.classList.add('modal-card--close');
-    })
-
-    btnBuy.addEventListener('click', (e) => {
-        modalSalon.classList.remove('salon--hide');
-        modalSalon.classList.add('salon--show');
-        modalWrapper.classList.add('active')
-    })
-
-    $(document).ready(function () { $("#zoom_01").ezPlus()});
-</script>

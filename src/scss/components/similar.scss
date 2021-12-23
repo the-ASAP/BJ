@@ -1,8 +1,22 @@
 .similar {
-    width: 1440px;
+    max-width: 1440px;
+   
     margin: 0 auto;
     margin-top: 90px;
     padding: 0 20px;
+
+    @media (max-width: 1023px) {
+        max-width: 963px;
+        padding: 0 16px;
+    }
+
+    @media (max-width: 575px) {
+        max-width: 543px;
+    }
+
+    @media (max-width: 320px) {
+        max-width: 300px;
+    }
 
     &__title {
         font-family: "Muller";
@@ -11,6 +25,17 @@
         line-height: 32px;
 
         color: #000000;
+
+        @media (max-width: 1023px) {
+            font-size: 30px;
+            line-height: 30px;
+        }
+
+        @media (max-width: 320px) {
+            font-weight: 250;
+            font-size: 22px;
+            line-height: 22px;
+        }
     }
 
     &__buy-btn {
@@ -40,11 +65,11 @@
             color: #bb559d;
         }
 
-        &:hover .include__price-wrap{
+        &:hover .include__price-wrap {
             display: none;
         }
 
-        &:hover .include__price-btn-text{
+        &:hover .include__price-btn-text {
             display: block;
         }
     }
@@ -84,7 +109,7 @@
     }
 
     &__list {
-        list-style: none;
+ 
         display: flex;
         padding-left: 0;
         margin-top: 60px;
@@ -99,8 +124,19 @@
         align-items: center;
         padding-bottom: 30px;
 
+        @media (max-width: 1023px) {
+            max-width: 303px;
+        }
+
+        @media (max-width: 575px) {
+            max-width: 262px;
+        }
+
+        @media (max-width: 320px) {
+            max-width: 149px;
+        }
+
         &:hover {
-       
             cursor: pointer;
         }
     }
@@ -146,6 +182,10 @@
     &__item-image-wrapper {
         width: 270px;
         height: 270px;
+
+        @media (max-width: 320px) {
+            max-width: 149px;
+        }
     }
 
     &__item-title {
