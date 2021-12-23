@@ -10,9 +10,12 @@ import similar from '../components/similar.html';
 import recent from '../components/recent.html';
 import modal from '../components/modal.html';
 import footer from '../components/footer.html';
-import { doc } from 'prettier';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel';
+
+import 'slick-slider/slick/slick-theme.css';
+import 'slick-slider/slick/slick.css';
+import 'slick-slider/slick/slick.min.js';
 
 
 
@@ -21,9 +24,9 @@ import 'owl.carousel';
 
 $(() => {
     // $('#root').prepend(header);
-    // $('#root').append(modal);
-    // $('#root').append(card);
-    // $('#root').append(about);
+    $('#root').append(modal);
+    $('#root').append(card);
+    $('#root').append(about);
     // $('#root').append(offer);
     // $('#root').append(include);
     $('#root').append(similar);
@@ -32,14 +35,6 @@ $(() => {
 
     $('.selectboxss').selectbox();
 
-
-
-    // $("#zoom_03").ezPlus({
-    //     scrollZoom: true,
-    //     borderSize: 2,
-    //     gallery: 'gal1',
-    //     galleryActiveClass: 'active'
-    // });
 
     $('#big-img').ezPlus({
         zoomType: 'lens',
@@ -50,11 +45,17 @@ $(() => {
     galleryActiveClass: 'active'
     });
 
-
+    $('.gallery__preview-list').slick({
+        vertical: true,
+        slidesToShow: 3,
+        verticalSwiping: true,
+        arrows: false
+    });
+    
 
     $('.owl-carousel-rec').owlCarousel({
      
-        items: 3,
+        items: 4,
         responsive:{
             0:{
               items:1
@@ -69,7 +70,7 @@ $(() => {
     });
    
     $('.owl-carousel').owlCarousel({
-        nav: true,
+   
         items: 4,
         responsive:{
             0:{
@@ -81,10 +82,39 @@ $(() => {
             1180:{
               items:3
             }
-          }
+          },
     });
 
-    
+    $('.owl-carousel-gallery').owlCarousel({
+      
+        items: 3,
+         loop: false,
+         mouseDrag: false,
+         touchDrag: false,
+         pullDrag: false,
+         rewind: true,
+         autoplay: true,
+         margin: 0,
+         nav: true
+    });
+
+    let owl = $('.owl-carousel');
+
+    $('.similar__button--next').click(function() {
+        owl.trigger('next.owl.carousel');
+    })
+   
+    $('.similar__button--prev').click(function() {
+      
+        owl.trigger('prev.owl.carousel');
+    })
+
+
+    let count = document.querySelectorAll('.similar__item').length;
+    galleryMax.innerHTML = count;
+
+
+
     
 
 
@@ -106,7 +136,7 @@ $(() => {
     })
 
     modalWrapper.addEventListener('click', (e) => {
-
+        
         modalSalon.classList.remove('salon--show');
         modalSalon.classList.add('salon--hide');
         modalWrapper.classList.remove('active')
@@ -137,7 +167,64 @@ $(() => {
         modalWrapper.classList.add('active')
     })
 
+    let additionalButton = document.querySelector('.about__item-btn--additional');
+
+
+    let additionalColumn = document.querySelector('.about__property-column--additional');
+    let additionalMobileRow = document.querySelector('.about__property-row--mobile');
+
+    let radioProperty = document.querySelector('.about__radio--property');
+    let buttonProperty = document.querySelector('.about__item-btn--property');
+
+    let radioDescription = document.querySelector('.about__radio--description');
+    let buttonDescription = document.querySelector('.about__item-btn--description');
+
+    let radioInfo = document.querySelector('.about__radio--info');
+    let buttonInfo = document.querySelector('.about__item-btn--info');
+
+    buttonProperty.addEventListener('click', ()=> {
+        radioProperty.checked = !radioProperty.checked
+    })
+    
+    buttonDescription.addEventListener('click', ()=> {
+        radioDescription.checked = !radioDescription.checked
+    })
+    
+    buttonInfo.addEventListener('click', ()=> {
+        radioInfo.checked = !radioInfo.checked
+    })
+    
+    
+    additionalButton.addEventListener('click', ()=> {
+      
+        additionalMobileRow.classList.toggle('about__additional-open');
+        additionalColumn.classList.toggle('open');
+    })
+
+
 });
+
+
+// ----------------section about scripts
+
+
+// let additionalButton = document.querySelector('.about__item-btn--additional');
+
+
+// let additionalColumn = document.querySelector('.about__property-column--additional');
+// let additionalMobileRow = document.querySelector('.about__property-row--mobile');
+
+// let radioProperty = document.querySelector('.about__radio--property');
+// let buttonProperty = document.querySelector('.about__item-btn--property');
+
+// let radioDescription = document.querySelector('.about__radio--description');
+// let buttonDescription = document.querySelector('.about__item-btn--description');
+
+// let radioInfo = document.querySelector('.about__radio--info');
+// let buttonInfo = document.querySelector('.about__item-btn--info');
+
+
+
 
 
 $.fn.selectbox = function () {
