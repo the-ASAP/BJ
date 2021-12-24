@@ -25,35 +25,32 @@
         font-weight: 250;
         font-size: 32px;
         line-height: 32px;
-        /* identical to box height */
-        color: #000000;
+        
 
         @media (max-width: 1023px) {
             margin-right: 20px;
             font-size: 30px;
             line-height: 30px;
+            
         }
 
     }
 
     &__list {
-        list-style: none;
+        
         display: flex;
         padding-left: 0;
-        max-width: 100%;
-        margin: 0 auto;
         margin-top: 60px;
+        width: 100%;
 
         @media (max-width: 604px) {
-           width: 100%;
            justify-content: space-between;
-           padding: 0 30px;
+           width: auto;
         }
     }
 
     &__item {
-        width: 337px;
-        // height: 337px;
+        max-width: 337px;
         margin-right: 10px;
         display: flex;
         flex-direction: column;
@@ -64,23 +61,21 @@
         }
 
         @media (max-width: 1023px) {
-            width: 311px;
-            height: 423px;
+            max-width: 311px;
         }
 
         @media (max-width: 800px) {
-            width: 270px;
-            height: 423px;
+            max-width: 270px;
         }
 
         @media (max-width: 570px) {
-            width: 190px;
+            max-width: 150px;
             
         }
     }
 
     &__buy-btn {
-        min-width: 242px;
+        max-width: 242px;
         margin-top: 20px;
         display: flex;
         align-items: center;
@@ -161,7 +156,7 @@
     }
 
     &__item-price {
-        width: 180px;
+        max-width: 180px;
         justify-content: space-between;
         font-family: "Muller";
         font-weight: 500;
@@ -200,11 +195,11 @@
     }
 
     &__item-image-wrapper {
-        width: 270px;
+        max-width: 270px;
         height: 270px;
 
         @media (max-width: 570px) {
-            width: 142px;
+            max-width: 142px;
             height: 142px;
         }
 

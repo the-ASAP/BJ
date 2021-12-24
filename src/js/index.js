@@ -130,7 +130,8 @@ $(() => {
 
 
 
-    let noSizeButton = document.querySelector('.product-detail__no-size--modal');
+    let noSizeButton = document.querySelector('.product-detail__no-size');
+    
     let modelCard = document.querySelector('.modal-card');
     let modalCartCloseBtn = document.querySelector('.modal-card__close-btn');
     let modalCardMobile = document.querySelector('.product-detail__no-size');

@@ -79,21 +79,7 @@ button {
 
 
 
-* {
-    scrollbar-width: thin;
-    scrollbar-color: rgb(0, 0, 0) rgb(221, 221, 221);
-  }
-  
-  /* для Chrome/Edge/Safari */
-  *::-webkit-scrollbar {
-    height: 2px;
-    width: 5px;
-  }
-  *::-webkit-scrollbar-track {
-    background: rgb(255, 255, 255);
-  }
-  *::-webkit-scrollbar-thumb {
 
-    
-  }
+  /* для Chrome/Edge/Safari */
+ 
 

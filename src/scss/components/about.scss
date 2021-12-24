@@ -3,6 +3,9 @@
     margin: 0 auto;
     margin-top: 90px;
     overflow-x: hidden;
+    @media (max-width: 664px) {
+        margin-top: 70px;
+    }
     &__list {
         width: 100%;
         list-style: none;
