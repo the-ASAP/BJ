@@ -9,15 +9,132 @@
     z-index: 9;
     opacity: 0.3;
     display: none;
-   &.active {
+    &.active {
         display: block;
-    } 
+    }
 }
 
+.modal {
+    &__delivery {
+        position: fixed;
+        width: 100vw;
 
+        height: 100vh;
+        left: 0;
+        top: 0;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 9;
+        display: none;
+    }
+
+    &__callback {
+        position: fixed;
+        width: 100vw;
+
+        height: 100vh;
+        left: 0;
+        top: 0;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 9;
+        display: none;
+    }
+
+    &__callback-window {
+        position: absolute;
+        background-color: #fff;
+        width: 329px;
+        left: 50%;
+        top: 50%;
+        z-index: 15;
+        transform: translate(-50%, -50%);
+        padding: 68px 25px 15px 25px;
+        
+    }
+
+    &__callback-title {
+        font-family: "Muller";
+        font-weight: 300;
+        font-size: 22px;
+        line-height: 22px;
+    }
+
+    &__payment {
+        position: fixed;
+        width: 100vw;
+
+        height: 100vh;
+        left: 0;
+        top: 0;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 9;
+        display: none;
+    }
+
+    &__close {
+        position: absolute;
+        content: "";
+        width: 18px;
+        height: 18px;
+        background-image: url("./../img/svg/ic-close.svg");
+        right: 30px;
+        top: 30px;
+    }
+
+    &--show {
+        display: block;
+    }
+
+    &__window {
+        position: absolute;
+        background-color: #fff;
+        max-width: 800px;
+        left: 50%;
+        top: 50%;
+        z-index: 15;
+        transform: translate(-50%, -50%);
+        padding: 68px 40px;
+        @media (max-width: 1030px) {
+            max-width: auto;
+            width: 700px;
+            padding: 30px;
+        }
+        @media (max-width: 720px) {
+            width: 400px;
+
+            max-height: calc(100vh - 100px);
+            overflow-y: scroll;
+        }
+
+        @media (max-width: 720px) {
+            width: 300px;
+            padding: 30px;
+            max-height: calc(100vh - 100px);
+            overflow-y: scroll;
+        }
+    }
+
+    &__title {
+        font-family: "Muller";
+        font-weight: 300;
+        font-size: 22px;
+        line-height: 1;
+        color: #000000;
+    }
+
+    &__text {
+        padding-top: 60px;
+    }
+
+    &__paragraph {
+        margin-top: 20px;
+    }
+}
+
+.modal-card__input--callback {
+    width: 250px;
+}
 
 .salon {
-    
     position: fixed;
     background-color: #fff;
     left: 50%;
@@ -29,7 +146,7 @@
     max-width: 1400px;
     max-height: 700px;
     z-index: 10;
-   
+
     &--hide {
         display: none;
     }
@@ -117,19 +234,14 @@
         }
     }
 
-
-
-
     &__radio--location:checked ~ .salon__col--location--mobile {
         @media (max-width: 1400px) {
-            
             display: block;
         }
     }
 
     &__radio--map:checked ~ .salon__col--map--mobile {
         @media (max-width: 1400px) {
-            
             display: block;
         }
     }
@@ -145,8 +257,6 @@
             display: none;
         }
     }
-
-
 
     &__metro {
         font-family: "Muller";
@@ -196,7 +306,7 @@
         font-weight: 300;
         font-size: 22px;
         line-height: 22px;
-       
+
         /* identical to box height */
 
         color: #000000;
@@ -284,7 +394,3 @@
         width: 1000px;
     }
 }
-
-// ****************************
-
-

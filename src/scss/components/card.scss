@@ -1,24 +1,18 @@
-.main__wrapper {
-    max-width: 1400px;
-    margin: 0 auto;
-}
 
 #img_01 img {
     border: 2px solid white;
 }
 
-/*Change the colour*/
-.active img {
-    // border: 2px solid #333;
-}
 
-.card {
-    width: 100%;
+
+.card-item {
+    max-width: 1400px;
+    margin: 0 auto;
     padding: 15px 0 20px 0;
     border-top: 1px solid rgba(0, 0, 0, 0.3);
     margin-top: 30px;
     @media (max-width: 1450px) {
-        padding: 0.9375rem 1.875rem 1.25rem 1.875rem;
+        padding: 15px 30px 20px 30px;
     }
 
     @media (max-width: 1223px) {
@@ -110,7 +104,6 @@
         width: 430px;
         grid-row-start: 2;
         grid-column-end: 3;
-        max-height: 533px;
 
         display: flex;
         flex-direction: column;
@@ -355,11 +348,11 @@
         width: 25px;
         height: 25px;
         @media (max-width: 996px) {
-            margin-right: 29.25rem;
+            margin-right: 468px;
         }
 
         @media (max-width: 830px) {
-            margin-right: 3.25rem;
+            margin-right: 52px;
         }
 
         @media (max-width: 830px) {
@@ -627,7 +620,7 @@
             }
         }
 
-        &:hover .modal-card__list {
+        &:hover .modal-card-item__list {
             display: block;
         }
     }
@@ -688,7 +681,7 @@
 
 
     &__list-button {
-        &:hover ~ .modal-card__list {
+        &:hover ~ .modal-card-item__list {
             display: block;
         }
     }

@@ -6,6 +6,10 @@
         position: relative;
 
         &::after {
+            font-family: "Muller";
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 12px;
             position: absolute;
             content: "/";
             color: #000000;

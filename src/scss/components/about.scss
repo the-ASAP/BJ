@@ -6,6 +6,7 @@
     &__list {
         width: 100%;
         list-style: none;
+        overflow: hidden;
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
@@ -130,24 +131,13 @@
     }
 
 
-
-    // &__wrapper {
-    //     margin-top: 45px;
-    //     font-family: "Muller";
-    //     color: #000000;
-    //     display: flex;
-    // }
-
-    // ******************************************about__property
-
     &__property {
         display: none;
         @media (max-width: 664px) {
          
             flex-direction: column;
         }
-        // display: flex;
-        // justify-content: flex-start;
+    
     }
 
     &__property-column {

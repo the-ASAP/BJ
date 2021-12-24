@@ -27,8 +27,8 @@ $(() => {
     $('#root').append(modal);
     $('#root').append(card);
     $('#root').append(about);
-    // $('#root').append(offer);
-    // $('#root').append(include);
+    $('#root').append(offer);
+    $('#root').append(include);
     $('#root').append(similar);
     $('#root').append(recent);
     //   $('#root').append(footer);
@@ -110,23 +110,56 @@ $(() => {
     })
 
 
-    let count = document.querySelectorAll('.similar__item').length;
-    galleryMax.innerHTML = count;
-
-
-
-    
-
 
     let noSizeButton = document.querySelector('.product-detail__no-size--modal');
     let modelCard = document.querySelector('.modal-card');
     let modalCartCloseBtn = document.querySelector('.modal-card__close-btn');
-    let modelCardMobile = document.querySelector('.product-detail__no-size');
-    let btnBuy = document.querySelector('.product-detail__buy-btn');
+    let modalCardMobile = document.querySelector('.product-detail__no-size');
+    let takeBtn = document.querySelector('.about__info-link--take');
     let modalSalon = document.querySelector('.salon');
     let modalWrapper = document.querySelector('.modal__wrapper');
 
     let modalBtnClose = document.querySelector('.salon__close');
+
+    let modalBtnDelivery = document.querySelector('.about__info-link--delivery');
+    let modalWindowDelivery = document.querySelector('.modal__delivery');
+    let modalBtnDeliveryClose = document.querySelector('.modal__close--delivery');
+
+
+    let modalBtnPayment = document.querySelector('.about__info-link--payment');
+    let modalBtnPaymentClose = document.querySelector('.modal__close--payment');
+    let modalWindowPayment = document.querySelector('.modal__payment');
+
+    let modalBtnCallback = document.querySelector('.about__info-link--callback');
+    let modalBtnCallbackClose = document.querySelector('.modal__close--callback');
+    let modalWindowCallback = document.querySelector('.modal__callback');
+
+    modalBtnDelivery.addEventListener('click', e => {
+        modalWindowDelivery.classList.add('modal--show')
+    })
+
+    modalBtnPayment.addEventListener('click', e => {
+        modalWindowPayment.classList.add('modal--show')
+    })
+
+    modalBtnDeliveryClose.addEventListener('click', e => {
+        modalWindowDelivery.classList.remove('modal--show')
+    })
+
+    modalBtnPaymentClose.addEventListener('click', e => {
+        modalWindowPayment.classList.remove('modal--show')
+    })
+
+
+
+    modalBtnCallbackClose.addEventListener('click', e => {
+        modalWindowCallback.classList.remove('modal--show')
+    })
+
+    modalBtnCallback.addEventListener('click', e => {
+        modalWindowCallback.classList.add('modal--show')
+    })
+
 
     modalBtnClose.addEventListener('click', (e) => {
 
@@ -149,7 +182,7 @@ $(() => {
     })
 
 
-    modelCardMobile.addEventListener('click', (e) => {
+    modalCardMobile.addEventListener('click', (e) => {
 
         modelCard.classList.remove('modal-card--close');
         modelCard.classList.add('modal-card--open');
@@ -161,7 +194,7 @@ $(() => {
         modelCard.classList.add('modal-card--close');
     })
 
-    btnBuy.addEventListener('click', (e) => {
+    takeBtn.addEventListener('click', (e) => {
         modalSalon.classList.remove('salon--hide');
         modalSalon.classList.add('salon--show');
         modalWrapper.classList.add('active')
