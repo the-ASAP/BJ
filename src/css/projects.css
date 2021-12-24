@@ -799,6 +799,7 @@ button {
   letter-spacing: 0.035em;
   margin-top: 15px;
   color: rgba(0, 0, 0, 0.6);
+  text-decoration: underline;
 }
 @media (max-width: 575px) {
   .product-detail__installment {
@@ -842,11 +843,6 @@ button {
   margin-right: 30px;
   letter-spacing: 0.035em;
   color: rgba(0, 0, 0, 0.5);
-}
-.product-detail__sizes-list:hover ~ .product-detail__modal-size-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 .product-detail__sizes-list::after {
   position: absolute;
@@ -920,7 +916,7 @@ button {
   color: rgba(0, 0, 0, 0.5);
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   margin-top: 15px;
-  width: 103px;
+  width: 110px;
 }
 .product-detail__row {
   margin-top: 60px;
@@ -1064,11 +1060,16 @@ button {
   }
 }
 .product-detail__modal-size-wrapper {
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   position: absolute;
-  z-index: 3;
-  left: 0;
-  top: 0;
+  z-index: 100;
+  left: 50vw;
+  top: 50vh;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   width: 470px;
   height: 430px;
   padding: 20px 20px 29px 20px;
@@ -1076,15 +1077,22 @@ button {
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
-.product-detail__modal-size-wrapper:hover {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
 @media (max-width: 730px) {
   .product-detail__modal-size-wrapper {
-    width: 50%;
+    width: 70%;
   }
+}
+.product-detail__modal-window {
+  position: fixed;
+  display: none;
+  width: 100vw;
+  height: 100vw;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.product-detail__modal-window--open {
+  display: block;
 }
 .product-detail__modal-col {
   width: 200px;
@@ -1223,6 +1231,20 @@ button {
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
+.modal-card .modal-card__input.mobile-card__input--form {
+  font-family: "Muller";
+  font-weight: 300;
+  font-size: 0.2rem;
+  font-size: 16px;
+  line-height: 16px;
+  width: 300px;
+  margin-top: 20px;
+  /* identical to box height */
+  letter-spacing: 0.035em;
+  color: rgba(0, 0, 0, 0.5);
+  padding: 16px 10px 16px 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
 .modal-card--open {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1311,19 +1333,6 @@ button {
 .modal-card__list-button:hover ~ .modal-card-item__list {
   display: block;
 }
-.modal-card__input {
-  font-family: "Muller";
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 16px;
-  width: 300px;
-  margin-top: 20px;
-  /* identical to box height */
-  letter-spacing: 0.035em;
-  color: rgba(0, 0, 0, 0.5);
-  padding: 16px 10px 16px 10px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-}
 .modal-card__send-button {
   margin: 0 auto;
   min-width: 242px;
@@ -1339,8 +1348,8 @@ button {
           justify-content: center;
   text-align: center;
   font-weight: 300;
-  font-size: 14px;
-  line-height: 14px;
+  font-size: 14px !important;
+  line-height: 14px !important;
   letter-spacing: 0.035em;
   text-transform: uppercase;
   color: #000;
@@ -1421,8 +1430,9 @@ button {
 @media (max-width: 425px) {
   .gallery__preview {
     width: 100%;
-    height: 90px;
-    margin-top: 30px;
+    height: 120px;
+    padding: 0 20px;
+    margin-top: 20px;
   }
 }
 .gallery__big-slide {
@@ -1462,7 +1472,7 @@ button {
 }
 @media (max-width: 425px) {
   .gallery__preview-slide {
-    height: 90px;
+    height: 100px;
     width: 90px;
   }
 }
@@ -2868,7 +2878,7 @@ footer {
   left: 0;
   top: 0;
   background: rgba(0, 0, 0, 0.3);
-  z-index: 9;
+  z-index: 999;
   display: none;
 }
 .modal__callback {
@@ -2967,6 +2977,11 @@ footer {
 }
 .modal__paragraph {
   margin-top: 20px;
+  font-family: "Muller";
+  font-weight: 400;
+  color: #000000;
+  font-size: 14px;
+  line-height: 135%;
 }
 .modal-card__input--callback {
   width: 250px;
@@ -3321,7 +3336,7 @@ ul.selectboxssmenu {
   -o-transition: 0.3s;
   transition: 0.3s;
   width: 100%;
-  height: 200px;
+  height: 100px;
   overflow-y: auto;
   overflow-x: hidden !important;
   position: absolute;

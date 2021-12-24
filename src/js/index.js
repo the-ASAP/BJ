@@ -36,20 +36,29 @@ $(() => {
     $('.selectboxss').selectbox();
 
 
-    $('#big-img').ezPlus({
-        zoomType: 'lens',
-    lensShape: 'round',
-    lensSize: 200,
-    scrollZoom: true,
-    gallery: 'gal1',
-    galleryActiveClass: 'active'
-    });
+    // $('#big-img').ezPlus({
+        
+    // gallery: 'gal1',
+    // galleryActiveClass: 'active'
+    // });
+
+    
 
     $('.gallery__preview-list').slick({
         vertical: true,
         slidesToShow: 3,
         verticalSwiping: true,
-        arrows: false
+        arrows: false,
+        responsive: [
+            {
+              breakpoint: 400,
+              settings: {
+                vertical: false,
+                slidesToShow: 3,
+              }
+            }
+
+        ]
     });
     
 
@@ -134,42 +143,64 @@ $(() => {
     let modalBtnCallbackClose = document.querySelector('.modal__close--callback');
     let modalWindowCallback = document.querySelector('.modal__callback');
 
+
+    let modalSizesBtn = document.querySelector('.product-detail__sizes-list');
+    let modalSizesWindow  = document.querySelector('.product-detail__modal-window');
+
+    modalSizesBtn.addEventListener('click', e => {
+        modalSizesWindow.classList.add('product-detail__modal-window--open')
+    })
+
+
+    modalSizesBtn.addEventListener('click', e => {
+        modalSizesWindow.classList.remove('product-detail__modal-window--open')
+    })
+    
+
+
+
     modalBtnDelivery.addEventListener('click', e => {
+        e.preventDefault();
         modalWindowDelivery.classList.add('modal--show')
     })
 
     modalBtnPayment.addEventListener('click', e => {
+        e.preventDefault();
         modalWindowPayment.classList.add('modal--show')
     })
 
     modalBtnDeliveryClose.addEventListener('click', e => {
+        e.preventDefault();
         modalWindowDelivery.classList.remove('modal--show')
     })
 
     modalBtnPaymentClose.addEventListener('click', e => {
+        e.preventDefault();
         modalWindowPayment.classList.remove('modal--show')
     })
 
 
 
     modalBtnCallbackClose.addEventListener('click', e => {
+        e.preventDefault();
         modalWindowCallback.classList.remove('modal--show')
     })
 
     modalBtnCallback.addEventListener('click', e => {
+        e.preventDefault();
         modalWindowCallback.classList.add('modal--show')
     })
 
 
     modalBtnClose.addEventListener('click', (e) => {
-
+        e.preventDefault();
         modalSalon.classList.remove('salon--show');
         modalSalon.classList.add('salon--hide');
         modalWrapper.classList.remove('active')
     })
 
     modalWrapper.addEventListener('click', (e) => {
-        
+        e.preventDefault();
         modalSalon.classList.remove('salon--show');
         modalSalon.classList.add('salon--hide');
         modalWrapper.classList.remove('active')
@@ -177,24 +208,28 @@ $(() => {
 
 
     noSizeButton.addEventListener('click', (e) => {
+        e.preventDefault();
         modelCard.classList.remove('modal-card--close');
         modelCard.classList.add('modal-card--open');
     })
 
 
     modalCardMobile.addEventListener('click', (e) => {
-
+        e.preventDefault();
         modelCard.classList.remove('modal-card--close');
         modelCard.classList.add('modal-card--open');
     })
 
 
     modalCartCloseBtn.addEventListener('click', (e) => {
+        e.preventDefault();
         modelCard.classList.remove('modal-card--open');
+
         modelCard.classList.add('modal-card--close');
     })
 
     takeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
         modalSalon.classList.remove('salon--hide');
         modalSalon.classList.add('salon--show');
         modalWrapper.classList.add('active')
@@ -279,5 +314,6 @@ $.fn.selectbox = function () {
         $(this).closest(".selectboxss").find('.selectboxssvalue span').text($(this).text());
     });
 };
+
 
 
