@@ -43,12 +43,13 @@ $(() => {
     // });
 
     
-
-    $('.gallery__preview-list').slick({
+    const preview = 'gallery__big-slide'
+    const big = '.gallery__big-list'
+    $(preview).slick({
         vertical: true,
         slidesToShow: 3,
         verticalSwiping: true,
-        arrows: false,
+        asNavFor: big,
         responsive: [
             {
               breakpoint: 400,
@@ -57,9 +58,18 @@ $(() => {
                 slidesToShow: 3,
               }
             }
-
         ]
     });
+
+
+    //   $(big).slick({
+    //     slidesToShow: 1,
+    //     slidesToScroll: 0,
+    //     asNavFor:preview,
+    //     dots: true,
+    //     centerMode: true,
+    //     focusOnSelect: true
+    //   });
     
 
     $('.owl-carousel-rec').owlCarousel({
@@ -147,14 +157,14 @@ $(() => {
     let modalSizesBtn = document.querySelector('.product-detail__sizes-list');
     let modalSizesWindow  = document.querySelector('.product-detail__modal-window');
 
-    modalSizesBtn.addEventListener('click', e => {
-        modalSizesWindow.classList.add('product-detail__modal-window--open')
-    })
+    // modalSizesBtn.addEventListener('click', e => {
+    //     modalSizesWindow.classList.add('product-detail__modal-window--open')
+    // })
 
 
-    modalSizesBtn.addEventListener('click', e => {
-        modalSizesWindow.classList.remove('product-detail__modal-window--open')
-    })
+    // modalSizesBtn.addEventListener('click', e => {
+    //     modalSizesWindow.classList.remove('product-detail__modal-window--open')
+    // })
     
 
 
@@ -300,10 +310,10 @@ $.fn.selectbox = function () {
     $('.selectboxss .selectboxssvalue').click(function () {
         var currentHeight = $(this).closest(".selectboxss").height();
         if (currentHeight < 100 || currentHeight == selectDefaultHeight) {
-            $(this).closest(".selectboxss").height("250px");
+            $(this).closest(".selectboxss").height("150px");
             $(this).find('.arrowselect').attr("style", "border-radius: 1000px;transition: 0.2s;transform: rotate(180deg);padding: 0px 0px 0px 10px;");
         }
-        if (currentHeight >= 250) {
+        if (currentHeight >= 150) {
             $(this).closest(".selectboxss").height(selectDefaultHeight);
             $(this).find('.arrowselect').attr("style", "rotate(0deg);padding: 0px 10px 0px 0px;");
         }

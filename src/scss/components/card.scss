@@ -1,9 +1,6 @@
-
 #img_01 img {
     border: 2px solid white;
 }
-
-
 
 .card-item {
     max-width: 1400px;
@@ -104,11 +101,12 @@
         width: 430px;
         grid-row-start: 2;
         grid-column-end: 3;
-
+        padding: 0 20px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         flex-wrap: wrap;
+
         @media (max-width: 1023px) {
             margin-top: 30px;
         }
@@ -155,7 +153,9 @@
 
     &__modal-option {
         width: 215px;
-        margin-top: 45px;
+        // margin-top: 45px;
+        height: 100px;
+        height: 25px;
     }
 
     &__modal-card-option {
@@ -208,11 +208,16 @@
 
     &__sizes-wrapper {
         width: 100%;
-        display: flex;
+        // display: flex;
         position: relative;
+        margin-top: 45px;
+        align-items: flex-start;
+        display: flex;
 
         @media (max-width: 526px) {
             position: relative;
+            flex-direction: column;
+            flex-wrap: wrap;
         }
     }
 
@@ -231,8 +236,6 @@
         margin-right: 30px;
         letter-spacing: 0.035em;
         color: rgba(0, 0, 0, 0.5);
-
-        
 
         &::after {
             position: absolute;
@@ -268,6 +271,7 @@
         letter-spacing: 0.035em;
         color: #000000;
         padding-left: 33px;
+        margin-left: 20px;
         &::after {
             position: absolute;
             content: "";
@@ -287,9 +291,7 @@
         }
 
         @media (max-width: 526px) {
-            position: absolute;
-            right: -20px;
-            bottom: -30px;
+            
         }
     }
 
@@ -302,6 +304,7 @@
         border-bottom: 1px solid rgba(0, 0, 0, 0.5);
         margin-top: 15px;
         width: 110px;
+      
     }
 
     &__row {
@@ -427,7 +430,7 @@
 
     &__modal-size-wrapper {
         display: flex;
-    
+
         position: absolute;
         z-index: 100;
         left: 50vw;
@@ -438,9 +441,6 @@
         padding: 20px 20px 29px 20px;
         background-color: #fff;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-      
-        
-   
 
         @media (max-width: 730px) {
             width: 70%;
@@ -618,8 +618,6 @@
         border-bottom: 1px solid rgba(0, 0, 0, 0.5);
     }
 
-
-
     &--open {
         display: flex;
     }
@@ -710,13 +708,11 @@
         color: #000000;
     }
 
-
     &__list-button {
         &:hover ~ .modal-card-item__list {
             display: block;
         }
     }
-  
 
     &__send-button {
         margin: 0 auto;
@@ -727,8 +723,8 @@
         justify-content: center;
         text-align: center;
         font-weight: 300;
-        font-size: 14px!important;
-        line-height: 14px!important;
+        font-size: 14px !important;
+        line-height: 14px !important;
         letter-spacing: 0.035em;
         text-transform: uppercase;
         color: #000;
@@ -826,9 +822,6 @@
         // }
     }
 
-  
-   
-
     &__preview-slide {
         cursor: pointer;
         position: relative;
@@ -851,8 +844,6 @@
         }
     }
 
-  
-
     &__big {
         max-width: 533px;
         margin-top: 17px;
@@ -873,5 +864,5 @@
 }
 
 .zoomContainer {
-    z-index: 5!important;
+    z-index: 5 !important;
 }
