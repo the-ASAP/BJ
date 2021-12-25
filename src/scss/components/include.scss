@@ -1,5 +1,5 @@
 .include {
-    max-width: 1440px;
+    max-width: 1071px;
     margin: 0 auto;
     margin-top: 90px;
     padding: 0 30px;
@@ -17,41 +17,56 @@
     }
 
     @media (max-width: 570px) {
-        width: 100%;
+        width: 535px;
     }
+
+    @media (max-width: 320px) {
+        width: 300px;
+    }
+
 
     &__title {
         font-family: "Muller";
         font-weight: 250;
         font-size: 32px;
         line-height: 32px;
-        
 
         @media (max-width: 1023px) {
             margin-right: 20px;
             font-size: 30px;
             line-height: 30px;
-            
         }
+
 
     }
 
     &__list {
-        
         display: flex;
         padding-left: 0;
         margin-top: 60px;
         width: 100%;
+        padding-left: 367px;
+
+        @media (max-width: 1023px) {
+            padding-left: 183px;
+        }
 
         @media (max-width: 604px) {
-           justify-content: space-between;
-           width: auto;
+            margin-left: 0;
+            width: 535px;
+            justify-content: space-between;
+            width: auto;
+        }
+
+        @media (max-width: 575px) {
+            margin-top: 35px;
+            padding-left: 0;
         }
     }
 
     &__item {
         max-width: 337px;
-        margin-right: 10px;
+        // margin-right: 10px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -65,12 +80,18 @@
         }
 
         @media (max-width: 800px) {
-            max-width: 270px;
+            width: 270px;
+            flex-shrink: 0;
         }
 
         @media (max-width: 570px) {
             max-width: 150px;
-            
+        }
+    }
+
+    &__info-name:first-child {
+        @media (max-width: 575px) {
+            display: none;
         }
     }
 
@@ -101,12 +122,16 @@
             color: #bb559d;
         }
 
-        &:hover .include__price-wrap{
+        &:hover .include__price-wrap {
             display: none;
         }
 
-        &:hover .include__price-btn-text{
+        &:hover .include__price-btn-text {
             display: block;
+        }
+
+        @media (max-width: 320px) {
+            margin-top: 0;
         }
     }
 
@@ -129,7 +154,7 @@
         margin-right: 20px;
 
         @media (max-width: 1023px) {
-           display: none;
+            display: none;
         }
     }
 
@@ -147,7 +172,6 @@
         display: none;
     }
 
-  
     &__item-row {
         width: 100%;
         display: flex;
@@ -171,7 +195,6 @@
         justify-content: space-between;
         margin-right: 10px;
 
-        
         @media (max-width: 1023px) {
             margin-left: auto;
         }
@@ -198,14 +221,20 @@
         max-width: 270px;
         height: 270px;
 
-        @media (max-width: 570px) {
-            max-width: 142px;
-            height: 142px;
+        @media (max-width: 850px) {
+            height: auto;
         }
 
-    }
+        @media (max-width: 320px) {
+            height: 142px;
+            width: 142px;
+        }
 
-   
+        // @media (max-width: 575px) {
+        //     max-width: 142px;
+        //     height: 142px;
+        // }
+    }
 
     &__item-title {
         justify-content: center;
@@ -216,9 +245,21 @@
         line-height: 14px;
         display: flex;
         letter-spacing: 0.035em;
-        @media (max-width: 570px) {
+        @media (max-width: 575px) {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 14px;
+            /* identical to box height */
+
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.035em;
+        }
+
+        @media (max-width: 320px) {
             display: none;
-         }
+        }
     }
 
     &__item-info {
@@ -226,6 +267,10 @@
         justify-content: center;
         width: 100%;
         margin-top: 15px;
+
+        @media (max-width: 320px) {
+            display: none;
+        }
     }
 
     &__info-name {
@@ -237,7 +282,10 @@
         letter-spacing: 0.035em;
         margin-right: 10px;
         @media (max-width: 570px) {
-           display: none;
+            &:first-child {
+
+                display: none;
+            }
         }
     }
 

@@ -1,9 +1,14 @@
 .about {
-    max-width: 1134px;
+    max-width: 1440px;
+    padding: 0 153px;
     margin: 0 auto;
     margin-top: 90px;
     overflow-x: hidden;
+    @media (max-width: 1023px) {
+        padding: 0 90px;
+    }
     @media (max-width: 664px) {
+        padding: 0 10px;
         margin-top: 70px;
     }
     &__list {
@@ -16,16 +21,23 @@
         padding-right: 20px;
         padding-left: 20px;
 
-        @media (max-width: 664px) {
+        @media (max-width: 760px) {
             flex-direction: column;
         }
     }
 
     &__item {
         position: relative;
-        margin-bottom: 20px;
+        margin-bottom: 61px;
+
+        @media (max-width: 1023px) {
+            margin-bottom: 46px;
+        }
         @media (max-width: 664px) {
             width: 100%;
+        }
+        @media (max-width: 575px) {
+            margin-bottom: 30px;
         }
 
         &--property {
@@ -38,7 +50,7 @@
         &--description {
            
             @media (max-width: 664px) {
-                margin-top: 45px;
+                // margin-top: 45px;
                 order: 3;
             }
         }
@@ -46,7 +58,7 @@
         &--info {
             
             @media (max-width: 664px) {
-                margin-top: 45px;
+                // margin-top: 25px;
                 order: 5;
             }
         }
@@ -58,15 +70,17 @@
 
 
     &__item-btn {
-        @media (max-width: 664px) {
+        @media (max-width: 760px) {
             position: absolute;
             width: 10px;
             height: 10px;
             background-image: url("./../img/svg/ic-small-close.svg");
             transform: rotate(45deg);
-            right: 0;
-            top: 12px;
+            right: 5%;
+            top: 10px;
         }
+
+
 
         &--additional {
             @media (max-width: 664px) {
@@ -84,10 +98,21 @@
     }
 
     &__description {
+        display: flex;
+        justify-content: space-between;
+        width: 960px;
+        @media (max-width: 1023px) {
+        }
+
+
         @media (max-width: 664px) {
             order: 3;
+            max-width: 960px;
             margin-top: 25px;
+            margin-bottom: 20px;
         }
+
+        
     }
 
     &__info {
@@ -136,8 +161,8 @@
 
     &__property {
         display: none;
-        @media (max-width: 664px) {
-         
+        @media (max-width: 676px) {
+            margin-bottom: 25px;
             flex-direction: column;
         }
     
@@ -279,13 +304,18 @@
     }
 
     &__description-column {
-        width: 436px;
-        margin-right: 86px;
+        max-width: 436px;
+       
         margin-top: 20px;
 
         &:last-child {
             margin-right: 0;
         }
+
+        @media (max-width: 1023px) {
+            max-width: 369px;
+        }
+
         @media (max-width: 978px) {
             margin-right: 5%;
         }
@@ -415,4 +445,17 @@
 
 .offer {
     margin-top: 90px;
+    height: 40px;
+    margin-bottom: 20px;
+    width: 100%;
+    background-image: url('./../img/offer.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    @media (max-width: 575px) {
+        margin-top: 70px;
+    }
+
+    @media (max-width: 575px) {
+        margin-top: 66px;
+    }
 }

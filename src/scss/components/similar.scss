@@ -1,5 +1,5 @@
 .similar {
-    max-width: 1440px;
+    width: 1440px;
    
     margin: 0 auto;
     margin-top: 90px;
@@ -11,7 +11,7 @@
     }
 
     @media (max-width: 575px) {
-        max-width: 543px;
+        max-width: 535px;
     }
 
     @media (max-width: 320px) {
@@ -91,6 +91,9 @@
         color: rgba(0, 0, 0, 0.5);
         // text-decoration: line-through;
         margin-right: 20px;
+        @media (max-width: 1023px) {
+            display: none;
+        }
     }
 
     &__icon {
@@ -177,6 +180,15 @@
         letter-spacing: 0.035em;
 
         color: #bb559d;
+        @media (max-width: 1023px) {
+            display: none;
+        }
+    }
+
+    &__item-icon-watch {
+        @media (max-width: 575px) {
+            display: none;
+        } 
     }
 
     &__item-image-wrapper {
@@ -185,6 +197,7 @@
 
         @media (max-width: 320px) {
             max-width: 149px;
+            height: 142px;
         }
     }
 
@@ -197,6 +210,9 @@
         line-height: 14px;
         display: flex;
         letter-spacing: 0.035em;
+        @media (max-width: 320px) {
+            display: none;
+        }
     }
 
     &__item-info {
@@ -204,6 +220,9 @@
         justify-content: center;
         width: 100%;
         margin-top: 15px;
+        @media (max-width: 320px) {
+            display: none;
+        }
     }
 
     &__info-name {
@@ -216,6 +235,14 @@
 
         letter-spacing: 0.035em;
         margin-right: 10px;
+
+        &:first-child {
+            @media (max-width: 575px) {
+                display: none;
+            }
+        }
+        
+        
     }
 
     &__item-price {

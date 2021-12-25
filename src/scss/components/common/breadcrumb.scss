@@ -23,6 +23,11 @@
                 display: none;
             }
         }
+
+        @media (max-width:575px) {
+
+         
+        }
     }
 
     &__link {
@@ -34,7 +39,7 @@
         color: rgba(0, 0, 0, 0.5);
     }
 
-    @media (max-width: 470px) {
+    @media (max-width: 575px) {
         display: none;
     }
 }
