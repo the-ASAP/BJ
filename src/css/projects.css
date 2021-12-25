@@ -2106,7 +2106,7 @@ button {
     width: 535px;
   }
 }
-@media (max-width: 320px) {
+@media (max-width: 414px) {
   .include {
     width: 300px;
   }
@@ -2227,7 +2227,7 @@ button {
 .include__buy-btn:hover .include__price-btn-text {
   display: block;
 }
-@media (max-width: 320px) {
+@media (max-width: 414px) {
   .include__buy-btn {
     margin-top: 0;
   }
@@ -2333,7 +2333,7 @@ button {
     height: auto;
   }
 }
-@media (max-width: 320px) {
+@media (max-width: 414px) {
   .include__item-image-wrapper {
     height: 142px;
     width: 142px;
@@ -2369,7 +2369,7 @@ button {
     letter-spacing: 0.035em;
   }
 }
-@media (max-width: 320px) {
+@media (max-width: 414px) {
   .include__item-title {
     display: none;
   }
@@ -2384,7 +2384,7 @@ button {
   width: 100%;
   margin-top: 15px;
 }
-@media (max-width: 320px) {
+@media (max-width: 414px) {
   .include__item-info {
     display: none;
   }
@@ -2434,7 +2434,7 @@ button {
     max-width: 535px;
   }
 }
-@media (max-width: 320px) {
+@media (max-width: 414px) {
   .similar {
     max-width: 300px;
   }
@@ -2452,7 +2452,7 @@ button {
     line-height: 30px;
   }
 }
-@media (max-width: 320px) {
+@media (max-width: 414px) {
   .similar__title {
     font-weight: 250;
     font-size: 22px;
@@ -2567,7 +2567,7 @@ button {
     max-width: 262px;
   }
 }
-@media (max-width: 320px) {
+@media (max-width: 414px) {
   .similar__item {
     max-width: 149px;
   }
@@ -2631,7 +2631,7 @@ button {
   width: 270px;
   height: 270px;
 }
-@media (max-width: 320px) {
+@media (max-width: 414px) {
   .similar__item-image-wrapper {
     max-width: 149px;
     height: 142px;
@@ -2651,7 +2651,7 @@ button {
   display: flex;
   letter-spacing: 0.035em;
 }
-@media (max-width: 320px) {
+@media (max-width: 414px) {
   .similar__item-title {
     display: none;
   }
@@ -2666,7 +2666,7 @@ button {
   width: 100%;
   margin-top: 15px;
 }
-@media (max-width: 320px) {
+@media (max-width: 414px) {
   .similar__item-info {
     display: none;
   }
