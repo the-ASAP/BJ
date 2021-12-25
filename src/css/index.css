@@ -599,6 +599,8 @@ button {
   .card-item {
     margin-top: 30px;
     border-top: none;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 @media (max-width: 1023px) {
@@ -612,7 +614,8 @@ button {
 @media (max-width: 575px) {
   .card-item {
     max-width: 555px;
-    padding-left: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 @media (max-width: 574px) {
