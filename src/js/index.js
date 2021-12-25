@@ -30,7 +30,7 @@ $(() => {
     $('#root').append(offer);
     $('#root').append(include);
     $('#root').append(similar);
-    $('#root').append(recent);
+    // $('#root').append(recent);
     //   $('#root').append(footer);
 
     $('.selectboxss').selectbox();
