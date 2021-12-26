@@ -1,22 +1,13 @@
 .similar {
-    width: 1440px;
    
     margin: 0 auto;
     margin-top: 90px;
-    padding: 0 20px;
+    padding: 0 30px;
 
-    @media (max-width: 1024px) {
-        width: 963px;
-        padding: 0 16px;
+    @media (max-width: 604px) {
+        padding: 10px;
     }
 
-    @media (max-width: 575px) {
-        max-width: 535px;
-    }
-
-    @media (max-width: 414px) {
-        max-width: 300px;
-    }
 
     &__title {
         font-family: "Muller";
@@ -89,7 +80,7 @@
 
     &__price.old-price {
         color: rgba(0, 0, 0, 0.5);
-        // text-decoration: line-through;
+        text-decoration: line-through;
         margin-right: 20px;
         @media (max-width: 1023px) {
             display: none;
@@ -237,7 +228,7 @@
         margin-right: 10px;
 
         &:first-child {
-            @media (max-width: 575px) {
+            @media (max-width: 768px) {
                 display: none;
             }
         }

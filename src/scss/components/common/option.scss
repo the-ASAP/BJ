@@ -1,9 +1,6 @@
-
-
 div.selectboxss {
-  
     position: relative;
-    height: 45px;
+    height: 42px;
     border-radius: 3px;
     border: solid 1px #000;
     background-color: #fff;
@@ -14,7 +11,7 @@ div.selectboxss {
     border-right: none;
 }
 div.selectboxss .selectboxssvalue {
-    padding: 16px 5px 0px 14px;
+    padding: 16px 5px 5px 14px;
     cursor: pointer;
     transition: 0.2s;
     font-family: "Muller";
@@ -74,12 +71,14 @@ ul.selectboxssmenu > li.selectoption {
     font-weight: 300;
     font-size: 16px;
     line-height: 16px;
-/* identical to box height */
+    /* identical to box height */
 
-letter-spacing: 0.035em;
+    letter-spacing: 0.035em;
     color: rgba(0, 0, 0, 0.5);
-    padding: 7px;
+    padding: 10px;
     padding-left: 5px;
+    padding-top: 10px;
+    border-top: 1px solid #000;
 }
 ul.selectboxssmenu > li.selectoption:hover {
     color: rgba(0, 0, 0, 1);

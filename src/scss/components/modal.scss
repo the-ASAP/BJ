@@ -170,7 +170,7 @@
 
     &__metro__option {
         margin-top: 30px;
-        width: 340px;
+        // width: 340px;
     }
 
     &__label {
@@ -213,7 +213,7 @@
         bottom: -5px;
         background-color: rgba(187, 85, 157, 0.6);
         display: none;
-        width: 160px;
+        width: 100%;
     }
 
     &__radio--location:checked ~ .salon__label--location::after {

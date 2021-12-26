@@ -30,38 +30,62 @@ $(() => {
     $('#root').append(offer);
     $('#root').append(include);
     $('#root').append(similar);
-    // $('#root').append(recent);
+    $('#root').append(recent);
     //   $('#root').append(footer);
 
     $('.selectboxss').selectbox();
 
 
     // $('#big-img').ezPlus({
-        
+
     // gallery: 'gal1',
     // galleryActiveClass: 'active'
     // });
 
-    
-    const preview = 'gallery__big-slide'
-    const big = '.gallery__big-list'
-    $(preview).slick({
-        vertical: true,
-        slidesToShow: 3,
-        verticalSwiping: true,
-        asNavFor: big,
-        responsive: [
-            {
-              breakpoint: 400,
-              settings: {
-                vertical: false,
-                slidesToShow: 3,
-              }
-            }
-        ]
+
+    const preview = '.gallery__preview-list';
+    const slide = '.gallery__big-slide';
+
+    $('.gallery__big-list').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+
+        asNavFor: '.gallery__preview-list',
+
     });
 
+    $(preview).slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        asNavFor: '.gallery__big-list',
+        centerMode: true,
+        vertical: true,
+        arrows: false,
+        verticalSwiping: true,
+        responsive: [
+            {
+              breakpoint: 1025,
+              settings: {
+                
+                slidesToShow: 3,
+                
+                
+              }
+            },
+            {
+              breakpoint: 514,
+              settings: {       
+                slidesToShow: 3,
+                vertical: false,
+                verticalSwiping: false
+              }
+            }
+          ]
 
+    });
+
+    
     //   $(big).slick({
     //     slidesToShow: 1,
     //     slidesToScroll: 0,
@@ -70,74 +94,74 @@ $(() => {
     //     centerMode: true,
     //     focusOnSelect: true
     //   });
-    
+
 
     $('.owl-carousel-rec').owlCarousel({
-     
+
         items: 4,
-        responsive:{
-            0:{
-              items:1
+        responsive: {
+            0: {
+                items: 1
             },
-            578:{
-              items:2
+            578: {
+                items: 2
             },
-            1180:{
-              items:3
+            1180: {
+                items: 3
             },
-            1200:{
-                items:4
-              }
-          }
+            1200: {
+                items: 4
+            }
+        }
     });
-   
+
     $('.owl-carousel').owlCarousel({
-   
+
         items: 4,
-        responsive:{
-            0:{
-              items:2
+        responsive: {
+            0: {
+                items: 2
             },
-            535:{
-              items:2
+            535: {
+                items: 2
             },
-            963:{
-              items:3
+            963: {
+                items: 3
             },
-            1440:{
-                items:4
-              }
-          },
+            1440: {
+                items: 4
+            }
+        },
     });
 
     $('.owl-carousel-gallery').owlCarousel({
-      
+
         items: 3,
-         loop: false,
-         mouseDrag: false,
-         touchDrag: false,
-         pullDrag: false,
-         rewind: true,
-         autoplay: true,
-         margin: 0,
-         nav: true
+        loop: false,
+        mouseDrag: false,
+        touchDrag: false,
+        pullDrag: false,
+        rewind: true,
+        autoplay: true,
+        margin: 0,
+        nav: true
     });
 
     let owl = $('.owl-carousel');
 
-    $('.similar__button--next').click(function() {
+    $('.similar__button--next').click(function () {
         owl.trigger('next.owl.carousel');
     })
-   
-    $('.similar__button--prev').click(function() {
-      
+
+    $('.similar__button--prev').click(function () {
+
         owl.trigger('prev.owl.carousel');
     })
 
 
 
     let noSizeButton = document.querySelector('.product-detail__no-size');
-    
+
     let modelCard = document.querySelector('.modal-card');
     let modalCartCloseBtn = document.querySelector('.modal-card__close-btn');
     let modalCardMobile = document.querySelector('.product-detail__no-size');
@@ -148,6 +172,7 @@ $(() => {
     let modalBtnClose = document.querySelector('.salon__close');
 
     let modalBtnDelivery = document.querySelector('.about__info-link--delivery');
+
     let modalWindowDelivery = document.querySelector('.modal__delivery');
     let modalBtnDeliveryClose = document.querySelector('.modal__close--delivery');
 
@@ -162,7 +187,7 @@ $(() => {
 
 
     let modalSizesBtn = document.querySelector('.product-detail__sizes-list');
-    let modalSizesWindow  = document.querySelector('.product-detail__modal-window');
+    let modalSizesWindow = document.querySelector('.product-detail__modal-window');
 
     // modalSizesBtn.addEventListener('click', e => {
     //     modalSizesWindow.classList.add('product-detail__modal-window--open')
@@ -172,7 +197,7 @@ $(() => {
     // modalSizesBtn.addEventListener('click', e => {
     //     modalSizesWindow.classList.remove('product-detail__modal-window--open')
     // })
-    
+
 
 
 
@@ -190,6 +215,37 @@ $(() => {
         e.preventDefault();
         modalWindowDelivery.classList.remove('modal--show')
     })
+
+    modalWindowDelivery.addEventListener('click', e => {
+        
+        e.preventDefault();
+    
+        if(e.target.classList.contains('modal__delivery')) {
+            modalWindowDelivery.classList.remove('modal--show');
+        }
+    })
+
+
+    //**************** */
+    modalWindowPayment.addEventListener('click', e => {
+        
+        e.preventDefault();
+        console.log(e.target);
+        if(e.target.classList.contains('modal__payment')) {
+            modalWindowPayment.classList.remove('modal--show');
+        }
+    })
+
+    modalWindowDelivery.addEventListener('click', e => {
+        
+        e.preventDefault();
+        console.log(e.target);
+        if(e.target.classList.contains('modal__delivery')) {
+            modalWindowDelivery.classList.remove('modal--show');
+        }
+    })
+
+
 
     modalBtnPaymentClose.addEventListener('click', e => {
         e.preventDefault();
@@ -226,7 +282,7 @@ $(() => {
 
     noSizeButton.addEventListener('click', (e) => {
         e.preventDefault();
-        modelCard.classList.remove('modal-card--close');
+      
         modelCard.classList.add('modal-card--open');
     })
 
@@ -241,9 +297,17 @@ $(() => {
     modalCartCloseBtn.addEventListener('click', (e) => {
         e.preventDefault();
         modelCard.classList.remove('modal-card--open');
-
-        modelCard.classList.add('modal-card--close');
     })
+
+    modelCard.addEventListener('click', (e) => {
+        e.preventDefault();
+     
+        if(e.target.classList.contains('modal-card')) {
+            modelCard.classList.remove('modal-card--open');
+        }
+    })
+
+    
 
     takeBtn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -267,21 +331,21 @@ $(() => {
     let radioInfo = document.querySelector('.about__radio--info');
     let buttonInfo = document.querySelector('.about__item-btn--info');
 
-    buttonProperty.addEventListener('click', ()=> {
+    buttonProperty.addEventListener('click', () => {
         radioProperty.checked = !radioProperty.checked
     })
-    
-    buttonDescription.addEventListener('click', ()=> {
+
+    buttonDescription.addEventListener('click', () => {
         radioDescription.checked = !radioDescription.checked
     })
-    
-    buttonInfo.addEventListener('click', ()=> {
+
+    buttonInfo.addEventListener('click', () => {
         radioInfo.checked = !radioInfo.checked
     })
-    
-    
-    additionalButton.addEventListener('click', ()=> {
-      
+
+
+    additionalButton.addEventListener('click', () => {
+
         additionalMobileRow.classList.toggle('about__additional-open');
         additionalColumn.classList.toggle('open');
     })
