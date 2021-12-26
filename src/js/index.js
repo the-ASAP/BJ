@@ -36,12 +36,7 @@ $(() => {
     $('.selectboxss').selectbox();
 
 
-    // $('#big-img').ezPlus({
-
-    // gallery: 'gal1',
-    // galleryActiveClass: 'active'
-    // });
-
+    // *************************Slick
 
     const preview = '.gallery__preview-list';
     const slide = '.gallery__big-slide';
@@ -55,7 +50,8 @@ $(() => {
 
     });
 
-    $(preview).slick({
+
+    $('.gallery__preview-list').slick({
         slidesToShow: 3,
         slidesToScroll: 1,
         asNavFor: '.gallery__big-list',
@@ -63,29 +59,47 @@ $(() => {
         vertical: true,
         arrows: false,
         verticalSwiping: true,
+
         responsive: [
             {
-              breakpoint: 1025,
-              settings: {
-                
-                slidesToShow: 3,
-                
-                
-              }
+                breakpoint: 1025,
+                settings: {
+
+                    slidesToShow: 3,
+
+
+                }
             },
             {
-              breakpoint: 514,
-              settings: {       
-                slidesToShow: 3,
-                vertical: false,
-                verticalSwiping: false
-              }
+                breakpoint: 514,
+                settings: {
+                    slidesToShow: 3,
+                    vertical: false,
+                    verticalSwiping: false,
+                    centerMode: true,
+                    adaptiveHeight: true
+                }
             }
-          ]
+        ]
 
     });
 
-    
+    let sliderCount = document.querySelector('.gallery__big-counter--count');
+    let sliderNumber = document.querySelector('.gallery__big-counter--quantity');
+
+    $('.gallery__preview-list').on('init reInit afterChange', function (event, slick) {
+
+        sliderCount.innerHTML = slick.slideCount;
+    });
+
+    $('.gallery__preview-list').on("afterChange", function (event, slick, currentSlide, nextSlide) {
+
+        sliderNumber.innerHTML = ++currentSlide;
+
+    });
+
+
+
     //   $(big).slick({
     //     slidesToShow: 1,
     //     slidesToScroll: 0,
@@ -96,56 +110,73 @@ $(() => {
     //   });
 
 
-    $('.owl-carousel-rec').owlCarousel({
+    // $('.owl-carousel-rec').owlCarousel({
 
-        items: 4,
-        responsive: {
-            0: {
-                items: 1
-            },
-            766: {
-                items: 2
-            },
-            1180: {
-                items: 3
-            },
-            1200: {
-                items: 4
-            }
-        }
-    });
+    //     items: 4,
+    //     responsive: {
+    //         0: {
+    //             items: 1
+    //         },
+    //         766: {
+    //             items: 2
+    //         },
+    //         1180: {
+    //             items: 3
+    //         },
+    //         1200: {
+    //             items: 4
+    //         }
+    //     }
+    // });
+
+    // $('.owl-carousel-gallery').owlCarousel({
+
+    //     items: 3,
+    //     loop: false,
+    //     mouseDrag: false,
+    //     touchDrag: false,
+    //     pullDrag: false,
+    //     rewind: true,
+    //     autoplay: true,
+    //     margin: 0,
+    //     nav: true
+    // });
+
+
+    // *****************************OWL
+
+    let similarGalleryPageCounter = document.querySelector('.similar__counter--current');
+    let similarGalleryPageSize = document.querySelector('.similar__counter--max');
 
     $('.owl-carousel').owlCarousel({
 
         items: 4,
+        loop: true,
+        onInitialized: function (e) {
+            similarGalleryPageSize.innerHTML = Math.ceil(this.items().length / e.page.size)
+
+
+        },
         responsive: {
             0: {
-                items: 2
+                items: 2,
+
             },
             766: {
-                items: 3
+                items: 3,
+
             },
             963: {
-                items: 4
+                items: 4,
+
             },
             1440: {
                 items: 4
+
             }
         },
     });
 
-    $('.owl-carousel-gallery').owlCarousel({
-
-        items: 3,
-        loop: false,
-        mouseDrag: false,
-        touchDrag: false,
-        pullDrag: false,
-        rewind: true,
-        autoplay: true,
-        margin: 0,
-        nav: true
-    });
 
     let owl = $('.owl-carousel');
 
@@ -154,9 +185,25 @@ $(() => {
     })
 
     $('.similar__button--prev').click(function () {
-
         owl.trigger('prev.owl.carousel');
     })
+
+
+    owl.on('initialized.owl.carousel', function (e) {
+        console.log('1');
+        
+        similarGalleryPageSize.innerHTML = --e.page.count;
+    });
+
+    owl.on('changed.owl.carousel', function (e) {
+        // let curPos = e.property.value - owl.prevCloned + 1;
+        // curPos = curPos > 0 ? curPos : e.page.count;
+    
+        similarGalleryPageCounter.innerHTML = ++e.page.index;
+        similarGalleryPageSize.innerHTML = e.page.count;
+    });
+
+
 
 
 
@@ -220,10 +267,10 @@ $(() => {
     })
 
     modalWindowDelivery.addEventListener('click', e => {
-        
+
         e.preventDefault();
-    
-        if(e.target.classList.contains('modal__delivery')) {
+
+        if (e.target.classList.contains('modal__delivery')) {
             modalWindowDelivery.classList.remove('modal--show');
         }
     })
@@ -231,19 +278,19 @@ $(() => {
 
     //**************** */
     modalWindowPayment.addEventListener('click', e => {
-        
+
         e.preventDefault();
         console.log(e.target);
-        if(e.target.classList.contains('modal__payment')) {
+        if (e.target.classList.contains('modal__payment')) {
             modalWindowPayment.classList.remove('modal--show');
         }
     })
 
     modalWindowDelivery.addEventListener('click', e => {
-        
+
         e.preventDefault();
-       
-        if(e.target.classList.contains('modal__delivery')) {
+
+        if (e.target.classList.contains('modal__delivery')) {
             modalWindowDelivery.classList.remove('modal--show');
         }
     })
@@ -271,18 +318,18 @@ $(() => {
     modalBtnClose.addEventListener('click', (e) => {
         e.preventDefault();
         modalSalon.classList.remove('salon__modal--show');
-     
+
     })
 
     takeBtn.addEventListener('click', (e) => {
         e.preventDefault();
         modalSalon.classList.add('salon__modal--show');
-      
+
     })
 
     modalSalon.addEventListener('click', (e) => {
         console.log(e.target)
-        if(e.target.classList.contains('salon__modal')) {
+        if (e.target.classList.contains('salon__modal')) {
             modalSalon.classList.remove('salon__modal--show');
         }
     })
@@ -299,7 +346,7 @@ $(() => {
 
     noSizeButton.addEventListener('click', (e) => {
         e.preventDefault();
-      
+
         modelCard.classList.add('modal-card--open');
     })
 
@@ -318,15 +365,15 @@ $(() => {
 
     modelCard.addEventListener('click', (e) => {
         e.preventDefault();
-     
-        if(e.target.classList.contains('modal-card')) {
+
+        if (e.target.classList.contains('modal-card')) {
             modelCard.classList.remove('modal-card--open');
         }
     })
 
-    
 
-   
+
+
 
     let additionalButton = document.querySelector('.about__item-btn--additional');
 

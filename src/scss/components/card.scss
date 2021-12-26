@@ -752,7 +752,7 @@
         }
 
         @media (max-width: 414px) {
-            width: 100%;
+            width: 320px;
             max-height: 600px;
             overflow-y: scroll;
             padding: 0 10px;
@@ -783,6 +783,9 @@
         width: 18px;
         height: 18px;
         background-image: url("./../img/svg/ic-close.svg");
+        @media (max-width: 414px) {
+            margin-top: 5px;
+        }
     }
 
     &__list-button {
@@ -999,6 +1002,10 @@
         & .slick-active.slick-center {
             border: 1px solid black;
         }
+
+        & .slick-active.slick-center .gallery__preview-slide {
+            padding: 0 3px;
+        }
     }
 
     &__preview-slide {
@@ -1063,7 +1070,7 @@
 
         color: rgba(0, 0, 0, 0.5);
 
-        &--bold {
+        &--quantity {
             color: #000000;
         }
     }
