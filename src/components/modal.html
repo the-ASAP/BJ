@@ -2,149 +2,155 @@
     <div class="modal__wrapper">
 
     </div>
-    <div class="salon salon--hide">
-
-
-        <button type="button" class="salon__close"> </button>
-        <input type="radio" id="salon-location" class="salon__radio salon__radio--location" name="salon" checked>
-        <input type="radio" id="salon-map" class="salon__radio salon__radio--map" name="salon">
-
-        <label class="salon__label salon__label--location" for="salon-location">Выбрать из списка</label>
-        <label class="salon__label salon__label--map" for="salon-map">выбрать на карте</label>
-
-        <div class="salon__col--mobile salon__col--location salon__col--location--mobile">
-
-
-            <ul class="salon__list">
-                <li class="salon__item">
-                    <p class="salon__title">ТРЦ РИО Коломна</p>
-                    <span class="salon__address">Московская область, ул. Октябрьской революции, д.362 </span>
-                    <span class="salon__time">Ежедневно с 10:00 до 20:00</span>
-                </li>
-                <li class="salon__item">
-                    <p class="salon__title">Outlet Village Белая Дача</p>
-                    <ul class="salon__address-list">
-                        <li class="salon__address-list--item">Кузьминки</li>
-                        <li class="salon__address-list--item">Котельники</li>
-                        <li class="salon__address-list--item">Братиславская</li>
-
-                    </ul>
-
-                    <ul class="salon__address-list">
-                        <li class="salon__address-list--item">/Кузьминки</li>
-                    </ul>
-                    <span class="salon__address">Московская область, ул. Октябрьской революции, д.362</span>
-                </li>
-            </ul>
-        </div>
-
-        <div class="salon__col--mobile salon__col--location-map salon__col--map--mobile">
-            <span class="salon__metro salon__metro--line">
-                Линия метро
-            </span>
-
-            <div class="selectboxss salon__metro__option">
-                <div class="selectboxssvalue"><span>Выбрать</span><img src="./../img/arrow.png" class="arrowselect" />
-                </div>
-                <ul class="selectboxssmenu">
-                    <li class="selectoption"><span class="flag-ru"></span> Коломна</li>
-                    <li class="selectoption"><span class="flag-en"></span> Котельники</li>
-                    <li class="selectoption"><span class="flag-fr"></span> Братиславская</li>
+    <div class="salon__modal">
+        <div class="salon">
+            <button type="button" class="salon__close"> </button>
+            <input type="radio" id="salon-location" class="salon__radio salon__radio--location" name="salon" checked>
+            <input type="radio" id="salon-map" class="salon__radio salon__radio--map" name="salon">
+    
+            <label class="salon__label salon__label--location" for="salon-location">Выбрать из списка</label>
+            <label class="salon__label salon__label--map" for="salon-map">выбрать на карте</label>
+    
+            <button  type="button" class="salon__btn salon__btn--location"></button>
+            <button  type="button" class="salon__btn salon__btn--map"></button>
+            <div class="salon__col--mobile salon__col--location salon__col--location--mobile">
+    
+    
+                <ul class="salon__list">
+                    <li class="salon__item">
+                        <p class="salon__title">ТРЦ РИО Коломна</p>
+                        <span class="salon__address">Московская область, ул. Октябрьской революции, д.362 </span>
+                        <span class="salon__time">Ежедневно с 10:00 до 20:00</span>
+                    </li>
+                    <li class="salon__item">
+                        <p class="salon__title">Outlet Village Белая Дача</p>
+                        <ul class="salon__address-list">
+                            <li class="salon__address-list--item">Кузьминки</li>
+                            <li class="salon__address-list--item">Котельники</li>
+                            <li class="salon__address-list--item">Братиславская</li>
+    
+                        </ul>
+    
+                        <ul class="salon__address-list">
+                            <li class="salon__address-list--item">/Кузьминки</li>
+                        </ul>
+                        <span class="salon__address">Московская область, ул. Октябрьской революции, д.362</span>
+                    </li>
                 </ul>
             </div>
-
-            <span class="salon__metro salon__metro--station">
-                Станция метро
-            </span>
-
-            <div class="selectboxss salon__metro__option">
-                <div class="selectboxssvalue"><span>Выбрать</span><img src="./../img/arrow.png" class="arrowselect" />
-                </div>
-                <ul class="selectboxssmenu">
-                    <li class="selectoption"><span class="flag-ru"></span> Коломна</li>
-                    <li class="selectoption"><span class="flag-en"></span> Котельники</li>
-                    <li class="selectoption"><span class="flag-fr"></span> Братиславская</li>
-                </ul>
-            </div>
-
-            <!-- option -->
-
-            <a href="#" class="salon__auto">Определить салон автоматически</a>
-            <img class="salon__col--location-map--img" src="./../img/map.jpg" alt="Карта">
-        </div>
-
-        <div class="salon__col salon__col--location">
-            <span class="salon__metro">
-                Линия метро
-            </span>
-
-            <!-- option start -->
-            <div class="selectboxss salon__metro__option">
-                <div class="selectboxssvalue"><span>Выбрать</span><img src="./../img/arrow.png" class="arrowselect" />
-                </div>
-                <ul class="selectboxssmenu">
-                    <li class="selectoption"><span class="flag-ru"></span> 15</li>
-                    <li class="selectoption"><span class="flag-en"></span> 16</li>
-                    <li class="selectoption"><span class="flag-fr"></span> 17</li>
-                    <li class="selectoption"><span class="flag-ru"></span> 18</li>
-                    <li class="selectoption"><span class="flag-en"></span> 19</li>
-                    <li class="selectoption"><span class="flag-fr"></span> 20</li>
-                </ul>
-            </div>
-            <!-- option end -->
-
-            <span class="salon__metro">
-                Станция метро
-            </span>
-
-            <!-- option start -->
-            <div class="selectboxss salon__metro__option">
-                <div class="selectboxssvalue"><span>Выбрать</span><img src="./../img/arrow.png" class="arrowselect" />
-                </div>
-                <ul class="selectboxssmenu">
-                    <li class="selectoption"><span class="flag-ru"></span> Коломна</li>
-                    <li class="selectoption"><span class="flag-en"></span> Котельники</li>
-                    <li class="selectoption"><span class="flag-fr"></span> Братиславская</li>
-                </ul>
-            </div>
-
-
-            <!-- option end -->
-
-            <a href="#" class="salon__auto">Определить салон автоматически</a>
-
-            <span class="salon__list--title">Выберите из списка</span>
-
-            <ul class="salon__list">
-                <li class="salon__item">
-                    <p class="salon__title">ТРЦ РИО Коломна</p>
-                    <span class="salon__address">Московская область, ул. Октябрьской революции, д.362 </span>
-                    <span class="salon__time">Ежедневно с 10:00 до 20:00</span>
-                </li>
-                <li class="salon__item">
-                    <p class="salon__title">Outlet Village Белая Дача</p>
-                    <ul class="salon__address-list">
-                        <li class="salon__address-list--item">Кузьминки</li>
-                        <li class="salon__address-list--item">Котельники</li>
-                        <li class="salon__address-list--item">Братиславская</li>
-
+    
+            <div class="salon__col--mobile salon__col--location-map salon__col--map--mobile">
+                <span class="salon__metro salon__metro--line">
+                    Линия метро
+                </span>
+    
+                <div class="selectboxss salon__metro__option">
+                    <div class="selectboxssvalue"><span>Выбрать</span><img src="./../img/arrow.png" class="arrowselect" />
+                    </div>
+                    <ul class="selectboxssmenu">
+                        <li class="selectoption"><span class="flag-ru"></span> Коломна</li>
+                        <li class="selectoption"><span class="flag-en"></span> Котельники</li>
+                        <li class="selectoption"><span class="flag-fr"></span> Братиславская</li>
                     </ul>
-
-                    <ul class="salon__address-list">
-                        <li class="salon__address-list--item">/Кузьминки</li>
+                </div>
+    
+                <span class="salon__metro salon__metro--station">
+                    Станция метро
+                </span>
+    
+                <div class="selectboxss salon__metro__option">
+                    <div class="selectboxssvalue"><span>Выбрать</span><img src="./../img/arrow.png" class="arrowselect" />
+                    </div>
+                    <ul class="selectboxssmenu">
+                        <li class="selectoption"><span class="flag-ru"></span> Коломна</li>
+                        <li class="selectoption"><span class="flag-en"></span> Котельники</li>
+                        <li class="selectoption"><span class="flag-fr"></span> Братиславская</li>
                     </ul>
-                    <span class="salon__time">Московская область, ул. Октябрьской революции, д.362</span>
-                </li>
-            </ul>
+                </div>
+    
+                <!-- option -->
+    
+                <a href="#" class="salon__auto">Определить салон автоматически</a>
+                <img class="salon__col--location-map--img" src="./../img/map.jpg" alt="Карта">
+            </div>
+    
+            <div class="salon__col salon__col--location">
+                <div>
+                    <span class="salon__metro">
+                        Линия метро
+                    </span>
+        
+                    <!-- option start -->
+                    <div class="selectboxss salon__metro__option">
+                        <div class="selectboxssvalue"><span>Выбрать</span><img src="./../img/arrow.png" class="arrowselect" />
+                        </div>
+                        <ul class="selectboxssmenu">
+                            <li class="selectoption"><span class="flag-ru"></span> 15</li>
+                            <li class="selectoption"><span class="flag-en"></span> 16</li>
+                            <li class="selectoption"><span class="flag-fr"></span> 17</li>
+                            <li class="selectoption"><span class="flag-ru"></span> 18</li>
+                            <li class="selectoption"><span class="flag-en"></span> 19</li>
+                            <li class="selectoption"><span class="flag-fr"></span> 20</li>
+                        </ul>
+                    </div>
+                    <!-- option end -->
+        
+                    <span class="salon__metro">
+                        Станция метро
+                    </span>
+        
+                    <!-- option start -->
+                    <div class="selectboxss salon__metro__option">
+                        <div class="selectboxssvalue"><span>Выбрать</span><img src="./../img/arrow.png" class="arrowselect" />
+                        </div>
+                        <ul class="selectboxssmenu">
+                            <li class="selectoption"><span class="flag-ru"></span> Коломна</li>
+                            <li class="selectoption"><span class="flag-en"></span> Котельники</li>
+                            <li class="selectoption"><span class="flag-fr"></span> Братиславская</li>
+                        </ul>
+                    </div>
+                </div>
+      
+    
+    
+                <!-- option end -->
+    
+                <a href="#" class="salon__auto">Определить салон автоматически</a>
+    
+                <span class="salon__list--title">Выберите из списка</span>
+    
+                <ul class="salon__list">
+                    <li class="salon__item">
+                        <p class="salon__title">ТРЦ РИО Коломна</p>
+                        <span class="salon__address">Московская область, ул. Октябрьской революции, д.362 </span>
+                        <span class="salon__time">Ежедневно с 10:00 до 20:00</span>
+                    </li>
+                    <li class="salon__item">
+                        <p class="salon__title">Outlet Village Белая Дача</p>
+                        <ul class="salon__address-list">
+                            <li class="salon__address-list--item">Кузьминки</li>
+                            <li class="salon__address-list--item">Котельники</li>
+                            <li class="salon__address-list--item">Братиславская</li>
+    
+                        </ul>
+    
+                        <ul class="salon__address-list">
+                            <li class="salon__address-list--item">/Кузьминки</li>
+                        </ul>
+                        <span class="salon__time">Московская область, ул. Октябрьской революции, д.362</span>
+                    </li>
+                </ul>
+            </div>
+    
+            <div class="salon__col salon__col--location-map">
+                <img class="salon__col--location-map--img" src="./../img/map.jpg" alt="Карта">
+    
+            </div>
+    
         </div>
-
-        <div class="salon__col salon__col--location-map">
-            <img class="salon__col--location-map--img" src="./../img/map.jpg" alt="Карта">
-
-        </div>
-
+    
     </div>
-
+  
 
 
     <div class="modal modal__delivery">

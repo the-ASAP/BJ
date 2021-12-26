@@ -103,7 +103,7 @@ $(() => {
             0: {
                 items: 1
             },
-            578: {
+            766: {
                 items: 2
             },
             1180: {
@@ -122,11 +122,11 @@ $(() => {
             0: {
                 items: 2
             },
-            535: {
-                items: 2
+            766: {
+                items: 3
             },
             963: {
-                items: 3
+                items: 4
             },
             1440: {
                 items: 4
@@ -166,10 +166,13 @@ $(() => {
     let modalCartCloseBtn = document.querySelector('.modal-card__close-btn');
     let modalCardMobile = document.querySelector('.product-detail__no-size');
     let takeBtn = document.querySelector('.about__info-link--take');
-    let modalSalon = document.querySelector('.salon');
+
+    let modalSalon = document.querySelector('.salon__modal');
+    let modalSalonWindow = document.querySelector('.salon');
+    let modalBtnClose = document.querySelector('.salon__close');
+
     let modalWrapper = document.querySelector('.modal__wrapper');
 
-    let modalBtnClose = document.querySelector('.salon__close');
 
     let modalBtnDelivery = document.querySelector('.about__info-link--delivery');
 
@@ -239,7 +242,7 @@ $(() => {
     modalWindowDelivery.addEventListener('click', e => {
         
         e.preventDefault();
-        console.log(e.target);
+       
         if(e.target.classList.contains('modal__delivery')) {
             modalWindowDelivery.classList.remove('modal--show');
         }
@@ -267,9 +270,21 @@ $(() => {
 
     modalBtnClose.addEventListener('click', (e) => {
         e.preventDefault();
-        modalSalon.classList.remove('salon--show');
-        modalSalon.classList.add('salon--hide');
-        modalWrapper.classList.remove('active')
+        modalSalon.classList.remove('salon__modal--show');
+     
+    })
+
+    takeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        modalSalon.classList.add('salon__modal--show');
+      
+    })
+
+    modalSalon.addEventListener('click', (e) => {
+        console.log(e.target)
+        if(e.target.classList.contains('salon__modal')) {
+            modalSalon.classList.remove('salon__modal--show');
+        }
     })
 
     modalWrapper.addEventListener('click', (e) => {
@@ -278,6 +293,8 @@ $(() => {
         modalSalon.classList.add('salon--hide');
         modalWrapper.classList.remove('active')
     })
+
+
 
 
     noSizeButton.addEventListener('click', (e) => {
@@ -309,12 +326,7 @@ $(() => {
 
     
 
-    takeBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        modalSalon.classList.remove('salon--hide');
-        modalSalon.classList.add('salon--show');
-        modalWrapper.classList.add('active')
-    })
+   
 
     let additionalButton = document.querySelector('.about__item-btn--additional');
 

@@ -207,6 +207,11 @@
         width: 300px;
         text-align: left;
         margin-top: 30px;
+        @media (max-width: 414px) {
+            margin: 0 auto;
+            margin-top: 30px;
+            width: 100%;
+        }
     }
 
     &__price-wrapper {
@@ -468,8 +473,8 @@
             margin-top: 30px;
         }
 
-        @media (max-width: 320px) {
-            display: none;
+        @media (max-width: 414px) {
+            opacity: 0;
         }
     }
 
@@ -502,7 +507,7 @@
             margin-top: 55px;
         }
 
-        @media (max-width: 320px) {
+        @media (max-width: 414px) {
             display: none;
         }
     }
@@ -535,7 +540,7 @@
             }
         }
 
-        @media (max-width: 320px) {
+        @media (max-width: 414px) {
             display: none;
         }
     }
@@ -745,6 +750,13 @@
         @media (max-width: 1400px) {
             max-height: 610px;
         }
+
+        @media (max-width: 414px) {
+            width: 100%;
+            max-height: 600px;
+            overflow-y: scroll;
+            padding: 0 10px;
+        }
     }
     & .modal-card__input.mobile-card__input--form {
         font-family: "Muller";
@@ -761,6 +773,9 @@
         color: rgba(0, 0, 0, 0.5);
         padding: 16px 10px 16px 10px;
         border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+        @media (max-width: 414px) {
+            width: 100%;
+        }
     }
 
     &__close-btn {
@@ -825,13 +840,17 @@
         margin-top: 36px;
         display: block;
         text-align: center;
+
+        @media (max-width: 575px) {
+            margin-top: 30px;
+        }
     }
 
     &__image {
         width: 300px;
         height: 300px;
         margin-top: 20px;
-        @media (max-width: 320px) {
+        @media (max-width: 414px) {
             display: none;
         }
     }
@@ -846,6 +865,9 @@
         /* or 25px */
 
         color: #000000;
+        @media (max-width: 414px) {
+            margin-top: 30px;
+        }
     }
 
     // &__list-button {
@@ -950,6 +972,7 @@
         }
         @media (max-width: 1252px) and (min-width: 996px) {
             min-height: 190px;
+            max-height: 269px;
         }
 
         @media (max-width: 996px) {

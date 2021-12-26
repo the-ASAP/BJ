@@ -139,6 +139,23 @@
 }
 
 .salon {
+
+    &__modal {
+
+
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        left: 0;
+        top: 0;
+        background-color: rgba(0,0,0,0.3);
+        z-index: 9; 
+        display: none;
+        &--show {
+            display: block;
+        }
+    }
+    
     position: fixed;
     background-color: #fff;
     left: 50%;
@@ -151,26 +168,25 @@
     max-height: 700px;
     z-index: 10;
 
-    @media (max-width: 574px) {
-        width: 320px;
-    }
-
-
-    &--hide {
-        display: none;
-    }
-
-    &--show {
-        display: flex;
-    }
     @media (max-width: 1400px) {
         max-width: 400px;
         flex-wrap: wrap;
     }
 
+    @media (max-width: 574px) {
+        width: 320px;
+    }
+    @media (max-width: 414px) {
+       
+        flex-direction: column;
+        padding-top: 20px;
+        max-width: 300px;
+        flex-wrap: nowrap;
+    }
+
     &__metro__option {
         margin-top: 30px;
-        // width: 340px;
+        width: 100%;
     }
 
     &__label {
@@ -191,6 +207,14 @@
             text-transform: uppercase;
         }
 
+        @media (max-width: 414px) {
+           width: 100%;
+           margin-bottom: 22px;
+           &:last-child {
+               margin-bottom: 0;
+           }
+        }
+
         position: relative;
     }
 
@@ -203,6 +227,9 @@
         background-image: url("./../img/svg/ic-close.svg");
         background-repeat: no-repeat;
         background-size: cover;
+        @media (max-width: 414px) {
+            display: none;
+        }
     }
 
     &__label::after {
@@ -215,6 +242,16 @@
         display: none;
         width: 100%;
     }
+
+    &__label--location {
+        
+    }
+
+    &__label--map{
+    
+    }
+
+  
 
     &__radio--location:checked ~ .salon__label--location::after {
         display: block;
@@ -336,7 +373,7 @@
     &__list {
         list-style: none;
         margin-top: 30px;
-        max-height: 200px;
+        // max-height: 200px;
         overflow-y: scroll;
     }
 
@@ -401,5 +438,50 @@
 
     &__col--location-map {
         width: 1000px;
+        @media (max-width: 414px) {
+            width: auto;
+        }
+        
     }
+
+    &__col--location{
+        padding-right: 20px;
+        
+    }
+
+    &__btn {
+
+        @media (max-width: 414px) {
+            position: absolute;
+            content: "";
+            width: 9px;
+            height: 9px;
+            right: 16px;
+            top: 20px;
+            background-image: url('./../img/svg/ic-small-close.svg');
+        }
+
+        
+        
+        &--map {
+            @media (max-width: 414px) {
+            
+                top: 50px;
+            }
+        }
+    }
+
+
+
+    &__col--location--mobile{
+        width: 100%;
+        min-height: 300px;
+    
+    }
+
+    &__col--location-map {
+       
+    }
+
+  
 }

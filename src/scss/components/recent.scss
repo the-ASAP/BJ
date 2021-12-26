@@ -5,6 +5,8 @@
     padding: 0 30px;
 
 
+
+
     
     @media (max-width: 1024px) {
      
@@ -14,6 +16,10 @@
 
     @media (max-width: 604px) {
         padding: 10px;
+    }
+
+    @media (max-width: 414px) {
+        margin-top: 30px;
     }
 
 
@@ -118,6 +124,10 @@
         @media (max-width: 1000px) {
             overflow: auto;
         }
+
+        @media (max-width: 575px) {
+            margin-top: 30px;
+        }
     }
 
     &__item {
@@ -138,10 +148,20 @@
             margin: 0 25px 0 0;
         }
 
+        @media (max-width: 768px) {
+            
+            flex: 0 0 228px;
+        }
+
         @media (max-width: 575px) {
+           
+            flex: 0 0 270px;
+        }
+
+        @media (max-width: 414px) {
             max-width: 149px;
             flex: 0 0 149px;
-            margin: 0 25px 0 0;
+            
         }
     }
 
@@ -150,6 +170,10 @@
         display: flex;
         justify-content: space-between;
         margin-top: 10px;
+        @media (max-width: 1024px) {
+            justify-content: flex-end;
+            
+        }
     }
 
     &__item-price {
@@ -167,6 +191,7 @@
         width: 50px;
         justify-content: space-between;
         margin-right: 10px;
+        align-items: center;
     }
 
     &__item-sale {
@@ -188,7 +213,7 @@
     }
 
     &__item-icon-watch {
-        @media (max-width: 575px) {
+        @media (max-width: 414px) {
             display: none;
         } 
     }
@@ -196,9 +221,18 @@
     &__item-image-wrapper {
         width: 270px;
         height: 270px;
-        @media (max-width: 575px) {
-            max-width: 142px;
+        @media (max-width: 768px) {
+            max-width: 228px;
             height: auto;
+        }
+
+        @media (max-width: 575px) {
+            max-width: 270px;
+           
+        }
+        @media (max-width: 414px) {
+            max-width: 142px;
+           
         }
     }
 
@@ -232,6 +266,7 @@
         font-weight: normal;
         font-size: 12px;
         line-height: 12px;
+        color: rgba(0,0,0,0.5);
         /* identical to box height */
 
         letter-spacing: 0.035em;
