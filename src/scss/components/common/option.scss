@@ -1,6 +1,6 @@
 div.selectboxss {
     position: relative;
-    height: 42px;
+    height: 48px;
     border-radius: 3px;
     border: solid 1px #000;
     background-color: #fff;
@@ -30,7 +30,7 @@ div.selectboxss img.arrowselect {
     position: absolute;
     right: 0;
     width: 21px;
-    padding: 0px 10px 0px 0px;
+    padding: 0px 5px 0px 0px;
 }
 ::-webkit-scrollbar {
     background: transparent;
@@ -76,8 +76,11 @@ ul.selectboxssmenu > li.selectoption {
     letter-spacing: 0.035em;
     color: rgba(0, 0, 0, 0.5);
     padding: 10px;
-    padding-left: 5px;
-    padding-top: 10px;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    margin-top: 7px;
+    display: block;
     border-top: 1px solid #000;
 }
 ul.selectboxssmenu > li.selectoption:hover {

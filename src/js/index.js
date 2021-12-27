@@ -77,7 +77,7 @@ $(() => {
                     vertical: false,
                     verticalSwiping: false,
                     centerMode: true,
-                    adaptiveHeight: true
+                   
                 }
             }
         ]
@@ -309,17 +309,21 @@ $(() => {
         modalWindowCallback.classList.remove('modal--show')
     })
 
+    modalWindowCallback.addEventListener('click', e => {
+        console.log(e.target)
+        if (e.target.classList.contains('modal__callback')) {
+            modalWindowCallback.classList.remove('modal--show');
+        }
+      
+    })
+
     modalBtnCallback.addEventListener('click', e => {
         e.preventDefault();
         modalWindowCallback.classList.add('modal--show')
     })
 
 
-    modalBtnClose.addEventListener('click', (e) => {
-        e.preventDefault();
-        modalSalon.classList.remove('salon__modal--show');
-
-    })
+ 
 
     takeBtn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -370,9 +374,6 @@ $(() => {
             modelCard.classList.remove('modal-card--open');
         }
     })
-
-
-
 
 
     let additionalButton = document.querySelector('.about__item-btn--additional');
