@@ -13,6 +13,8 @@ import footer from '../components/footer.html';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel';
 
+import ymaps from 'ymaps';
+
 import 'slick-slider/slick/slick-theme.css';
 import 'slick-slider/slick/slick.css';
 import 'slick-slider/slick/slick.min.js';
@@ -21,22 +23,90 @@ import 'slick-slider/slick/slick.min.js';
 
 // import footer from '../components/footer.html';
 
+function createHint(maps, address, object, coorArr, link) {
+    let myPlacemark = new maps.Placemark(
+      [coorArr[0], coorArr[1]],
+      {
+        address,
+        object,
+        link,
+        balloonContentHeader: object,
+        balloonContentBody: address,
+        balloonContentFooter: link
+          ? `<a href=${link} class="yandexMap__hint">` + 'Перейти' + '</a>'
+          : ''
+      },
+      {
+        // hintLayout: HintLayout,
+        iconColor: '#000'
+      }
+    );
+  
+    return myPlacemark;
+  }
+
 
 $(() => {
+    
     // $('#root').prepend(header);
-    $('#root').append(modal);
-    $('#root').append(card);
-    $('#root').append(about);
-    $('#root').append(offer);
-    $('#root').append(include);
-    $('#root').append(similar);
-    $('#root').append(recent);
+    // $('#root').append(modal);
+    // $('#root').append(card);
+    // $('#root').append(about);
+    // $('#root').append(offer);
+    // $('#root').append(include);
+    // $('#root').append(similar);
+    // $('#root').append(recent);
     //   $('#root').append(footer);
 
     $('.selectboxss').selectbox();
 
 
+    ymaps
+    .load('https://api-maps.yandex.ru/2.1/?apikey=2b543523-54f1-4a9f-af8a-8333795718cd&lang=ru_RU')
+    .then((maps) => {
+        const Map = new maps.Map("yandexMap", {
+            center: [55.76, 37.64],
+            zoom: 10,
+            controls: ["zoomControl"],
+        });
+        Map.behaviors.disable("scrollZoom");
+        Map.geoObjects.add(
+            createHint(
+                maps,
+              'city',
+              'description',
+              [55.76, 37.64]
+            )
+          );
+    })
+    .catch((error) => console.log('Failed to load Yandex Maps', error));
+
+
+    ymaps
+    .load('https://api-maps.yandex.ru/2.1/?apikey=2b543523-54f1-4a9f-af8a-8333795718cd&lang=ru_RU')
+    .then((maps) => {
+        const Map = new maps.Map("yandexMap-mobile", {
+            center: [55.76, 37.64],
+            zoom: 10,
+            controls: ["zoomControl"],
+        });
+        Map.behaviors.disable("scrollZoom");
+        Map.geoObjects.add(
+            createHint(
+                maps,
+              'Москва',
+              'Тут будет туса!',
+              [55.76, 37.64]
+            )
+          );
+    })
+    .catch((error) => console.log('Failed to load Yandex Maps', error));
+
+
+
     // *************************Slick
+
+
 
     const preview = '.gallery__preview-list';
     const slide = '.gallery__big-slide';
@@ -45,13 +115,11 @@ $(() => {
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: true,
-
         asNavFor: '.gallery__preview-list',
-
     });
 
 
-    $('.gallery__preview-list').slick({
+    const $slideshow = $('.gallery__preview-list').slick({
         slidesToShow: 3,
         slidesToScroll: 1,
         asNavFor: '.gallery__big-list',
@@ -73,16 +141,28 @@ $(() => {
             {
                 breakpoint: 514,
                 settings: {
-                    slidesToShow: 3,
+                    slidesToShow: 2,
                     vertical: false,
                     verticalSwiping: false,
                     centerMode: true,
+                    adaptiveWith: true,
+                    adaptiveHeight: true
                    
                 }
             }
         ]
 
     });
+    $('.slick-slide').each((index, item) => {
+        $(item).on('click', () => {
+            if($(item).hasClass('slick-center')) return 
+            if($(item).next().hasClass('slick-center')) return $slideshow.slick('slickGoTo', parseInt($slideshow.slick('slickCurrentSlide')-1))
+            if($(item).prev().hasClass('slick-center')) return $slideshow.slick('slickGoTo', parseInt($slideshow.slick('slickCurrentSlide')+1))
+        })
+    })
+
+    
+
 
     let sliderCount = document.querySelector('.gallery__big-counter--count');
     let sliderNumber = document.querySelector('.gallery__big-counter--quantity');
@@ -212,7 +292,30 @@ $(() => {
     let modelCard = document.querySelector('.modal-card');
     let modalCartCloseBtn = document.querySelector('.modal-card__close-btn');
     let modalCardMobile = document.querySelector('.product-detail__no-size');
+
+
     let takeBtn = document.querySelector('.about__info-link--take');
+
+    let mapBtn = document.querySelector('.salon__btn--map'); 
+    let locationBtn = document.querySelector('.salon__btn--location'); 
+
+    let inputLocation = document.querySelector('.salon__radio--location');
+    let inputMap = document.querySelector('.salon__radio--map');
+
+    locationBtn.addEventListener('click', (e) => {
+      
+        inputLocation.checked = !inputLocation.checked
+    })
+
+    mapBtn.addEventListener('click', (e) => {
+      
+        inputMap.checked = !inputMap.checked
+    })
+
+    // mapBtn.addEventListener('click', (e) => {
+        
+    //     mapLocation.checked = !mapLocation.checked
+    // })
 
     let modalSalon = document.querySelector('.salon__modal');
     let modalSalonWindow = document.querySelector('.salon');
@@ -238,6 +341,8 @@ $(() => {
 
     let modalSizesBtn = document.querySelector('.product-detail__sizes-list');
     let modalSizesWindow = document.querySelector('.product-detail__modal-window');
+
+
 
     // modalSizesBtn.addEventListener('click', e => {
     //     modalSizesWindow.classList.add('product-detail__modal-window--open')
@@ -332,7 +437,7 @@ $(() => {
     })
 
     modalSalon.addEventListener('click', (e) => {
-        console.log(e.target)
+   
         if (e.target.classList.contains('salon__modal')) {
             modalSalon.classList.remove('salon__modal--show');
         }
@@ -404,6 +509,8 @@ $(() => {
     })
 
 
+
+
     additionalButton.addEventListener('click', () => {
 
         additionalMobileRow.classList.toggle('about__additional-open');
@@ -458,3 +565,6 @@ $.fn.selectbox = function () {
 
 
 
+
+
+  

@@ -23,9 +23,9 @@
 
     @media (max-width: 575px) {
         max-width: 555px;
-       padding: 0;
-       margin: 0;
-       padding-left: 20px;
+        padding: 0;
+        margin: 0;
+        padding-left: 20px;
     }
 
     @media (max-width: 574px) {
@@ -222,13 +222,11 @@
             margin-top: 30px;
         }
         @media (max-width: 575px) {
-           
             margin-top: 30px;
         }
     }
 
     &__price {
-        
         font-family: "Muller";
         color: #000;
         font-weight: 250;
@@ -236,11 +234,9 @@
         line-height: 1;
         letter-spacing: 0.035em;
         text-transform: uppercase;
-        
 
         @media (max-width: 575px) {
             font-size: 21px;
-           
         }
     }
 
@@ -291,7 +287,6 @@
 
         @media (max-width: 575px) {
             width: 100%;
-            padding: 0 10px;
             justify-content: space-between;
         }
     }
@@ -366,12 +361,12 @@
         }
 
         @media (max-width: 575px) {
-            padding-left: 30px;
+            // padding-left: 30px;
 
-            margin-left: 32px;
+            // margin-left: 32px;
         }
 
-        @media (max-width: 526px) {
+        @media (max-width: 575px) {
             margin-top: 20px;
             margin-left: 10px;
             order: 3;
@@ -928,8 +923,7 @@
         text-align: left;
 
         &--link {
-            text-decoration: underline;
-            color: rgba(0, 0, 0, 0.5);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.5);
         }
     }
 }
@@ -973,13 +967,12 @@
         margin-top: 75px;
         overflow-y: hidden;
         display: inline-block;
-
+        margin-top: 20px;
         @media (min-width: 1252px) {
             min-height: 269px;
         }
         @media (max-width: 1252px) and (min-width: 996px) {
             min-height: 190px;
-            max-height: 269px;
         }
 
         @media (max-width: 996px) {
@@ -990,17 +983,21 @@
 
         @media (max-width: 575px) {
             margin-top: 50px;
+            min-height: auto;
         }
 
         @media (max-width: 513px) {
             width: 100%;
-            max-height: 90px;
+            height: 175px;
             margin-top: 20px;
             grid-column-start: 1;
             grid-column-end: 4;
             grid-row-start: 3;
             grid-row-end: 4;
             min-height: auto;
+            width: 300px;
+            margin: 0 auto;
+            overflow-x: hidden;
         }
 
         & .slick-active.slick-center {
@@ -1008,7 +1005,7 @@
         }
 
         & .slick-active.slick-center .gallery__preview-slide {
-            padding: 0 3px;
+            // padding: 0 3px;
         }
     }
 
@@ -1028,8 +1025,9 @@
         }
 
         @media (max-width: 514px) {
-            max-height: 124px;
-            max-width: 124px;
+            max-height: auto;
+            width: 124px;
+            padding: 0 10px;
         }
     }
 
@@ -1049,12 +1047,15 @@
             grid-row-end: 2;
             padding: 0;
         }
+
+        @media (max-width: 514px) {
+            margin-bottom: 58px;
+        }
     }
 
     &__big-slide {
         width: 100%;
-        // height: 395px;
-        margin: 0 30px auto 30px;
+     
         @media (max-width: 1225px) {
             margin: 0;
         }
@@ -1098,15 +1099,18 @@
             width: 20px;
             height: 20px;
             background-image: url("./../img/svg/ic-prev-slide.svg");
-            left: 36px;
+            left: 56px;
             z-index: 5;
             &::before {
                 color: black;
                 content: "";
             }
 
-            @media (max-width: 1220px) {
-                left: -5px;
+            left: -5px;
+            
+            @media (max-width: 320px) {
+                left: 90px;
+                top: 341px;
             }
         }
 
@@ -1123,7 +1127,8 @@
             }
 
             @media (max-width: 320px) {
-                right: -10px;
+                right: 95px;
+                top: 341px;
             }
         }
 
@@ -1138,11 +1143,12 @@
     }
 }
 
+.slick-prev:hover,
+.slick-prev:focus {
+    background-image: url("./../img/svg/ic-prev-slide.svg") !important;
+}
 
-.slick-prev:hover, .slick-prev:focus, .slick-next:hover, .slick-next:focus {
-    
-    color: #000!important;
-    
-    background-color: none!important;
-
+.slick-next:hover,
+.slick-next:focus {
+    background-image: url("./../img/svg/ic-next-slide.svg") !important;
 }

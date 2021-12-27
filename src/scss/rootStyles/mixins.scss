@@ -1,6 +1,23 @@
+@import "root";
+
 //Создание необходимых миксинов
 %flexbox {
     display: flex;
     align-items: center;
     align-self: center;
 }
+
+%scrollbar::-webkit-scrollbar {
+    width: 0.5%;
+    min-width: 8px;
+  }
+  
+  %scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  %scrollbar::-webkit-scrollbar-thumb {
+    border-left: 1px solid $mainColor;
+    background: $mainColor;
+    border-radius: 3px;
+  }

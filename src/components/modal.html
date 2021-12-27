@@ -2,7 +2,7 @@
     <div class="modal__wrapper">
 
     </div>
-    <div class="salon__modal salon__modal--show">
+    <div class="salon__modal">
         <div class="salon">
             <!-- <button type="button" class="salon__close"> </button> -->
             <input type="radio" id="salon-location" class="salon__radio salon__radio--location" name="salon" checked>
@@ -113,7 +113,8 @@
                 <!-- option -->
     
                 <a href="#" class="salon__auto">Определить салон автоматически</a>
-                <img class="salon__col--location-map--img" src="./../img/map.jpg" alt="Карта">
+                <div id="yandexMap-mobile" class="yandexMap-mobile"></div>
+              
             </div>
     
             <div class="salon__col salon__col--location">
@@ -185,7 +186,8 @@
             </div>
     
             <div class="salon__col salon__col--location-map">
-                <img class="salon__col--location-map--img" src="./../img/map.jpg" alt="Карта">
+                <div id="yandexMap" class="yandexMap"></div>
+               
     
             </div>
     
@@ -290,9 +292,10 @@
                 <input type="text" class="modal-card__input modal-card__input--callback" name="phone" placeholder="Телефон">
                 <input type="button" class="modal-card__send-button" value="Перезвонить мне">
             </form>
-            <span class="modal-card__offerta">
-                Нажимая на кнопку «Перезвонить мне», я даю согласие на обработку персональных данных
-            </span>
+            <a href="#" class="modal-card__offerta">
+                Нажимая на кнопку «Перезвонить мне», 
+                <span class="modal-card__offerta--link">я даю согласие на обработку персональных данных</span> 
+            </a>
             </form>
         </div>
        
