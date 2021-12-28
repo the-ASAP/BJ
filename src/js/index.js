@@ -1,15 +1,15 @@
 import * as $ from 'jquery';
 import './../vendors/ez-zoom.js';
 import '../scss/index.scss';
-import header from '../components/header.html';
-import card from '../components/card.html';
-import about from '../components/about.html';
-import offer from '../components/offer.html';
-import include from '../components/include.html';
-import similar from '../components/similar.html';
-import recent from '../components/recent.html';
-import modal from '../components/modal.html';
-import footer from '../components/footer.html';
+// import header from '../components/header.html';
+// import card from '../components/card.html';
+// import about from '../components/about.html';
+// import offer from '../components/offer.html';
+// import include from '../components/include.html';
+// import similar from '../components/similar.html';
+// import recent from '../components/recent.html';
+// import modal from '../components/modal.html';
+// import footer from '../components/footer.html';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel';
 
@@ -22,6 +22,12 @@ import 'slick-slider/slick/slick.min.js';
 
 
 // import footer from '../components/footer.html';
+
+// MyIconLayout = ymaps.templateLayoutFactory.createClass([
+//     '<svg width="46" height="46" style="position: absolute; top: -23px; left: -23px;">',
+//         '<use href="#sym01"/>',
+//     '</svg>'
+// ].join('')),
 
 function createHint(maps, address, object, coorArr, link) {
     let myPlacemark = new maps.Placemark(
@@ -37,25 +43,27 @@ function createHint(maps, address, object, coorArr, link) {
           : ''
       },
       {
-        // hintLayout: HintLayout,
+        // iconLayout: myIconLayout,
         iconColor: '#000'
       }
     );
   
     return myPlacemark;
-  }
+}
+
+
 
 
 $(() => {
     
     // $('#root').prepend(header);
-    $('#root').append(modal);
-    $('#root').append(card);
-    $('#root').append(about);
-    $('#root').append(offer);
-    $('#root').append(include);
-    $('#root').append(similar);
-    $('#root').append(recent);
+    // $('#root').append(modal);
+    // $('#root').append(card);
+    // $('#root').append(about);
+    // $('#root').append(offer);
+    // $('#root').append(include);
+    // $('#root').append(similar);
+    // $('#root').append(recent);
     //   $('#root').append(footer);
 
     $('.selectboxss').selectbox();
@@ -512,16 +520,23 @@ $(() => {
         radioInfo.checked = !radioInfo.checked
     })
 
-
-
-
     additionalButton.addEventListener('click', () => {
 
         additionalMobileRow.classList.toggle('about__additional-open');
         additionalColumn.classList.toggle('open');
     })
 
-
+    // $('.about__description-column--hidden')
+    $('.about__more').on('click', function() {
+        if($('.about__description-column--hidden').hasClass('about__description-column--active')) {
+            $('.about__description-column--hidden').toggleClass('about__description-column--active')
+            $(this).text('Посмотреть все')
+        }
+        else {
+            $('.about__description-column--hidden').toggleClass('about__description-column--active')
+            $(this).text('Скрыть')
+        }
+    })
 });
 
 

@@ -172,7 +172,9 @@
 }
 
 .salon {
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
     &__modal {
         position: fixed;
         width: 100vw;
@@ -335,15 +337,13 @@
             display: none;
         }
     }
-    
-    &__col--location {
-        padding: 0 30px 30px 30px;
-    }
+
 
     &__radio--location:checked ~ .salon__col--location--mobile {
         @media (max-width: 768px) {
             display: block;
             position: relative;
+            padding: 0;
         }
     }
 
@@ -460,10 +460,9 @@
         margin-bottom: 20px;
 
         @media (max-width: 768px) {
-            height: 600px;
+            height: 100%;
             width: 340px;
-            overflow-y:visible;
-            margin-top: 30px;
+            margin: 0;
         }
 
         @media (max-width: 600px) {
@@ -556,9 +555,13 @@
     }
 
     &__col--location {
+        padding: 0 30px 30px 30px;
+        height: 625px;
+        overflow-y: scroll;
+
         @media (max-width: 1420px) {
             width: 300px;
-            padding: 30px 30px 0 30px;
+            // padding: 30px 30px 0 30px;
         }
         @media (max-width: 1020px) {
             width: 250px;
@@ -595,6 +598,7 @@
         @media (max-width: 768px) {
             display: block;
             position: relative;
+            overflow: hidden;
         }
     }
 
