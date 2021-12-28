@@ -1509,7 +1509,6 @@ button {
 @media (max-width: 664px) {
   .about__item-btn--additional {
     top: 4px;
-    right: 5%;
   }
 }
 @media (max-width: 340px) {
@@ -3167,7 +3166,7 @@ footer {
 }
 @media (max-width: 414px) {
   .modal__callback-window {
-    padding: 58px 10px 20px 10px;
+    padding: 58px 30px 30px;
     max-width: auto;
     width: 329px;
     height: 480px;
