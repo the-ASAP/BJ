@@ -3114,7 +3114,7 @@ footer {
 .modal__callback-window {
   position: absolute;
   background-color: #fff;
-  width: 329px;
+  width: 360px;
   height: 480px;
   left: 50%;
   top: 50%;
@@ -3122,7 +3122,7 @@ footer {
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  padding: 78px 25px 30px 25px;
+  padding: 78px 30px 30px 30px;
 }
 @media (max-width: 414px) {
   .modal__callback-window {
@@ -3158,8 +3158,8 @@ footer {
   top: 30px;
 }
 .modal__close--callback {
-  right: 10px;
-  top: 10px;
+  right: 30px;
+  top: 30px;
 }
 .modal--show {
   display: block;
