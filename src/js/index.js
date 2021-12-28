@@ -49,13 +49,13 @@ function createHint(maps, address, object, coorArr, link) {
 $(() => {
     
     // $('#root').prepend(header);
-    // $('#root').append(modal);
-    // $('#root').append(card);
-    // $('#root').append(about);
-    // $('#root').append(offer);
-    // $('#root').append(include);
-    // $('#root').append(similar);
-    // $('#root').append(recent);
+    $('#root').append(modal);
+    $('#root').append(card);
+    $('#root').append(about);
+    $('#root').append(offer);
+    $('#root').append(include);
+    $('#root').append(similar);
+    $('#root').append(recent);
     //   $('#root').append(footer);
 
     $('.selectboxss').selectbox();

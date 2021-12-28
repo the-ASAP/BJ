@@ -11,6 +11,7 @@
 
 
 
+ 
     &__title {
         font-family: "Muller";
         font-weight: 250;
@@ -38,13 +39,6 @@
         width: 100%;
         justify-content: center;
 
-        @media (max-width: 1023px) {
-            
-        }
-
-        @media (max-width: 768px) {
-      
-        }
 
 
         @media (max-width: 575px) {
@@ -58,6 +52,7 @@
     &__item {
         max-width: 337px;
         // margin-right: 10px;
+        position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -97,6 +92,18 @@
         @media (max-width: 414px) {
             display: none;
         }
+    }
+
+    &__item-icon-wishlist {
+        width: 15px;
+        height: 15px;
+        background-image: url('./../img/svg/ic-wishlist.svg');
+        background-size: cover;
+
+        &:hover {
+            background-image: url('./../img/svg/ic-wishlist-small-hover.svg');
+        }
+
     }
 
     &__info-name:first-child {
@@ -200,15 +207,20 @@
     }
 
     &__item-icons {
+        position: absolute;
+        right: 10px;
         display: flex;
         width: 50px;
         justify-content: space-between;
         margin-right: 10px;
-        align-items: center;
-
-        @media (max-width: 1023px) {
-            margin-left: auto;
+        align-items: baseline;
+        @media (max-width: 1200px) and (min-width: 768px) {
+            align-items: center;
         }
+        @media (max-width: 414px) {
+            justify-content: flex-end;
+        }
+
     }
 
     &__item-sale {

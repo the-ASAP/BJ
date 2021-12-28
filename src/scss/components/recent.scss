@@ -132,7 +132,7 @@
 
     &__item {
         width: 337px;
-        // height: 337px;
+        position: relative;
         margin-right: 10px;
         display: flex;
         flex-direction: column;
@@ -163,17 +163,38 @@
             flex: 0 0 149px;
             
         }
+
+        &-icon-wishlist {
+            
+            width: 15px;
+            height: 15px;
+            background-image: url('./../img/svg/ic-wishlist.svg');
+            background-size: cover;
+    
+            &:hover {
+                background-image: url('./../img/svg/ic-wishlist-small-hover.svg');
+            }
+    
+        }
     }
+
+    &__item-icons {
+        position: absolute;
+        right: 10px;
+        display: flex;
+        width: 50px;
+        justify-content: space-between;
+        margin-right: 10px;
+        align-items: center;
+    }
+
+   
 
     &__item-row {
         width: 100%;
         display: flex;
         justify-content: space-between;
         margin-top: 10px;
-        @media (max-width: 1024px) {
-            justify-content: flex-end;
-            
-        }
     }
 
     &__item-price {
@@ -187,11 +208,19 @@
     }
 
     &__item-icons {
+        position: absolute;
+        right: 10px;
         display: flex;
         width: 50px;
         justify-content: space-between;
         margin-right: 10px;
-        align-items: center;
+        align-items: baseline;
+        @media (max-width: 1200px) and (min-width: 768px) {
+            align-items: center;
+        }
+        @media (max-width: 414px) {
+            justify-content: flex-end;
+        }
     }
 
     &__item-sale {

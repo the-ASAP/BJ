@@ -455,7 +455,11 @@
     &__wishlist {
         width: 25px;
         height: 25px;
-
+        background-image: url('./../img/svg/ic-wishlist.svg');
+        background-size: cover;
+        &:hover {
+            background-image: url('./../img/svg/ic-wishlist-hover.svg');
+        }
         @media (max-width: 830px) {
             margin-right: 52px;
         }
