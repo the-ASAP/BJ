@@ -88,21 +88,14 @@
             height: 10px;
             background-image: url("./../img/svg/ic-small-close.svg");
             transform: rotate(45deg);
-            right: 5%;
+            right: 0;
             top: 10px;
         }
-
-
 
         &--additional {
             @media (max-width: 664px) {
                 top: 4px;
-                right: -21px;
-            }
-
-            @media (max-width: 340px) {
-          
-                right: 0;
+                right: -10px;
             }
         }
     }

@@ -1497,19 +1497,14 @@ button {
     -webkit-transform: rotate(45deg);
         -ms-transform: rotate(45deg);
             transform: rotate(45deg);
-    right: 5%;
+    right: 0;
     top: 10px;
   }
 }
 @media (max-width: 664px) {
   .about__item-btn--additional {
     top: 4px;
-    right: -21px;
-  }
-}
-@media (max-width: 340px) {
-  .about__item-btn--additional {
-    right: 0;
+    right: -10px;
   }
 }
 @media (max-width: 664px) {
