@@ -191,7 +191,7 @@
     top: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    padding-left: 30px;
+    padding-left: 0;
     display: flex;
     max-width: 1400px;
     max-height: 700px;
@@ -329,6 +329,10 @@
             display: none;
         }
     }
+    
+    &__col--location {
+        padding: 0 30px 30px 30px;
+    }
 
     &__radio--location:checked ~ .salon__col--location--mobile {
         @media (max-width: 768px) {
@@ -368,6 +372,10 @@
         display: block;
         width: 100%;
         margin-top: 30px;
+    }
+
+    &__metro__option  {
+        border-radius: 0;
     }
 
     &__auto {

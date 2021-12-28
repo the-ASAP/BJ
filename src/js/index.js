@@ -51,7 +51,7 @@ $(() => {
     });
 
 
-    $('.gallery__preview-list').slick({
+    const $slideshow = $('.gallery__preview-list').slick({
         slidesToShow: 3,
         slidesToScroll: 1,
         asNavFor: '.gallery__big-list',
@@ -83,6 +83,14 @@ $(() => {
         ]
 
     });
+
+    $('.slick-slide').each((index, item) => {
+        $(item).on('click', () => {
+            if($(item).hasClass('slick-center')) return 
+            if($(item).next().hasClass('slick-center')) return $slideshow.slick('slickGoTo', parseInt($slideshow.slick('slickCurrentSlide')-1))
+            if($(item).prev().hasClass('slick-center')) return $slideshow.slick('slickGoTo', parseInt($slideshow.slick('slickCurrentSlide')+1))
+        })
+    })
 
     let sliderCount = document.querySelector('.gallery__big-counter--count');
     let sliderNumber = document.querySelector('.gallery__big-counter--quantity');
