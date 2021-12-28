@@ -3175,7 +3175,7 @@ footer {
 .modal__callback-title {
   font-family: "Muller";
   font-weight: 300;
-  font-size: 22px;
+  font-size: 21px;
   line-height: 22px;
 }
 .modal__payment {
@@ -3606,6 +3606,7 @@ footer {
   font-weight: normal;
   font-size: 12px;
   line-height: 12px;
+  margin-top: 10px;
   /* identical to box height */
   letter-spacing: 0.035em;
 }

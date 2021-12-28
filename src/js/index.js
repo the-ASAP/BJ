@@ -29,27 +29,22 @@ import 'slick-slider/slick/slick.min.js';
 //     '</svg>'
 // ].join('')),
 
-function createHint(maps, address, object, coorArr, link) {
-    let myPlacemark = new maps.Placemark(
-      [coorArr[0], coorArr[1]],
-      {
-        address,
-        object,
-        link,
-        balloonContentHeader: object,
-        balloonContentBody: address,
-        balloonContentFooter: link
-          ? `<a href=${link} class="yandexMap__hint">` + 'Перейти' + '</a>'
-          : ''
-      },
-      {
-        // iconLayout: myIconLayout,
-        iconColor: '#000'
-      }
-    );
-  
-    return myPlacemark;
-}
+const addresses = [
+    {
+        title: 'ТРЦ РИО КОЛОМНА',
+        address: 'Московская область, ул. Октябрьской революции, д.362',
+        coors: [55.084059, 38.800483],
+        lines: ["Коломна"],
+        stations: ["Коломна"],
+    },
+    {
+        title: 'Бронницкий ювелир» в ТРК «Облака',
+        address: 'Москва, Ореховый бульвар, 22а, 1 этаж, остров',
+        coors: [55.612045, 37.732718],
+        lines: ['Братиславская'],
+        stations: ["Братиславская"],
+    }
+]
 
 
 
@@ -68,48 +63,79 @@ $(() => {
 
     $('.selectboxss').selectbox();
 
+    const mapsId = ['yandexMap', 'yandexMap-mobile']
+    function returnMaps() {
+        mapsId.map(id => {
+            ymaps
+            .load('https://api-maps.yandex.ru/2.1/?apikey=2b543523-54f1-4a9f-af8a-8333795718cd&lang=ru_RU')
+            .then((maps) => {
+                function createHint(maps, address, object, coorArr, link) {
+                    let myPlacemark = new maps.Placemark(
+                      [coorArr[0], coorArr[1]],
+                      {
+                        address,
+                        object,
+                        link,
+                        balloonContentHeader: object,
+                        balloonContentBody: address,
+                        balloonContentFooter: link
+                          ? `<a href=${link} class="yandexMap__hint">` + 'Перейти' + '</a>'
+                          : ''
+                      },
+                      {
+                        iconImageHref: '../img/svg/mark.svg',
+                        iconColor: '#000'
+                      }
+                    );
+                  
+                    return myPlacemark;
+                }
 
-    ymaps
-    .load('https://api-maps.yandex.ru/2.1/?apikey=2b543523-54f1-4a9f-af8a-8333795718cd&lang=ru_RU')
-    .then((maps) => {
-        const Map = new maps.Map("yandexMap", {
-            center: [55.76, 37.64],
-            zoom: 10,
-            controls: ["zoomControl"],
-        });
-        Map.behaviors.disable("scrollZoom");
-        Map.geoObjects.add(
-            createHint(
-                maps,
-              'city',
-              'description',
-              [55.76, 37.64]
-            )
-          );
-    })
-    .catch((error) => console.log('Failed to load Yandex Maps', error));
+                const Map = new maps.Map(id, {
+                    center: [55.76, 37.64],
+                    zoom: 10,
+                    controls: ["zoomControl"],
+                });
+                Map.behaviors.disable("scrollZoom");
+                addresses.map(store => Map.geoObjects.add(
+                    createHint(
+                        maps,
+                        store.address,
+                        store.title,
+                        store.coors
+                    )
+                ))
 
-
-    ymaps
-    .load('https://api-maps.yandex.ru/2.1/?apikey=2b543523-54f1-4a9f-af8a-8333795718cd&lang=ru_RU')
-    .then((maps) => {
-        const Map = new maps.Map("yandexMap-mobile", {
-            center: [55.76, 37.64],
-            zoom: 10,
-            controls: ["zoomControl"],
-        });
-        Map.behaviors.disable("scrollZoom");
-        Map.geoObjects.add(
-            createHint(
-                maps,
-              'city',
-              'description',
-              [55.76, 37.64]
-            )
-          );
-    })
-    .catch((error) => console.log('Failed to load Yandex Maps', error));
-
+                $('.selectoption__line').on('click', function() {
+                    let newAddresses = addresses.filter(store => store.lines.includes($(this).text()))
+                    Map.geoObjects.removeAll()
+                    newAddresses.map(store => Map.geoObjects.add(
+                        createHint(
+                            maps,
+                            store.address,
+                            store.title,
+                            store.coors
+                        )
+                    ))
+                })
+                $('.selectoption__station').on('click', function() {
+                    let newAddresses = addresses.filter(store => store.stations.includes($(this).text()))
+                    Map.geoObjects.removeAll()
+                    newAddresses.map(store => Map.geoObjects.add(
+                        createHint(
+                            maps,
+                            store.address,
+                            store.title,
+                            store.coors
+                        )
+                    ))
+                }) 
+            
+            })
+            .catch((error) => console.log('Failed to load Yandex Maps', error));
+        })    
+    }
+    returnMaps()
 
 
     // *************************Slick
@@ -157,17 +183,6 @@ $(() => {
         ]
 
     });
-    $('.slick-slide').each((index, item) => {
-        $(item).on('click', () => {
-            if($(item).hasClass('slick-center')) return 
-            if($(item).next().hasClass('slick-center')) return $slideshow.slick('slickGoTo', parseInt($slideshow.slick('slickCurrentSlide')-1))
-            if($(item).prev().hasClass('slick-center')) return $slideshow.slick('slickGoTo', parseInt($slideshow.slick('slickCurrentSlide')+1))
-        })
-    })
-
-    
-
-
     $('.slick-slide').each((index, item) => {
         $(item).on('click', () => {
             if($(item).hasClass('slick-center')) return 
