@@ -94,8 +94,8 @@ $(() => {
         Map.geoObjects.add(
             createHint(
                 maps,
-              'Москва',
-              'Тут будет туса!',
+              'city',
+              'description',
               [55.76, 37.64]
             )
           );
@@ -127,28 +127,24 @@ $(() => {
         vertical: true,
         arrows: false,
         verticalSwiping: true,
+        centerPadding: 0,
 
         responsive: [
+       
             {
-                breakpoint: 1025,
+                breakpoint: 517,
                 settings: {
-
                     slidesToShow: 3,
-
-
+                    vertical: false,
+                    verticalSwiping: false,
+                    centerPadding: 0,
+                    adaptiveHeight: true,   
+                    adaptiveWidth: true
+                   
                 }
             },
             {
-                breakpoint: 514,
-                settings: {
-                    slidesToShow: 2,
-                    vertical: false,
-                    verticalSwiping: false,
-                    centerMode: true,
-                    adaptiveWith: true,
-                    adaptiveHeight: true
-                   
-                }
+              
             }
         ]
 
@@ -548,7 +544,7 @@ $.fn.selectbox = function () {
     $('.selectboxss .selectboxssvalue').click(function () {
         var currentHeight = $(this).closest(".selectboxss").height();
         if (currentHeight < 100 || currentHeight == selectDefaultHeight) {
-            $(this).closest(".selectboxss").height("150px");
+            $(this).closest(".selectboxss").height("340px");
             $(this).find('.arrowselect').attr("style", "border-radius: 1000px;transition: 0.2s;transform: rotate(180deg);padding: 0px 0px 0px 10px;");
         }
         if (currentHeight >= 150) {
