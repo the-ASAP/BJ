@@ -1,3 +1,5 @@
+@import '../../rootStyles/mixins.scss';
+
 div.selectboxss {
     position: relative;
     height: 48px;
@@ -11,7 +13,7 @@ div.selectboxss {
     border-right: none;
 }
 div.selectboxss .selectboxssvalue {
-    padding: 16px 5px 5px 14px;
+    padding: 16px 5px 15px 14px;
     cursor: pointer;
     transition: 0.2s;
     font-family: "Muller";
@@ -23,7 +25,7 @@ div.selectboxss .selectboxssvalue {
 
     letter-spacing: 0.035em;
     color: rgba(0, 0, 0, 0.3);
-    height: 40px;
+    height: 48px;
     margin: 0px;
 }
 div.selectboxss img.arrowselect {
@@ -56,8 +58,9 @@ ul.selectboxssmenu {
     position: absolute;
     margin-top: 0px;
     display: block;
-    padding: 0px;
+    padding: 0 20px 0 0;
     margin: 0px;
+    @extend %scrollbar2;
 }
 ul.selectboxssmenu > li {
     display: block;
@@ -75,11 +78,7 @@ ul.selectboxssmenu > li.selectoption {
 
     letter-spacing: 0.035em;
     color: rgba(0, 0, 0, 0.5);
-    padding: 10px;
-    padding-left: 15px;
-    padding-top: 15px;
-    padding-bottom: 10px;
-    margin-top: 7px;
+    padding: 20px 15px 20px 15px;
     display: block;
     border-top: 1px solid #000;
 }

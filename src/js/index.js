@@ -31,19 +31,47 @@ import 'slick-slider/slick/slick.min.js';
 
 const addresses = [
     {
-        title: 'ТРЦ РИО КОЛОМНА',
-        address: 'Московская область, ул. Октябрьской революции, д.362',
-        coors: [55.084059, 38.800483],
-        lines: ["Коломна"],
-        stations: ["Коломна"],
+        title: 'Бронницкий ювелир» в ТРК «Облака',
+        address: 'Бронницкий ювелир» в ТРК «Облака',
+        coors: [55.612045, 37.732718],
+        lines: ["Любая", "Замоскворецкая"],
+        stations: ["Любая", "Красногвардейская"],
     },
     {
-        title: 'Бронницкий ювелир» в ТРК «Облака',
-        address: 'Москва, Ореховый бульвар, 22а, 1 этаж, остров',
-        coors: [55.612045, 37.732718],
-        lines: ['Братиславская'],
-        stations: ["Братиславская"],
-    }
+        title: 'Бронницкий ювелир» в ТРЦ «Райкин плаза',
+        address: 'Москва, Шереметьевская ул., 6, к.1, 1 этаж',
+        coors: [55.795403, 37.617033],
+        lines: ["Любая", "Люблинско-Дмитровская"],
+        stations: ["Любая", "Марьина роща"],
+    },
+    {
+        title: 'Бронницкий ювелир» в ТРЦ «МЕГА Белая Дача',
+        address: 'Московская обл., г. Котельники, 1-ый Покровский проезд, д. 5 ("Ашан" и "Икеа")',
+        coors: [55.653299, 37.844217],
+        lines: ["Любая", "Люблинско-Дмитровская"],
+        stations: ["Любая", "Люблино"]
+    },
+    {
+        title: 'Бронницкий ювелир» в ТРЦ «Фестиваль',
+        address: 'Москва, Мичуринский пр-т, Олимпийская деревня, д. 3, корп. 1',
+        coors: [55.677956, 37.466646],
+        lines: ["Любая", "Калининско-Солнцевская"],
+        stations: ["Любая", "Юго-западная"]
+    },
+    {
+        title: 'Бронницкий ювелир» в ТЦ «Июнь',
+        address: 'Московская обл., Мытищинский район, Мытищи, улица Мира, стр. 51',
+        coors: [55.919962, 37.708491],
+        lines: ['Любая', 'Калининско-Солнцевская'],
+        stations: ['Любая', 'Медведково']
+    },
+    {
+        title: 'Бронницкий ювелир» в ТЦ «Капитолий-Беляево',
+        address: 'Москва, Миклухо-Маклая ул., 32а, 1 этаж',
+        coors: [55.641031, 37.530355],
+        lines: ['Любая', "Калининско-Солнцевская"],
+        stations: ['Любая', 'Беляево']
+    },
 ]
 
 
@@ -69,18 +97,19 @@ $(() => {
             ymaps
             .load('https://api-maps.yandex.ru/2.1/?apikey=2b543523-54f1-4a9f-af8a-8333795718cd&lang=ru_RU')
             .then((maps) => {
-                function createHint(maps, address, object, coorArr, link) {
+                function createHint(maps, address, object, coorArr, line, station) {
                     let myPlacemark = new maps.Placemark(
                       [coorArr[0], coorArr[1]],
                       {
                         address,
                         object,
-                        link,
                         balloonContentHeader: object,
                         balloonContentBody: address,
-                        balloonContentFooter: link
-                          ? `<a href=${link} class="yandexMap__hint">` + 'Перейти' + '</a>'
-                          : ''
+                        balloonContentFooter: line?.length && station?.length ?
+                          `<p class="yandexMap__hint">` + `Линия: ${line[1]}` + '</p>' + 
+                          `<p class="yandexMap__hint">` + `Станция: ${station[1]}` + '</p>'
+                           : 
+                           ""
                       },
                       {
                         iconImageHref: '../img/svg/mark.svg',
@@ -102,31 +131,42 @@ $(() => {
                         maps,
                         store.address,
                         store.title,
-                        store.coors
+                        store.coors,
+                        store.lines,
+                        store.stations
                     )
                 ))
 
+                let line = 'Любая'
+                let station = 'Любая'
+                
                 $('.selectoption__line').on('click', function() {
-                    let newAddresses = addresses.filter(store => store.lines.includes($(this).text()))
+                    line = $(this).text()
+                    let newAddresses = addresses.filter(store => store.lines.includes(line) && store.stations.includes(station))
                     Map.geoObjects.removeAll()
                     newAddresses.map(store => Map.geoObjects.add(
                         createHint(
                             maps,
                             store.address,
                             store.title,
-                            store.coors
+                            store.coors,
+                            store.lines,
+                            store.stations
                         )
                     ))
                 })
                 $('.selectoption__station').on('click', function() {
-                    let newAddresses = addresses.filter(store => store.stations.includes($(this).text()))
+                    station = $(this).text()
+                    let newAddresses = addresses.filter(store => store.lines.includes(line) && store.stations.includes(station))
                     Map.geoObjects.removeAll()
                     newAddresses.map(store => Map.geoObjects.add(
                         createHint(
                             maps,
                             store.address,
                             store.title,
-                            store.coors
+                            store.coors,
+                            store.lines,
+                            store.stations
                         )
                     ))
                 }) 
@@ -240,9 +280,7 @@ $(() => {
         },
     });
 
-
     let owl = $('.owl-carousel');
-
     $('.similar__button--next').click(function () {
         owl.trigger('next.owl.carousel');
     })
@@ -261,10 +299,6 @@ $(() => {
         similarGalleryPageCounter.innerHTML = ++e.page.index;
         similarGalleryPageSize.innerHTML = e.page.count;
     });
-
-
-
-
 
     let noSizeButton = document.querySelector('.product-detail__no-size');
 
@@ -532,7 +566,7 @@ $.fn.selectbox = function () {
     $('.selectboxss .selectboxssvalue').click(function () {
         var currentHeight = $(this).closest(".selectboxss").height();
         if (currentHeight < 100 || currentHeight == selectDefaultHeight) {
-            $(this).closest(".selectboxss").height("340px");
+            $(this).closest(".selectboxss").height("331px");
             $(this).find('.arrowselect').attr("style", "border-radius: 1000px;transition: 0.2s;transform: rotate(180deg);padding: 0px 0px 0px 10px;");
         }
         if (currentHeight >= 150) {
