@@ -21,3 +21,21 @@
     background: $mainColor;
     border-radius: 3px;
   }
+
+
+  %scrollbar2::-webkit-scrollbar {
+    width: 4px;
+    max-height: 10px;
+  }
+  
+  %scrollbar2::-webkit-scrollbar-track {
+    background: transparent;
+    border: 1px solid #000;
+    border-radius: 3px;
+  }
+  
+  %scrollbar2::-webkit-scrollbar-thumb {
+    border-left: 1px solid $mainColor;
+    background: $mainColor;
+    border-radius: 4px;
+  }

@@ -83,6 +83,22 @@ body::-webkit-scrollbar-thumb {
   background: var(--main-color);
   border-radius: 3px;
 }
+ul.selectboxssmenu::-webkit-scrollbar {
+  width: 4px;
+  max-height: 10px;
+}
+ul.selectboxssmenu::-webkit-scrollbar-track {
+  background: transparent;
+  border: 1px solid #000;
+  border-radius: 3px;
+}
+ul.selectboxssmenu::-webkit-scrollbar-thumb {
+  border-left: 1px solid #333333;
+  border-left: 1px solid var(--main-color);
+  background: #333333;
+  background: var(--main-color);
+  border-radius: 4px;
+}
 :root {
   --main-color: #333333;
   --main-back: #f2f2f2;
@@ -2943,6 +2959,9 @@ footer {
   height: 313px;
   width: 100%;
 }
+.selectboxss li .flag-en, .selectboxss li .flag-ru, .selectboxss li .flag-fr, .selectboxss li .flag-de, .selectboxss li .flag-it, .selectboxss li .flag-es {
+  display: none;
+}
 .breadcrumb {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2984,6 +3003,41 @@ footer {
     display: none;
   }
 }
+:root {
+  --main-color: #333333;
+  --main-back: #f2f2f2;
+  --main-font: sans-serif;
+}
+body::-webkit-scrollbar {
+  width: 0.5%;
+  min-width: 8px;
+}
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+body::-webkit-scrollbar-thumb {
+  border-left: 1px solid #333333;
+  border-left: 1px solid var(--main-color);
+  background: #333333;
+  background: var(--main-color);
+  border-radius: 3px;
+}
+ul.selectboxssmenu::-webkit-scrollbar {
+  width: 4px;
+  max-height: 10px;
+}
+ul.selectboxssmenu::-webkit-scrollbar-track {
+  background: transparent;
+  border: 1px solid #000;
+  border-radius: 3px;
+}
+ul.selectboxssmenu::-webkit-scrollbar-thumb {
+  border-left: 1px solid #333333;
+  border-left: 1px solid var(--main-color);
+  background: #333333;
+  background: var(--main-color);
+  border-radius: 4px;
+}
 div.selectboxss {
   position: relative;
   height: 48px;
@@ -2998,7 +3052,7 @@ div.selectboxss {
   border-right: none;
 }
 div.selectboxss .selectboxssvalue {
-  padding: 16px 5px 5px 14px;
+  padding: 16px 5px 15px 14px;
   cursor: pointer;
   -webkit-transition: 0.2s;
   -o-transition: 0.2s;
@@ -3011,7 +3065,7 @@ div.selectboxss .selectboxssvalue {
   /* identical to box height */
   letter-spacing: 0.035em;
   color: rgba(0, 0, 0, 0.3);
-  height: 40px;
+  height: 48px;
   margin: 0px;
 }
 div.selectboxss img.arrowselect {
@@ -3046,7 +3100,7 @@ ul.selectboxssmenu {
   position: absolute;
   margin-top: 0px;
   display: block;
-  padding: 0px;
+  padding: 0 20px 0 0;
   margin: 0px;
 }
 ul.selectboxssmenu > li {
@@ -3064,11 +3118,7 @@ ul.selectboxssmenu > li.selectoption {
   /* identical to box height */
   letter-spacing: 0.035em;
   color: rgba(0, 0, 0, 0.5);
-  padding: 10px;
-  padding-left: 15px;
-  padding-top: 15px;
-  padding-bottom: 10px;
-  margin-top: 7px;
+  padding: 20px 15px 20px 15px;
   display: block;
   border-top: 1px solid #000;
 }
