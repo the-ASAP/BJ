@@ -95,7 +95,11 @@
         &--additional {
             @media (max-width: 664px) {
                 top: 4px;
-                right: -10px;
+            }
+
+            @media (max-width: 340px) {
+          
+                right: 0;
             }
         }
     }
@@ -199,7 +203,7 @@
 
         @media (max-width: 664px) {
             width: 100%;
-            padding: 0 10px;
+            padding: 0 0 0 10px;
         }
 
         &:last-child {
@@ -342,6 +346,18 @@
             margin-top: 0;
         }
     }
+    &__description-column--hidden {
+        transition: height 0.3s ease-in;
+
+        @media (max-width: 768px) {
+            height: 0;
+            overflow: hidden;
+        }
+    }
+    &__description-column--active {
+        height: 200px;
+    }
+    
 
     &__description-text {
         font-family: "Muller";
@@ -355,6 +371,23 @@
         }
     }
 
+    &__wrap {
+        display: none;
+
+        @media (max-width: 768px) {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+    }   
+    &__more {
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 14px;
+        letter-spacing: 0.035em;
+        border-bottom: 1px solid rgba(0,0,0,0.3);
+        color: rgba(0,0,0,0.5);
+    }
     // ******************************************about__info
 
     &__info {

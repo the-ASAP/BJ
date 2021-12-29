@@ -1,15 +1,15 @@
 import * as $ from 'jquery';
 import './../vendors/ez-zoom.js';
 import '../scss/index.scss';
-import header from '../components/header.html';
-import card from '../components/card.html';
-import about from '../components/about.html';
-import offer from '../components/offer.html';
-import include from '../components/include.html';
-import similar from '../components/similar.html';
-import recent from '../components/recent.html';
-import modal from '../components/modal.html';
-import footer from '../components/footer.html';
+// import header from '../components/header.html';
+// import card from '../components/card.html';
+// import about from '../components/about.html';
+// import offer from '../components/offer.html';
+// import include from '../components/include.html';
+// import similar from '../components/similar.html';
+// import recent from '../components/recent.html';
+// import modal from '../components/modal.html';
+// import footer from '../components/footer.html';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel';
 
@@ -23,85 +23,119 @@ import 'slick-slider/slick/slick.min.js';
 
 // import footer from '../components/footer.html';
 
-function createHint(maps, address, object, coorArr, link) {
-    let myPlacemark = new maps.Placemark(
-      [coorArr[0], coorArr[1]],
-      {
-        address,
-        object,
-        link,
-        balloonContentHeader: object,
-        balloonContentBody: address,
-        balloonContentFooter: link
-          ? `<a href=${link} class="yandexMap__hint">` + 'Перейти' + '</a>'
-          : ''
-      },
-      {
-        // hintLayout: HintLayout,
-        iconColor: '#000'
-      }
-    );
-  
-    return myPlacemark;
-  }
+// MyIconLayout = ymaps.templateLayoutFactory.createClass([
+//     '<svg width="46" height="46" style="position: absolute; top: -23px; left: -23px;">',
+//         '<use href="#sym01"/>',
+//     '</svg>'
+// ].join('')),
+
+const addresses = [
+    {
+        title: 'ТРЦ РИО КОЛОМНА',
+        address: 'Московская область, ул. Октябрьской революции, д.362',
+        coors: [55.084059, 38.800483],
+        lines: ["Коломна"],
+        stations: ["Коломна"],
+    },
+    {
+        title: 'Бронницкий ювелир» в ТРК «Облака',
+        address: 'Москва, Ореховый бульвар, 22а, 1 этаж, остров',
+        coors: [55.612045, 37.732718],
+        lines: ['Братиславская'],
+        stations: ["Братиславская"],
+    }
+]
+
+
 
 
 $(() => {
     
     // $('#root').prepend(header);
-    $('#root').append(modal);
-    $('#root').append(card);
-    $('#root').append(about);
-    $('#root').append(offer);
-    $('#root').append(include);
-    $('#root').append(similar);
-    $('#root').append(recent);
+    // $('#root').append(modal);
+    // $('#root').append(card);
+    // $('#root').append(about);
+    // $('#root').append(offer);
+    // $('#root').append(include);
+    // $('#root').append(similar);
+    // $('#root').append(recent);
     //   $('#root').append(footer);
 
     $('.selectboxss').selectbox();
 
+    const mapsId = ['yandexMap', 'yandexMap-mobile']
+    function returnMaps() {
+        mapsId.map(id => {
+            ymaps
+            .load('https://api-maps.yandex.ru/2.1/?apikey=2b543523-54f1-4a9f-af8a-8333795718cd&lang=ru_RU')
+            .then((maps) => {
+                function createHint(maps, address, object, coorArr, link) {
+                    let myPlacemark = new maps.Placemark(
+                      [coorArr[0], coorArr[1]],
+                      {
+                        address,
+                        object,
+                        link,
+                        balloonContentHeader: object,
+                        balloonContentBody: address,
+                        balloonContentFooter: link
+                          ? `<a href=${link} class="yandexMap__hint">` + 'Перейти' + '</a>'
+                          : ''
+                      },
+                      {
+                        iconImageHref: '../img/svg/mark.svg',
+                        iconColor: '#000'
+                      }
+                    );
+                  
+                    return myPlacemark;
+                }
 
-    ymaps
-    .load('https://api-maps.yandex.ru/2.1/?apikey=2b543523-54f1-4a9f-af8a-8333795718cd&lang=ru_RU')
-    .then((maps) => {
-        const Map = new maps.Map("yandexMap", {
-            center: [55.76, 37.64],
-            zoom: 10,
-            controls: ["zoomControl"],
-        });
-        Map.behaviors.disable("scrollZoom");
-        Map.geoObjects.add(
-            createHint(
-                maps,
-              'city',
-              'description',
-              [55.76, 37.64]
-            )
-          );
-    })
-    .catch((error) => console.log('Failed to load Yandex Maps', error));
+                const Map = new maps.Map(id, {
+                    center: [55.76, 37.64],
+                    zoom: 10,
+                    controls: ["zoomControl"],
+                });
+                Map.behaviors.disable("scrollZoom");
+                addresses.map(store => Map.geoObjects.add(
+                    createHint(
+                        maps,
+                        store.address,
+                        store.title,
+                        store.coors
+                    )
+                ))
 
-
-    ymaps
-    .load('https://api-maps.yandex.ru/2.1/?apikey=2b543523-54f1-4a9f-af8a-8333795718cd&lang=ru_RU')
-    .then((maps) => {
-        const Map = new maps.Map("yandexMap-mobile", {
-            center: [55.76, 37.64],
-            zoom: 10,
-            controls: ["zoomControl"],
-        });
-        Map.behaviors.disable("scrollZoom");
-        Map.geoObjects.add(
-            createHint(
-                maps,
-              'city',
-              'description',
-              [55.76, 37.64]
-            )
-          );
-    })
-    .catch((error) => console.log('Failed to load Yandex Maps', error));
-
+                $('.selectoption__line').on('click', function() {
+                    let newAddresses = addresses.filter(store => store.lines.includes($(this).text()))
+                    Map.geoObjects.removeAll()
+                    newAddresses.map(store => Map.geoObjects.add(
+                        createHint(
+                            maps,
+                            store.address,
+                            store.title,
+                            store.coors
+                        )
+                    ))
+                })
+                $('.selectoption__station').on('click', function() {
+                    let newAddresses = addresses.filter(store => store.stations.includes($(this).text()))
+                    Map.geoObjects.removeAll()
+                    newAddresses.map(store => Map.geoObjects.add(
+                        createHint(
+                            maps,
+                            store.address,
+                            store.title,
+                            store.coors
+                        )
+                    ))
+                }) 
+            
+            })
+            .catch((error) => console.log('Failed to load Yandex Maps', error));
+        })    
+    }
+    returnMaps()
 
 
     // *************************Slick
@@ -157,9 +191,6 @@ $(() => {
         })
     })
 
-    
-
-
     let sliderCount = document.querySelector('.gallery__big-counter--count');
     let sliderNumber = document.querySelector('.gallery__big-counter--quantity');
 
@@ -173,50 +204,6 @@ $(() => {
         sliderNumber.innerHTML = ++currentSlide;
 
     });
-
-
-
-    //   $(big).slick({
-    //     slidesToShow: 1,
-    //     slidesToScroll: 0,
-    //     asNavFor:preview,
-    //     dots: true,
-    //     centerMode: true,
-    //     focusOnSelect: true
-    //   });
-
-
-    // $('.owl-carousel-rec').owlCarousel({
-
-    //     items: 4,
-    //     responsive: {
-    //         0: {
-    //             items: 1
-    //         },
-    //         766: {
-    //             items: 2
-    //         },
-    //         1180: {
-    //             items: 3
-    //         },
-    //         1200: {
-    //             items: 4
-    //         }
-    //     }
-    // });
-
-    // $('.owl-carousel-gallery').owlCarousel({
-
-    //     items: 3,
-    //     loop: false,
-    //     mouseDrag: false,
-    //     touchDrag: false,
-    //     pullDrag: false,
-    //     rewind: true,
-    //     autoplay: true,
-    //     margin: 0,
-    //     nav: true
-    // });
 
 
     // *****************************OWL
@@ -266,15 +253,11 @@ $(() => {
 
 
     owl.on('initialized.owl.carousel', function (e) {
-        console.log('1');
-        
         similarGalleryPageSize.innerHTML = --e.page.count;
     });
 
     owl.on('changed.owl.carousel', function (e) {
-        // let curPos = e.property.value - owl.prevCloned + 1;
-        // curPos = curPos > 0 ? curPos : e.page.count;
-    
+      
         similarGalleryPageCounter.innerHTML = ++e.page.index;
         similarGalleryPageSize.innerHTML = e.page.count;
     });
@@ -285,8 +268,8 @@ $(() => {
 
     let noSizeButton = document.querySelector('.product-detail__no-size');
 
-    let modelCard = document.querySelector('.modal-card');
-    let modalCartCloseBtn = document.querySelector('.modal-card__close-btn');
+    let modalCard = document.querySelector('.modal-card');
+    let modalCardCloseBtn = document.querySelector('.modal-card__close-btn');
     let modalCardMobile = document.querySelector('.product-detail__no-size');
 
 
@@ -308,10 +291,6 @@ $(() => {
         inputMap.checked = !inputMap.checked
     })
 
-    // mapBtn.addEventListener('click', (e) => {
-        
-    //     mapLocation.checked = !mapLocation.checked
-    // })
 
     let modalSalon = document.querySelector('.salon__modal');
     let modalSalonWindow = document.querySelector('.salon');
@@ -338,39 +317,39 @@ $(() => {
     let modalSizesBtn = document.querySelector('.product-detail__sizes-list');
     let modalSizesWindow = document.querySelector('.product-detail__modal-window');
 
+    // Функция изменения z-indexа wrappera модалки
+    
+    
 
-
-    // modalSizesBtn.addEventListener('click', e => {
-    //     modalSizesWindow.classList.add('product-detail__modal-window--open')
-    // })
-
-
-    // modalSizesBtn.addEventListener('click', e => {
-    //     modalSizesWindow.classList.remove('product-detail__modal-window--open')
-    // })
-
-
-
+    function setWrapperToTop(toTop) {
+        const wrapper = document.querySelector('.wrapper');
+        if(wrapper) {
+            toTop ? wrapper.classList.add('bringModalToTop') 
+            : wrapper.classList.remove('bringModalToTop')
+        }
+    }
 
     modalBtnDelivery.addEventListener('click', e => {
         e.preventDefault();
+        setWrapperToTop(true)
         modalWindowDelivery.classList.add('modal--show')
     })
 
     modalBtnPayment.addEventListener('click', e => {
         e.preventDefault();
+        setWrapperToTop(true)
         modalWindowPayment.classList.add('modal--show')
     })
 
     modalBtnDeliveryClose.addEventListener('click', e => {
         e.preventDefault();
+        setWrapperToTop(false)
         modalWindowDelivery.classList.remove('modal--show')
     })
 
     modalWindowDelivery.addEventListener('click', e => {
-
         e.preventDefault();
-
+        setWrapperToTop(false)
         if (e.target.classList.contains('modal__delivery')) {
             modalWindowDelivery.classList.remove('modal--show');
         }
@@ -381,8 +360,8 @@ $(() => {
     modalWindowPayment.addEventListener('click', e => {
 
         e.preventDefault();
-        console.log(e.target);
         if (e.target.classList.contains('modal__payment')) {
+            setWrapperToTop(false)
             modalWindowPayment.classList.remove('modal--show');
         }
     })
@@ -390,16 +369,16 @@ $(() => {
     modalWindowDelivery.addEventListener('click', e => {
 
         e.preventDefault();
-
         if (e.target.classList.contains('modal__delivery')) {
+            setWrapperToTop(false)
             modalWindowDelivery.classList.remove('modal--show');
         }
     })
 
 
-
     modalBtnPaymentClose.addEventListener('click', e => {
         e.preventDefault();
+        setWrapperToTop(false)
         modalWindowPayment.classList.remove('modal--show')
     })
 
@@ -407,12 +386,13 @@ $(() => {
 
     modalBtnCallbackClose.addEventListener('click', e => {
         e.preventDefault();
+        setWrapperToTop(false)
         modalWindowCallback.classList.remove('modal--show')
     })
 
     modalWindowCallback.addEventListener('click', e => {
-        console.log(e.target)
         if (e.target.classList.contains('modal__callback')) {
+            setWrapperToTop(false)
             modalWindowCallback.classList.remove('modal--show');
         }
       
@@ -420,15 +400,15 @@ $(() => {
 
     modalBtnCallback.addEventListener('click', e => {
         e.preventDefault();
+        setWrapperToTop(true)
         modalWindowCallback.classList.add('modal--show')
     })
-
-
  
 
     takeBtn.addEventListener('click', (e) => {
         e.preventDefault();
         modalSalon.classList.add('salon__modal--show');
+        setWrapperToTop(true)
 
     })
 
@@ -436,6 +416,7 @@ $(() => {
    
         if (e.target.classList.contains('salon__modal')) {
             modalSalon.classList.remove('salon__modal--show');
+            setWrapperToTop(false)
         }
     })
 
@@ -447,32 +428,32 @@ $(() => {
     })
 
 
-
-
     noSizeButton.addEventListener('click', (e) => {
         e.preventDefault();
-
-        modelCard.classList.add('modal-card--open');
+        setWrapperToTop(true)
+        modalCard.classList.add('modal-card--open');
     })
 
 
     modalCardMobile.addEventListener('click', (e) => {
         e.preventDefault();
-        modelCard.classList.remove('modal-card--close');
-        modelCard.classList.add('modal-card--open');
+        modalCard.classList.remove('modal-card--close');
+        modalCard.classList.add('modal-card--open');
     })
 
 
-    modalCartCloseBtn.addEventListener('click', (e) => {
+    modalCardCloseBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        modelCard.classList.remove('modal-card--open');
+        setWrapperToTop(false)
+        modalCard.classList.remove('modal-card--open');
     })
 
-    modelCard.addEventListener('click', (e) => {
+    modalCard.addEventListener('click', (e) => {
         e.preventDefault();
 
         if (e.target.classList.contains('modal-card')) {
-            modelCard.classList.remove('modal-card--open');
+            setWrapperToTop(false)
+            modalCard.classList.remove('modal-card--open');
         }
     })
 
@@ -504,16 +485,23 @@ $(() => {
         radioInfo.checked = !radioInfo.checked
     })
 
-
-
-
     additionalButton.addEventListener('click', () => {
 
         additionalMobileRow.classList.toggle('about__additional-open');
         additionalColumn.classList.toggle('open');
     })
 
-
+    // $('.about__description-column--hidden')
+    $('.about__more').on('click', function() {
+        if($('.about__description-column--hidden').hasClass('about__description-column--active')) {
+            $('.about__description-column--hidden').toggleClass('about__description-column--active')
+            $(this).text('Посмотреть все')
+        }
+        else {
+            $('.about__description-column--hidden').toggleClass('about__description-column--active')
+            $(this).text('Скрыть')
+        }
+    })
 });
 
 
