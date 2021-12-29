@@ -2,13 +2,13 @@ import * as $ from 'jquery';
 import './../vendors/ez-zoom.js';
 import '../scss/index.scss';
 // import header from '../components/header.html';
-// import card from '../components/card.html';
-// import about from '../components/about.html';
-// import offer from '../components/offer.html';
-// import include from '../components/include.html';
-// import similar from '../components/similar.html';
-// import recent from '../components/recent.html';
-// import modal from '../components/modal.html';
+import card from '../components/card.html';
+import about from '../components/about.html';
+import offer from '../components/offer.html';
+import include from '../components/include.html';
+import similar from '../components/similar.html';
+import recent from '../components/recent.html';
+import modal from '../components/modal.html';
 // import footer from '../components/footer.html';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel';
@@ -206,50 +206,6 @@ $(() => {
     });
 
 
-
-    //   $(big).slick({
-    //     slidesToShow: 1,
-    //     slidesToScroll: 0,
-    //     asNavFor:preview,
-    //     dots: true,
-    //     centerMode: true,
-    //     focusOnSelect: true
-    //   });
-
-
-    // $('.owl-carousel-rec').owlCarousel({
-
-    //     items: 4,
-    //     responsive: {
-    //         0: {
-    //             items: 1
-    //         },
-    //         766: {
-    //             items: 2
-    //         },
-    //         1180: {
-    //             items: 3
-    //         },
-    //         1200: {
-    //             items: 4
-    //         }
-    //     }
-    // });
-
-    // $('.owl-carousel-gallery').owlCarousel({
-
-    //     items: 3,
-    //     loop: false,
-    //     mouseDrag: false,
-    //     touchDrag: false,
-    //     pullDrag: false,
-    //     rewind: true,
-    //     autoplay: true,
-    //     margin: 0,
-    //     nav: true
-    // });
-
-
     // *****************************OWL
 
     let similarGalleryPageCounter = document.querySelector('.similar__counter--current');
@@ -297,15 +253,11 @@ $(() => {
 
 
     owl.on('initialized.owl.carousel', function (e) {
-        console.log('1');
-        
         similarGalleryPageSize.innerHTML = --e.page.count;
     });
 
     owl.on('changed.owl.carousel', function (e) {
-        // let curPos = e.property.value - owl.prevCloned + 1;
-        // curPos = curPos > 0 ? curPos : e.page.count;
-    
+      
         similarGalleryPageCounter.innerHTML = ++e.page.index;
         similarGalleryPageSize.innerHTML = e.page.count;
     });
@@ -316,8 +268,8 @@ $(() => {
 
     let noSizeButton = document.querySelector('.product-detail__no-size');
 
-    let modelCard = document.querySelector('.modal-card');
-    let modalCartCloseBtn = document.querySelector('.modal-card__close-btn');
+    let modalCard = document.querySelector('.modal-card');
+    let modalCardCloseBtn = document.querySelector('.modal-card__close-btn');
     let modalCardMobile = document.querySelector('.product-detail__no-size');
 
 
@@ -339,10 +291,6 @@ $(() => {
         inputMap.checked = !inputMap.checked
     })
 
-    // mapBtn.addEventListener('click', (e) => {
-        
-    //     mapLocation.checked = !mapLocation.checked
-    // })
 
     let modalSalon = document.querySelector('.salon__modal');
     let modalSalonWindow = document.querySelector('.salon');
@@ -369,39 +317,39 @@ $(() => {
     let modalSizesBtn = document.querySelector('.product-detail__sizes-list');
     let modalSizesWindow = document.querySelector('.product-detail__modal-window');
 
+    // Функция изменения z-indexа wrappera модалки
+    
+    
 
-
-    // modalSizesBtn.addEventListener('click', e => {
-    //     modalSizesWindow.classList.add('product-detail__modal-window--open')
-    // })
-
-
-    // modalSizesBtn.addEventListener('click', e => {
-    //     modalSizesWindow.classList.remove('product-detail__modal-window--open')
-    // })
-
-
-
+    function setWrapperToTop(toTop) {
+        const wrapper = document.querySelector('.wrapper');
+        if(wrapper) {
+            toTop ? wrapper.classList.add('bringModalToTop') 
+            : wrapper.classList.remove('bringModalToTop')
+        }
+    }
 
     modalBtnDelivery.addEventListener('click', e => {
         e.preventDefault();
+        setWrapperToTop(true)
         modalWindowDelivery.classList.add('modal--show')
     })
 
     modalBtnPayment.addEventListener('click', e => {
         e.preventDefault();
+        setWrapperToTop(true)
         modalWindowPayment.classList.add('modal--show')
     })
 
     modalBtnDeliveryClose.addEventListener('click', e => {
         e.preventDefault();
+        setWrapperToTop(false)
         modalWindowDelivery.classList.remove('modal--show')
     })
 
     modalWindowDelivery.addEventListener('click', e => {
-
         e.preventDefault();
-
+        setWrapperToTop(false)
         if (e.target.classList.contains('modal__delivery')) {
             modalWindowDelivery.classList.remove('modal--show');
         }
@@ -412,8 +360,8 @@ $(() => {
     modalWindowPayment.addEventListener('click', e => {
 
         e.preventDefault();
-        console.log(e.target);
         if (e.target.classList.contains('modal__payment')) {
+            setWrapperToTop(false)
             modalWindowPayment.classList.remove('modal--show');
         }
     })
@@ -421,16 +369,16 @@ $(() => {
     modalWindowDelivery.addEventListener('click', e => {
 
         e.preventDefault();
-
         if (e.target.classList.contains('modal__delivery')) {
+            setWrapperToTop(false)
             modalWindowDelivery.classList.remove('modal--show');
         }
     })
 
 
-
     modalBtnPaymentClose.addEventListener('click', e => {
         e.preventDefault();
+        setWrapperToTop(false)
         modalWindowPayment.classList.remove('modal--show')
     })
 
@@ -438,12 +386,13 @@ $(() => {
 
     modalBtnCallbackClose.addEventListener('click', e => {
         e.preventDefault();
+        setWrapperToTop(false)
         modalWindowCallback.classList.remove('modal--show')
     })
 
     modalWindowCallback.addEventListener('click', e => {
-        console.log(e.target)
         if (e.target.classList.contains('modal__callback')) {
+            setWrapperToTop(false)
             modalWindowCallback.classList.remove('modal--show');
         }
       
@@ -451,15 +400,15 @@ $(() => {
 
     modalBtnCallback.addEventListener('click', e => {
         e.preventDefault();
+        setWrapperToTop(true)
         modalWindowCallback.classList.add('modal--show')
     })
-
-
  
 
     takeBtn.addEventListener('click', (e) => {
         e.preventDefault();
         modalSalon.classList.add('salon__modal--show');
+        setWrapperToTop(true)
 
     })
 
@@ -467,6 +416,7 @@ $(() => {
    
         if (e.target.classList.contains('salon__modal')) {
             modalSalon.classList.remove('salon__modal--show');
+            setWrapperToTop(false)
         }
     })
 
@@ -478,32 +428,32 @@ $(() => {
     })
 
 
-
-
     noSizeButton.addEventListener('click', (e) => {
         e.preventDefault();
-
-        modelCard.classList.add('modal-card--open');
+        setWrapperToTop(true)
+        modalCard.classList.add('modal-card--open');
     })
 
 
     modalCardMobile.addEventListener('click', (e) => {
         e.preventDefault();
-        modelCard.classList.remove('modal-card--close');
-        modelCard.classList.add('modal-card--open');
+        modalCard.classList.remove('modal-card--close');
+        modalCard.classList.add('modal-card--open');
     })
 
 
-    modalCartCloseBtn.addEventListener('click', (e) => {
+    modalCardCloseBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        modelCard.classList.remove('modal-card--open');
+        setWrapperToTop(false)
+        modalCard.classList.remove('modal-card--open');
     })
 
-    modelCard.addEventListener('click', (e) => {
+    modalCard.addEventListener('click', (e) => {
         e.preventDefault();
 
         if (e.target.classList.contains('modal-card')) {
-            modelCard.classList.remove('modal-card--open');
+            setWrapperToTop(false)
+            modalCard.classList.remove('modal-card--open');
         }
     })
 

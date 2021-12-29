@@ -47,6 +47,10 @@ img {
 blockquote {
 }
 
+.bringModalToTop {
+    z-index: 998!important;
+}
+
 // html *::-webkit-scrollbar {
 //     height: 3px;
 //     width: 3px;
