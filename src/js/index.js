@@ -215,6 +215,7 @@ $(() => {
 
         items: 4,
         loop: true,
+
         onInitialized: function (e) {
             similarGalleryPageSize.innerHTML = Math.ceil(this.items().length / e.page.size)
 
@@ -229,8 +230,8 @@ $(() => {
                 items: 3,
 
             },
-            963: {
-                items: 4,
+            1200: {
+                items: 3,
 
             },
             1440: {
