@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import * as $ from 'jquery';
 import './../vendors/ez-zoom.js';
 import '../scss/index.scss';
@@ -126,49 +127,68 @@ $(() => {
                     controls: ["zoomControl"],
                 });
                 Map.behaviors.disable("scrollZoom");
-                addresses.map(store => Map.geoObjects.add(
-                    createHint(
-                        maps,
-                        store.address,
-                        store.title,
-                        store.coors,
-                        store.lines,
-                        store.stations
+                addresses.map(store => {
+                    Map.geoObjects.add(
+                        createHint(
+                            maps,
+                            store.address,
+                            store.title,
+                            store.coors,
+                            store.lines,
+                            store.stations
+                        )
                     )
-                ))
+                    // console.log(store)
+                    // $('.salon__list').append(`
+                    //     <li class="salon__item">
+                    //         <p class="salon__title">${store.title}</p>
+                    //         <ul class="salon__address-list">
+                    //             <li class="salon__address-list--item">${store.lines[1]}</li>        
+                    //         </ul>
+                    //         <span class="salon__time">Станция: ${store.stations[1]}</span>
+                    //         <span class="salon__time">${store.address}</span>
+                    //     </li>
+                    // `)
+                })
 
                 let line = 'Любая'
                 let station = 'Любая'
-                
-                $('.selectoption__line').on('click', function() {
-                    line = $(this).text()
+                function createListMark() {
                     let newAddresses = addresses.filter(store => store.lines.includes(line) && store.stations.includes(station))
                     Map.geoObjects.removeAll()
-                    newAddresses.map(store => Map.geoObjects.add(
-                        createHint(
-                            maps,
-                            store.address,
-                            store.title,
-                            store.coors,
-                            store.lines,
-                            store.stations
+                    $('.salon__list').html('')
+                    newAddresses.map(store => {
+                        Map.geoObjects.add(
+                            createHint(
+                                maps,
+                                store.address,
+                                store.title,
+                                store.coors,
+                                store.lines,
+                                store.stations
+                            )
                         )
-                    ))
+
+                        $('.salon__list').append(`
+                            <li class="salon__item">
+                                <p class="salon__title">${store.title}</p>
+                                <ul class="salon__address-list">
+                                    <li class="salon__address-list--item">${store.lines[1]}</li>        
+                                </ul>
+                                <span class="salon__time">Станция: ${store.stations[1]}</span>
+                                <span class="salon__time">${store.address}</span>
+                            </li>
+                        `)
+                    })
+                }
+
+                $('.selectoption__line').on('click', function() {
+                    line = $(this).text()
+                    createListMark()
                 })
                 $('.selectoption__station').on('click', function() {
                     station = $(this).text()
-                    let newAddresses = addresses.filter(store => store.lines.includes(line) && store.stations.includes(station))
-                    Map.geoObjects.removeAll()
-                    newAddresses.map(store => Map.geoObjects.add(
-                        createHint(
-                            maps,
-                            store.address,
-                            store.title,
-                            store.coors,
-                            store.lines,
-                            store.stations
-                        )
-                    ))
+                    createListMark()  
                 }) 
             
             })
