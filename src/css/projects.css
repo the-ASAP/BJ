@@ -117,6 +117,15 @@ img {
   width: 100%;
   height: auto;
 }
+::-webkit-scrollbar {
+  height: 5px;
+  width: 4px;
+  background: rgba(0, 0, 0, 0.3);
+}
+::-webkit-scrollbar-thumb:horizontal {
+  background: #000;
+  border-radius: 10px;
+}
 .bringModalToTop {
   z-index: 998 !important;
 }
@@ -2078,6 +2087,7 @@ button {
   margin: 0 auto;
   margin-top: 120px;
   padding: 0 30px;
+  overflow-x: scroll;
 }
 @media (max-width: 1024px) {
   .recent {
@@ -2169,8 +2179,36 @@ button {
     margin-top: 30px;
   }
 }
+.recent__item {
+  width: 337px;
+  position: relative;
+  margin-right: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 30px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 25%;
+          flex: 0 0 25%;
+  margin: 0 25px 0 0;
+}
 .recent__item:hover {
   cursor: pointer;
+}
+@media (max-width: 1000px) {
+  .recent__item {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 40%;
+            flex: 0 0 40%;
+    margin: 0 25px 0 0;
+  }
 }
 @media (max-width: 768px) {
   .recent__item {
@@ -3112,7 +3150,6 @@ ul.selectboxssmenu > li.selectoption:hover {
 .item-card__icon {
   display: inline-block;
   width: 1em;
-  fill: currentColor;
   -ms-flex-negative: 0;
       flex-shrink: 0;
   height: 1em;
@@ -3374,9 +3411,6 @@ ul.selectboxssmenu > li.selectoption:hover {
   .item-card__item:hover .item-card__price {
     margin-right: 20px;
   }
-  .item-card__item:hover .item-card__item-new {
-    display: block;
-  }
   .item-card__item:hover .item-card__item-sale {
     display: none;
   }
@@ -3516,6 +3550,7 @@ ul.selectboxssmenu > li.selectoption:hover {
   -webkit-box-ordinal-group: 6;
       -ms-flex-order: 5;
           order: 5;
+  border: 1px solid transparent;
 }
 @media (min-width: 576px) {
   .item-card__buy-btn:hover {
@@ -3528,9 +3563,6 @@ ul.selectboxssmenu > li.selectoption:hover {
   .item-card__buy-btn:hover .item-card__price-btn-text {
     display: block;
     color: #bb559d;
-  }
-  .item-card__buy-btn:hover ~ .item-card__item-title {
-    font-weight: 300;
   }
   .item-card__buy-btn:hover ~ .include__item-row .item-card__item-new {
     display: none;

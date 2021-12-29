@@ -47,6 +47,16 @@ img {
 blockquote {
 }
 
+::-webkit-scrollbar{
+    height: 5px;
+    width: 4px;
+    background: rgba(0, 0, 0, 0.3);
+}
+::-webkit-scrollbar-thumb:horizontal{
+    background: #000;
+    border-radius: 10px;
+}
+
 .bringModalToTop {
     z-index: 998!important;
 }

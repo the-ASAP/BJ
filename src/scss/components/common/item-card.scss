@@ -49,7 +49,7 @@
     &__icon {
         display: inline-block;
         width: 1em;
-        fill: currentColor;
+     
         flex-shrink: 0;
         height: 1em;
     }
@@ -277,9 +277,7 @@
                 margin-right: 20px;
             }
 
-            &:hover .item-card__item-new {
-                display: block;
-            }
+       
             &:hover .item-card__item-sale {
                 display: none;
             }
@@ -410,6 +408,7 @@
         height: 35px;
         padding: 12px 50px;
         order: 5;
+        border: 1px solid transparent;
 
         @media (min-width: 576px) {
             &:hover {
@@ -427,9 +426,6 @@
                 color: #bb559d;
             }
 
-            &:hover ~ .item-card__item-title {
-                font-weight: 300;
-            }
 
             &:hover ~ .include__item-row .item-card__item-new {
                 display: none;
