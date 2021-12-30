@@ -113,7 +113,7 @@ $(() => {
                            ""
                       },
                       {
-                        iconImageHref: '../img/svg/mark.svg',
+                        iconImageHref: './../img/mark.png',
                         iconColor: '#000'
                       }
                     );

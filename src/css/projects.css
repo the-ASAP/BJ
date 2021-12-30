@@ -3506,9 +3506,6 @@ ul.selectboxssmenu > li.selectoption:hover {
     height: auto;
     padding-bottom: 20px;
   }
-  .item-card__item:active .item-card__item-title {
-    font-weight: 300;
-  }
   .item-card__item:active .item-card__buy-btn {
     border-color: #bb559d;
   }
@@ -3541,22 +3538,22 @@ ul.selectboxssmenu > li.selectoption:hover {
         -ms-flex-align: center;
             align-items: center;
   }
-  .item-card__item:active .item-card__buy-btn .old-price {
+  .item-card__item:hover .item-card__buy-btn .old-price {
     display: none;
   }
   .item-card__item .item-card__item-sale {
     display: block;
   }
-  .item-card__item:active .item-card__price-btn-text {
+  .item-card__item:hover .item-card__price-btn-text {
     display: none;
   }
-  .item-card__item:active .item-card__price {
+  .item-card__item:hover .item-card__price {
     margin-right: 0;
     font-size: 12px;
     width: 100%;
     color: #000;
   }
-  .item-card__item:active .item-card__item-info {
+  .item-card__item:hover .item-card__item-info {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -3568,20 +3565,20 @@ ul.selectboxssmenu > li.selectoption:hover {
         -ms-flex-align: center;
             align-items: center;
   }
-  .item-card__item:active .item-card__price-btn-text {
+  .item-card__item:hover .item-card__price-btn-text {
     display: block;
     width: 100%;
+    color: #bb559d;
     font-weight: 300;
     font-size: 12px;
     line-height: 12px;
     text-decoration: underline;
     /* identical to box height */
     letter-spacing: 0.035em;
-    text-transform: uppercase;
     margin-top: 10px;
     margin-right: 5px;
   }
-  .item-card__item:active .item-card__buy-btn {
+  .item-card__item:hover .item-card__buy-btn {
     border-color: transparent;
     padding: 0;
     display: -webkit-box;
@@ -3596,7 +3593,7 @@ ul.selectboxssmenu > li.selectoption:hover {
             flex-direction: column;
     margin: 0;
   }
-  .item-card__item:active .item-card__price-wrap {
+  .item-card__item:hover .item-card__price-wrap {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
