@@ -74,97 +74,97 @@ const addresses = [
 ];
 
 $(() => {
-  // $('#root').prepend(header);
-  $('#root').append(modal);
-  $('#root').append(card);
-  $('#root').append(about);
-  $('#root').append(offer);
-  $('#root').append(include);
-  $('#root').append(similar);
-  $('#root').append(recent);
-  //   $('#root').append(footer);
+    
+    // $('#root').prepend(header);
+    $('#root').append(modal);
+    $('#root').append(card);
+    $('#root').append(about);
+    $('#root').append(offer);
+    $('#root').append(include);
+    $('#root').append(similar);
+    $('#root').append(recent);
+    //   $('#root').append(footer);
 
-  $('.selectboxss').selectbox();
+    $('.selectboxss').selectbox();
 
-  const mapsId = ['yandexMap', 'yandexMap-mobile'];
-  function returnMaps() {
-    mapsId.map((id) => {
-      ymaps
-        .load(
-          'https://api-maps.yandex.ru/2.1/?apikey=2b543523-54f1-4a9f-af8a-8333795718cd&lang=ru_RU'
-        )
-        .then((maps) => {
-          function createHint(maps, address, object, coorArr, line, station) {
-            let myPlacemark = new maps.Placemark(
-              [coorArr[0], coorArr[1]],
-              {
-                address,
-                object,
-                balloonContentHeader: object,
-                balloonContentBody: address,
-                balloonContentFooter:
-                  line?.length && station?.length
-                    ? `<p class="yandexMap__hint">` +
-                      `Линия: ${line[1]}` +
-                      '</p>' +
-                      `<p class="yandexMap__hint">` +
-                      `Станция: ${station[1]}` +
-                      '</p>'
-                    : ''
-              },
-              {
-                iconImageHref: '../img/svg/mark.svg',
-                iconColor: '#000'
-              }
-            );
+    const mapsId = ['yandexMap', 'yandexMap-mobile']
+    function returnMaps() {
+        mapsId.map(id => {
+            ymaps
+            .load('https://api-maps.yandex.ru/2.1/?apikey=2b543523-54f1-4a9f-af8a-8333795718cd&lang=ru_RU')
+            .then((maps) => {
+                function createHint(maps, address, object, coorArr, line, station) {
+                    let myPlacemark = new maps.Placemark(
+                      [coorArr[0], coorArr[1]],
+                      {
+                        address,
+                        object,
+                        balloonContentHeader: object,
+                        balloonContentBody: address,
+                        balloonContentFooter: line?.length && station?.length ?
+                          `<p class="yandexMap__hint">` + `Линия: ${line[1]}` + '</p>' + 
+                          `<p class="yandexMap__hint">` + `Станция: ${station[1]}` + '</p>'
+                           : 
+                           ""
+                      },
+                      {
+                        iconImageHref: './../img/mark.png',
+                        iconColor: '#000'
+                      }
+                    );
+                  
+                    return myPlacemark;
+                }
 
-            return myPlacemark;
-          }
+                const Map = new maps.Map(id, {
+                    center: [55.76, 37.64],
+                    zoom: 10,
+                    controls: ["zoomControl"],
+                });
+                Map.behaviors.disable("scrollZoom");
+                addresses.map(store => {
+                    Map.geoObjects.add(
+                        createHint(
+                            maps,
+                            store.address,
+                            store.title,
+                            store.coors,
+                            store.lines,
+                            store.stations
+                        )
+                    )
+                    // console.log(store)
+                    // $('.salon__list').append(`
+                    //     <li class="salon__item">
+                    //         <p class="salon__title">${store.title}</p>
+                    //         <ul class="salon__address-list">
+                    //             <li class="salon__address-list--item">${store.lines[1]}</li>        
+                    //         </ul>
+                    //         <span class="salon__time">Станция: ${store.stations[1]}</span>
+                    //         <span class="salon__time">${store.address}</span>
+                    //     </li>
+                    // `)
+                })
 
-          const Map = new maps.Map(id, {
-            center: [55.76, 37.64],
-            zoom: 10,
-            controls: ['zoomControl']
-          });
-          Map.behaviors.disable('scrollZoom');
-          addresses.map((store) => {
-            Map.geoObjects.add(
-              createHint(maps, store.address, store.title, store.coors, store.lines, store.stations)
-            );
-            // console.log(store)
-            // $('.salon__list').append(`
-            //     <li class="salon__item">
-            //         <p class="salon__title">${store.title}</p>
-            //         <ul class="salon__address-list">
-            //             <li class="salon__address-list--item">${store.lines[1]}</li>
-            //         </ul>
-            //         <span class="salon__time">Станция: ${store.stations[1]}</span>
-            //         <span class="salon__time">${store.address}</span>
-            //     </li>
-            // `)
-          });
+                let line = 'Любая'
+                let station = 'Любая'
+                function createListMark() {
+                    let newAddresses = addresses.filter(store => store.lines.includes(line) && store.stations.includes(station))
+                    Map.geoObjects.removeAll()
+                    $('.salon__list').html('')
+                    newAddresses.map(store => {
+                        Map.geoObjects.add(
+                            createHint(
+                                maps,
+                                store.address,
+                                store.title,
+                                store.coors,
+                                store.lines,
+                                store.stations
+                            )
+                        )
 
-          let line = 'Любая';
-          let station = 'Любая';
-          function createListMark() {
-            let newAddresses = addresses.filter(
-              (store) => store.lines.includes(line) && store.stations.includes(station)
-            );
-            Map.geoObjects.removeAll();
-            $('.salon__list').html('');
-            newAddresses.map((store) => {
-              Map.geoObjects.add(
-                createHint(
-                  maps,
-                  store.address,
-                  store.title,
-                  store.coors,
-                  store.lines,
-                  store.stations
-                )
-              );
-
-              $('.salon__list').append(`
+                        $('.salon__list').append(`
                             <li class="salon__item">
                                 <p class="salon__title">${store.title}</p>
                                 <ul class="salon__address-list">

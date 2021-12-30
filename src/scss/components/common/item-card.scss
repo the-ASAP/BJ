@@ -1,7 +1,10 @@
 .item-card {
     &__price-wrap {
         display: flex;
-        align-items: center;
+        align-items: baseline;
+        @media (max-width: 523px) {
+            margin-top: 20px;
+        }
     }
 
     &__price {
@@ -68,6 +71,7 @@
 
         letter-spacing: 0.035em;
         text-transform: uppercase;
+
         
     }
 
@@ -211,6 +215,7 @@
         order: 4;
         @media (max-width: 523px) {
             display: none;
+            margin-top: 3px;
         }
     }
 
@@ -225,6 +230,10 @@
 
         letter-spacing: 0.035em;
         margin-right: 10px;
+
+        &:last-child {
+            margin-right: 0;
+        }
 
         &:first-child {
             @media (max-width: 768px) {
@@ -259,6 +268,17 @@
         flex-direction: column;
         align-items: center;
 
+        @media (max-width: 1023px) {
+            & .item-card__item-sale {
+                display: none;
+            }
+
+            &:hover .item-card__item-sale {
+                display: block;
+            }
+
+        }
+
         @media (min-width: 576px) {
             &:hover .item-card__buy-btn .old-price {
                 display: none;
@@ -278,9 +298,7 @@
             }
 
        
-            &:hover .item-card__item-sale {
-                display: none;
-            }
+            
         }
 
         @media (max-width: 1023px) and (min-width: 769px) {
@@ -294,8 +312,13 @@
             }
         }
 
+
+
         @media (max-width: 768px) {
             width: 229px;
+            &:active .item-card__item-sale {
+                display: block;
+            }
         }
 
         @media (max-width: 575px) {
@@ -303,9 +326,6 @@
             height: auto;
             padding-bottom: 20px;
 
-            &:active .item-card__item-title {
-                font-weight: 300;
-            }
 
             &:active .item-card__buy-btn {
                 border-color: #bb559d;
@@ -333,21 +353,43 @@
         }
 
         @media (max-width: 523px) {
-            width: 149px;
-            &:active .item-card__price-btn-text {
+            width: 140px;
+            height: 250px;
+
+            & .item-card__buy-btn .old-price {
+               
+                margin-right: 5px;
+                display: flex;
+                align-items: center;
+            }
+
+            &:hover .item-card__buy-btn .old-price {
+               display: none;
+            }
+
+            & .item-card__item-sale {
+                display: block;
+            }
+            &:hover .item-card__price-btn-text {
                 display: none;
             }
-            &:active .item-card__price {
+            &:hover .item-card__price {
                 margin-right: 0;
                 font-size: 12px;
                 width: 100%;
                 color: #000;
             }
 
-            &:active .item-card__price-btn-text {
+            &:hover .item-card__item-info {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            &:hover .item-card__price-btn-text {
                 display: block;
                 width: 100%;
-
+                color: #bb559d;
                 font-weight: 300;
                 font-size: 12px;
                 line-height: 12px;
@@ -355,12 +397,11 @@
                 /* identical to box height */
 
                 letter-spacing: 0.035em;
-                text-transform: uppercase;
-                margin-top: 15px;
+                margin-top: 10px;
                 margin-right: 5px;
             }
 
-            &:active .item-card__buy-btn {
+            &:hover .item-card__buy-btn {
                 border-color: transparent;
                 padding: 0;
                 display: flex;
@@ -369,7 +410,7 @@
                 margin: 0;
             }
 
-            &:active .item-card__price-wrap {
+            &:hover .item-card__price-wrap {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
@@ -451,6 +492,7 @@
 
         @media (max-width: 523px) {
             width: 100%;
+            margin-top: 15px;
         }
     }
 }
