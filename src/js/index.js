@@ -20,6 +20,8 @@ import 'slick-slider/slick/slick-theme.css';
 import 'slick-slider/slick/slick.css';
 import 'slick-slider/slick/slick.min.js';
 
+import mark from '../img/mark.png'
+
 // import footer from '../components/footer.html';
 
 // MyIconLayout = ymaps.templateLayoutFactory.createClass([
@@ -108,7 +110,9 @@ $(() => {
                            ""
                       },
                       {
-                        iconImageHref: './../img/mark.png',
+                        iconLayout: 'default#imageWithContent',
+                        iconImageSize: [32, 48],
+                        iconImageHref: mark,
                         iconColor: '#000'
                       }
                     );
