@@ -1,22 +1,22 @@
-@import "media";
-@import "mixins";
-@import "root";
+@import 'media';
+@import 'mixins';
+@import 'root';
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 //Базовые стили body
 body {
-    @extend %scrollbar;
-    font-family: $mainFont;
-    color: $mainColor;
-    cursor: default;
+  @extend %scrollbar;
+  font-family: $mainFont;
+  color: $mainColor;
+  cursor: default;
 }
 section {
-    position: relative;
+  position: relative;
 }
 //Создание базовых стилей для основных тегов
 h1 {
@@ -32,33 +32,33 @@ p {
 span {
 }
 a {
-    color: $mainColor;
-    display: inline-block;
-    text-decoration: none;
+  color: $mainColor;
+  display: inline-block;
+  text-decoration: none;
 }
 svg {
-    min-height: 1rem;
+  min-height: 1rem;
 }
 img {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 blockquote {
 }
 
-::-webkit-scrollbar{
-    height: 5px;
-    width: 4px;
-    background: rgba(0, 0, 0, 0.3);
+::-webkit-scrollbar {
+  height: 5px;
+  width: 4px;
+  background: rgba(0, 0, 0, 0.3);
 }
-::-webkit-scrollbar-thumb:horizontal{
-    background: #000;
-    border-radius: 10px;
+::-webkit-scrollbar-thumb:horizontal {
+  background: #000;
+  border-radius: 10px;
 }
 
 .bringModalToTop {
-    z-index: 998!important;
+  z-index: 998 !important;
 }
 
 // html *::-webkit-scrollbar {
@@ -77,39 +77,66 @@ blockquote {
 //   }
 // убирает цвет автокомплита у инпута
 input {
-    &:-webkit-autofill,
-    &:-webkit-autofill:hover,
-    &:-webkit-autofill:focus {
-        font-size: 1rem;
-        -webkit-box-shadow: 0 0 0px 1000px transparent inset;
-        transition: background-color 5000s ease-in-out 0s;
-    }
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    font-size: 1rem;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
 }
 
 textarea,
 button,
 input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border: none;
-    background: none;
-    outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  background: none;
+  outline: none;
 
-    &[disabled] {
-        cursor: default;
-        opacity: 0.7;
-    }
+  &[disabled] {
+    cursor: default;
+    opacity: 0.7;
+  }
 }
 button {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+.carousel-item {
+  &:hover {
+    .controls {
+      opacity: 1;
+    }
+  }
+}
+
+.controls {
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.control {
+  &-arrow {
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    position: absolute;
+    top: 50%;
+  }
+  &-next {
+    border-left: 7px solid $mainColor;
+    right: -10px;
+  }
+  &-prev {
+    border-right: 7px solid $mainColor;
+    left: -10px;
+  }
 }
 
 //Стандартный враппер
 
-
-
-
-  /* для Chrome/Edge/Safari */
- 
-
+/* для Chrome/Edge/Safari */
