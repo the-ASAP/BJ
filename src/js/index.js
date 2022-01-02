@@ -22,8 +22,6 @@ import 'slick-slider/slick/slick.min.js';
 
 import mark from '../img/mark.png'
 
-
-
 // import footer from '../components/footer.html';
 
 // MyIconLayout = ymaps.templateLayoutFactory.createClass([
@@ -387,11 +385,12 @@ $(() => {
         }
     }
 
-    modalBtnDelivery.addEventListener('click', e => {
-        e.preventDefault();
-        setWrapperToTop(true)
-        modalWindowDelivery.classList.add('modal--show')
-    })
+  for (let i = 0; i <= 12; i++) {
+    $(`.carousel-${i}`).slick({
+      prevArrow: $(`.control-prev-${i}`),
+      nextArrow: $(`.control-next-${i}`)
+    });
+  }
 
     modalBtnPayment.addEventListener('click', e => {
         e.preventDefault();
