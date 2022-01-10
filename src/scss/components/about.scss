@@ -50,16 +50,21 @@
     }
 
     &--property {
+      
       @media (max-width: 664px) {
         order: 1;
         display: flex;
+
       }
     }
 
     &--description {
+      width: 150px;
+
       @media (max-width: 664px) {
         // margin-top: 45px;
         order: 3;
+        width: fit-content;
       }
     }
 
