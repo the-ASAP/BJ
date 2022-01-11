@@ -570,6 +570,21 @@ $(() => {
             $(this).text('Скрыть')
         }
     })
+
+  
+
+    setTimeout(() => {
+        const firstLeft = $('.about__button--property')[0].getBoundingClientRect().left
+        const secondLeft = $('.about__button--description')[0].getBoundingClientRect().left
+
+        const elem = $('.about__property-column').first()
+        const propertyLeft = $('.about__property-column').first()[0].getBoundingClientRect().left
+        const propertyWidth = $('.about__property-column').first()[0].offsetWidth
+        
+        $(elem).css('margin-right', `${secondLeft - (propertyLeft + propertyWidth)}px`)
+        $('.about__description-column').first().css('width', `${secondLeft - firstLeft}px`)
+    }, 1000)
+
 });
 
 

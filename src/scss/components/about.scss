@@ -183,7 +183,7 @@
 
   &__property-column {
     width: 305px;
-    margin-right: 202px;
+    margin-right: 0;
 
     @media (max-width: 1155px) {
       margin-right: 10%;
@@ -320,8 +320,8 @@
 
   &__description-column {
     width: 48%;
-
     margin-top: 20px;
+    padding-right: 10px;
 
     &:last-child {
       margin-right: 0;
@@ -485,6 +485,7 @@
 
   &__radio--description:checked ~ .about__list .about__description {
     display: flex;
+    justify-content: flex-start;
   }
 
   &__radio--info:checked ~ .about__list .about__info {

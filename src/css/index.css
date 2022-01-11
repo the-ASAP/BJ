@@ -1694,7 +1694,7 @@ button {
 }
 .about__property-column {
   width: 305px;
-  margin-right: 202px;
+  margin-right: 0;
 }
 @media (max-width: 1155px) {
   .about__property-column {
@@ -1837,6 +1837,7 @@ button {
 .about__description-column {
   width: 48%;
   margin-top: 20px;
+  padding-right: 10px;
 }
 .about__description-column:last-child {
   margin-right: 0;
@@ -2015,6 +2016,9 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 .about__radio--info:checked ~ .about__list .about__info {
   display: -webkit-box;
