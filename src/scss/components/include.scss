@@ -27,7 +27,6 @@
   }
 
   &__list {
-    overflow-x: scroll;
     display: flex;
     padding-left: 0;
     margin-top: 60px;
@@ -42,6 +41,13 @@
   }
 
   &__item {
+    margin-right: 0;
+  }
+}
+
+.include__list .item-card__item {
+  @media (max-width: 523px) {
+    width: 50%;
     margin-right: 0;
   }
 }

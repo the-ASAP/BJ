@@ -126,6 +126,10 @@ button {
     border-bottom: 6px solid transparent;
     position: absolute;
     top: 50%;
+
+    @media (max-width: 523px) {
+      top: calc(50% - 25px);
+    }
   }
   &-next {
     border-left: 7px solid $mainColor;
