@@ -709,6 +709,9 @@
 
         @media (max-width: 574px) {
             margin-right: 0;
+            display: flex;
+            position: relative;
+            top: -2px;
         }
     }
 

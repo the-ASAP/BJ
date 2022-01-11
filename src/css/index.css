@@ -187,6 +187,11 @@ button {
   position: absolute;
   top: 50%;
 }
+@media (max-width: 523px) {
+  .control-arrow {
+    top: calc(50% - 25px);
+  }
+}
 .control-next {
   border-left: 7px solid #333333;
   border-left: 7px solid var(--main-color);
@@ -837,11 +842,6 @@ button {
     display: none;
   }
 }
-@media (max-width: 414px) {
-  .product-detail__share {
-    display: none;
-  }
-}
 .product-detail__modal-size-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1144,7 +1144,7 @@ button {
   font-family: "Muller";
   font-style: normal;
   font-weight: 300;
-  font-size: 22px;
+  font-size: 21px;
   line-height: 22px;
   color: #000000;
   margin-top: 30px;
@@ -1563,9 +1563,7 @@ button {
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
+    width: 100%;
   }
 }
 @media (max-width: 664px) {
@@ -1919,7 +1917,6 @@ button {
 }
 .about__info-column {
   width: 240px;
-  margin-right: 263px;
 }
 .about__info-column:last-child {
   width: 180px;
@@ -2075,7 +2072,6 @@ button {
   }
 }
 .include__list {
-  overflow-x: scroll;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2094,6 +2090,12 @@ button {
 }
 .include__item {
   margin-right: 0;
+}
+@media (max-width: 523px) {
+  .include__list .item-card__item {
+    width: 50%;
+    margin-right: 0;
+  }
 }
 .similar {
   max-width: 1440px;
@@ -2277,6 +2279,7 @@ button {
 @media (max-width: 575px) {
   .recent__list {
     margin-top: 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   }
 }
 .recent__item {

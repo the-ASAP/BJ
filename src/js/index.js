@@ -3,13 +3,13 @@ import * as $ from 'jquery';
 import './../vendors/ez-zoom.js';
 import '../scss/index.scss';
 // import header from '../components/header.html';
-import card from '../components/card.html';
-import about from '../components/about.html';
-import offer from '../components/offer.html';
-import include from '../components/include.html';
-import similar from '../components/similar.html';
-import recent from '../components/recent.html';
-import modal from '../components/modal.html';
+// import card from '../components/card.html';
+// import about from '../components/about.html';
+// import offer from '../components/offer.html';
+// import include from '../components/include.html';
+// import similar from '../components/similar.html';
+// import recent from '../components/recent.html';
+// import modal from '../components/modal.html';
 // import footer from '../components/footer.html';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel';
@@ -81,13 +81,13 @@ const addresses = [
 $(() => {
     
     // $('#root').prepend(header);
-    $('#root').append(modal);
-    $('#root').append(card);
-    $('#root').append(about);
-    $('#root').append(offer);
-    $('#root').append(include);
-    $('#root').append(similar);
-    $('#root').append(recent);
+    // $('#root').append(modal);
+    // $('#root').append(card);
+    // $('#root').append(about);
+    // $('#root').append(offer);
+    // $('#root').append(include);
+    // $('#root').append(similar);
+    // $('#root').append(recent);
     //   $('#root').append(footer);
 
     $('.selectboxss').selectbox();

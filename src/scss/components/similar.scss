@@ -92,3 +92,9 @@
 
 
 }
+
+.similar__list .item-card__item {
+    @media (max-width: 523px) {
+        width: 100%;
+    }
+}
