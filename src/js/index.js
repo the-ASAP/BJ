@@ -580,9 +580,12 @@ $(() => {
         const elem = $('.about__property-column').first()
         const propertyLeft = $('.about__property-column').first()[0].getBoundingClientRect().left
         const propertyWidth = $('.about__property-column').first()[0].offsetWidth
+
+        const infoWidth = $('.about__info-column').first()[0].offsetWidth
         
         $(elem).css('margin-right', `${secondLeft - (propertyLeft + propertyWidth)}px`)
         $('.about__description-column').first().css('width', `${secondLeft - firstLeft}px`)
+        $('.about__info-column').first().css('margin-right', `${secondLeft - (propertyLeft + 240)}px`)
     }, 1000)
 
 });
