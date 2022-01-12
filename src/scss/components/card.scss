@@ -254,6 +254,7 @@
         margin-top: 15px;
         color: rgba(0, 0, 0, 0.6);
         border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+        position: relative;
         @media (max-width: 575px) {
             margin-top: 5px;
         }
@@ -498,6 +499,7 @@
             width: 18px;
             height: 18px;
             background-image: url("./../img/svg/ic-watch-live.svg");
+            background-size: cover;
         }
 
         @media (max-width: 545px) {
@@ -971,6 +973,7 @@
 
     &__preview-picture {
         padding: 10px;
+        object-fit: cover;
     }
 
     &__preview-list {
@@ -1197,4 +1200,9 @@
 .slick-next:hover,
 .slick-next:focus {
     background-image: url("./../img/svg/ic-next-slide.svg") !important;
+}
+
+.rubble {
+    position: relative;
+    top: 0.25rem;
 }

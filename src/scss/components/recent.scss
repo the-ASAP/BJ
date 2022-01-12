@@ -77,16 +77,39 @@
         padding-left: 0;
         margin-top: 60px;
         overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
 
-        ::-webkit-scrollbar:vertical {
+        // &::-webkit-scrollbar:horizontal {
+        //     height: 4px;
+        //     width: 4px;
+        //     -webkit-overflow-scrolling: touch;
+        //     background: $mainColor;
+        // }
+        &::-webkit-scrollbar {
             height: 4px;
+            -webkit-overflow-scrolling: touch;
+            background: #fff;
         }
-        ::-webkit-scrollbar:horizontal {
+        &::-webkit-scrollbar:horizontal {
             height: 4px;
+            -webkit-overflow-scrolling: touch;
+            background: #fff;
         }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $mainColor;
+            -webkit-border-radius:5px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: #fff;
+            border-radius: 3px;
+            width: 4px;
+        }
+
 
         @media (max-width: 1000px) {
-            overflow: auto;
+            overflow-x: scroll;
         }
 
         @media (max-width: 575px) {
@@ -144,7 +167,3 @@
         margin-right: 0;
     }
 }
-
-
- 
-
