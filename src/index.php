@@ -1,19 +1,26 @@
-<!DOCTYPE html>
-<html>
+<?
+require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
+$APPLICATION->SetTitle("Новый каталог");
+$asset->addCss('/new-card2/css/index.css');
+$asset->addJs('/new-card2/js/index.js');
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no" />
-    <title>Карточка товара</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    </link>
+$asset->addCss('/local/templates/new_header_v2/css/ui.css');
+
+$asset->addCss('/new-card2/libs/swiper/swiper-bundle.min.css');
+$asset->addCss('/new-card2/libs/rangeSlider/ion.rangeSlider.min.css');
+$asset->addCss('/new-card2/css/style.css');
+
+$asset->addJs('/new-card2/libs/jquery-3.6.0.min.js');
+
+$asset->addJs('/local/lib/frontend/cart.js');
+
+$asset->addJs('/new-card2/libs/swiper/swiper-bundle.min.js');
+$asset->addJs('/new-card2/libs/sticky.min.js');
+$asset->addJs('/new-card2/libs/rangeSlider/ion.rangeSlider.min.js');
+$asset->addJs('/new-card2/js/main.js');
+?>
 
 <body id="root">
-    <!-- main-wrapper start -->
 
 <!-- section "card" start -->
 <section class="card-item">
@@ -49,39 +56,39 @@
         <div class="gallery__wrapper">
           <div class="gallery__preview-list">
             <div class="gallery__preview-slide">
-              <img class="gallery__preview-picture" src="img/slide1.jpg" alt="Slide1" />
+              <img class="gallery__preview-picture" src="new-card2/img/slide1.jpg" alt="Slide1" />
             </div>
   
             <div class="gallery__preview-slide">
-              <img class="gallery__preview-picture" src="img/slide2.jpg" alt="Slide2" />
+              <img class="gallery__preview-picture" src="new-card2/img/slide2.jpg" alt="Slide2" />
             </div>
   
             <div class="gallery__preview-slide">
-              <img class="gallery__preview-picture" src="img/slide3.jpg" alt="Slide3" />
+              <img class="gallery__preview-picture" src="new-card2/img/slide3.jpg" alt="Slide3" />
             </div>
             <div class="gallery__preview-slide">
-              <img class="gallery__preview-picture" src="img/slide4.jpg" alt="Slide3" />
+              <img class="gallery__preview-picture" src="new-card2/img/slide4.jpg" alt="Slide3" />
             </div>
             <div class="gallery__preview-slide">
-              <img class="gallery__preview-picture" src="img/slide5.jpg" alt="Slide2" />
+              <img class="gallery__preview-picture" src="new-card2/img/slide5.jpg" alt="Slide2" />
             </div>
           </div>
           <div class="gallery__big-list-wrapper">
             <div class="gallery__big-list">
               <div class="gallery__big-slide">
-                <img src="img/slide1.jpg" alt="Photo" />
+                <img src="new-card2/img/slide1.jpg" alt="Photo" />
               </div>
               <div class="gallery__big-slide">
-                <img src="img/slide2.jpg" alt="Photo" />
+                <img src="new-card2/img/slide2.jpg" alt="Photo" />
               </div>
               <div class="gallery__big-slide">
-                <img src="img/slide3.jpg" alt="Photo" />
+                <img src="new-card2/img/slide3.jpg" alt="Photo" />
               </div>
               <div class="gallery__big-slide">
-                <img src="img/slide4.jpg" alt="Photo" />
+                <img src="new-card2/img/slide4.jpg" alt="Photo" />
               </div>
               <div class="gallery__big-slide">
-                <img src="img/slide5.jpg" alt="Photo" />
+                <img src="new-card2/img/slide5.jpg" alt="Photo" />
               </div>
             </div>
             <div class="gallery__big-counter">
@@ -103,15 +110,13 @@
         <div class="product-detail__price-wrapper">
           <span class="product-detail__price">363 890</span>
           <svg class="product-detail__icon-rub">
-            <use xlink:href="./img/svg/sprite.svg#rub"></use>
+            <use xlink:href="new-card2/img/svg/sprite.svg#rub"></use>
           </svg>
         </div>
   
-        <p class="product-detail__installment">Рассрочка от 15 162<svg width="0.625rem" height="0.625rem" viewBox="0 0 20 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4.375 0.875V14H0.625V15.875H4.375V17.75H0.625V19.625H4.375V25.25H6.25V19.625H11.875V17.75H6.25V15.875H11.875C16.0059 15.875 19.375 12.5059 19.375 8.375C19.375 4.24414 16.0059 0.875 11.875 0.875H4.375ZM6.25 2.75H11.875C14.9951 2.75 17.5 5.25488 17.5 8.375C17.5 11.4951 14.9951 14 11.875 14H6.25V2.75Z" fill="black"/>
+        <p class="product-detail__installment">Рассрочка от 15 162<svg class="smallRubble" width="10" height="0.5rem" viewBox="0 0 20 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.375 0.875V14H0.625V15.875H4.375V17.75H0.625V19.625H4.375V25.25H6.25V19.625H11.875V17.75H6.25V15.875H11.875C16.0059 15.875 19.375 12.5059 19.375 8.375C19.375 4.24414 16.0059 0.875 11.875 0.875H4.375ZM6.25 2.75H11.875C14.9951 2.75 17.5 5.25488 17.5 8.375C17.5 11.4951 14.9951 14 11.875 14H6.25V2.75Z" fill="rgba(0,0,0,0.65)"/>
             </svg>
-            
-          </svg>
            в месяц</p>
   
         <p class="product-detail__size-title">Выберите размер</p>
@@ -121,7 +126,7 @@
                       </button> -->
           <div class="selectboxss product-detail__modal-option">
             <div class="selectboxssvalue">
-              <span>Ваш размер</span><img src="./img/arrow.png" class="arrowselect" />
+              <span>Ваш размер</span><img src="new-card2/img/arrow.png" class="arrowselect" />
             </div>
             <ul class="selectboxssmenu">
               <li class="selectoption"><span class="flag-ru"></span> 15</li>
@@ -142,7 +147,7 @@
                 <div class="custom-option">
                   <div class="selectboxss product-detail__modal-option">
                     <div class="selectboxssvalue">
-                      <span>Ваш размер</span><img src="./img/arrow.png" class="arrowselect" />
+                      <span>Ваш размер</span><img src="new-card2/img/arrow.png" class="arrowselect" />
                     </div>
                     <ul class="selectboxssmenu">
                       <li class="selectoption"><span class="flag-ru"></span> 15</li>
@@ -211,12 +216,12 @@
           <button class="modal-card__close-btn"></button>
   
           <h3 class="modal-card__caption">Выберите желаемый размер</h3>
-          <img src="./img/item.jpg" alt="" class="modal-card__image" />
+          <img src="new-card2/img/item.jpg" alt="" class="modal-card__image" />
           <span class="modal-card__name">Кольцо из белого золота с дорожкой из бриллиантов</span>
   
           <div class="selectboxss product-detail__modal-card-option">
             <div class="selectboxssvalue">
-              <span>Необходимый размер</span><img src="./img/arrow.png" class="arrowselect" />
+              <span>Необходимый размер</span><img src="new-card2/img/arrow.png" class="arrowselect" />
             </div>
             <ul class="selectboxssmenu">
               <li class="selectoption"><span class="flag-ru"></span> 15</li>
@@ -471,17 +476,17 @@
         <div class="include__item-image-wrapper item-card__item-image-wrapper carousel-3">
           <img
             class="include__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
           <img
             class="include__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
           <img
             class="include__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
         </div>
@@ -496,13 +501,13 @@
             <div class="include__price old-price item-card__price">
               <span class="price">165 290</span>
               <svg class="include__icon icon-rub item-card__icon">
-                <use xlink:href="./img/svg/sprite.svg#rub"></use>
+                <use xlink:href="new-card2/img/svg/sprite.svg#rub"></use>
               </svg>
             </div>
             <div class="include__price item-card__price">
               <span class="price">165 290</span>
               <svg class="include__icon item-card__icon icon-rub">
-                <use xlink:href="./img/svg/sprite.svg#rub"></use>
+                <use xlink:href="new-card2/img/svg/sprite.svg#rub"></use>
               </svg>
             </div>
           </div>
@@ -541,17 +546,17 @@
         <div class="include__item-image-wrapper item-card__item-image-wrapper carousel-4">
           <img
             class="include__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
           <img
             class="include__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
           <img
             class="include__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
         </div>
@@ -566,13 +571,13 @@
             <div class="include__price old-price item-card__price">
               <span class="price">165 290</span>
               <svg class="include__icon icon-rub item-card__icon">
-                <use xlink:href="./img/svg/sprite.svg#rub"></use>
+                <use xlink:href="new-card2/img/svg/sprite.svg#rub"></use>
               </svg>
             </div>
             <div class="include__price item-card__price">
               <span class="price">165 290</span>
               <svg class="include__icon item-card__icon icon-rub">
-                <use xlink:href="./img/svg/sprite.svg#rub"></use>
+                <use xlink:href="new-card2/img/svg/sprite.svg#rub"></use>
               </svg>
             </div>
           </div>
@@ -611,17 +616,17 @@
         <div class="include__item-image-wrapper item-card__item-image-wrapper carousel-5">
           <img
             class="include__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
           <img
             class="include__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
           <img
             class="include__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
         </div>
@@ -636,13 +641,13 @@
             <div class="include__price old-price item-card__price">
               <span class="price">165 290</span>
               <svg class="include__icon icon-rub item-card__icon">
-                <use xlink:href="./img/svg/sprite.svg#rub"></use>
+                <use xlink:href="new-card2/img/svg/sprite.svg#rub"></use>
               </svg>
             </div>
             <div class="include__price item-card__price">
               <span class="price">165 290</span>
               <svg class="include__icon item-card__icon icon-rub">
-                <use xlink:href="./img/svg/sprite.svg#rub"></use>
+                <use xlink:href="new-card2/img/svg/sprite.svg#rub"></use>
               </svg>
             </div>
           </div>
@@ -688,22 +693,22 @@
         >
           <img
             class="similar__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
           <img
             class="similar__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
           <img
             class="similar__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
           <img
             class="similar__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
         </div>
@@ -718,13 +723,13 @@
             <div class="similar__price old-price item-card__price">
               <span class="price">165 290</span>
               <svg class="similar__icon icon-rub item-card__icon">
-                <use xlink:href="./img/svg/sprite.svg#rub"></use>
+                <use xlink:href="new-card2/img/svg/sprite.svg#rub"></use>
               </svg>
             </div>
             <div class="similar__price item-card__price">
               <span class="price">165 290</span>
               <svg class="similar__icon item-card__icon icon-rub">
-                <use xlink:href="./img/svg/sprite.svg#rub"></use>
+                <use xlink:href="new-card2/img/svg/sprite.svg#rub"></use>
               </svg>
             </div>
           </div>
@@ -765,22 +770,22 @@
         >
           <img
             class="similar__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
           <img
             class="similar__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
           <img
             class="similar__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
           <img
             class="similar__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
         </div>
@@ -795,13 +800,13 @@
             <div class="similar__price old-price item-card__price">
               <span class="price">165 290</span>
               <svg class="similar__icon icon-rub item-card__icon">
-                <use xlink:href="./img/svg/sprite.svg#rub"></use>
+                <use xlink:href="new-card2/img/svg/sprite.svg#rub"></use>
               </svg>
             </div>
             <div class="similar__price item-card__price">
               <span class="price">165 290</span>
               <svg class="similar__icon item-card__icon icon-rub">
-                <use xlink:href="./img/svg/sprite.svg#rub"></use>
+                <use xlink:href="new-card2/img/svg/sprite.svg#rub"></use>
               </svg>
             </div>
           </div>
@@ -842,22 +847,22 @@
         >
           <img
             class="similar__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
           <img
             class="similar__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
           <img
             class="similar__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
           <img
             class="similar__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
         </div>
@@ -872,13 +877,13 @@
             <div class="similar__price old-price item-card__price">
               <span class="price">165 290</span>
               <svg class="similar__icon icon-rub item-card__icon">
-                <use xlink:href="./img/svg/sprite.svg#rub"></use>
+                <use xlink:href="new-card2/img/svg/sprite.svg#rub"></use>
               </svg>
             </div>
             <div class="similar__price item-card__price">
               <span class="price">165 290</span>
               <svg class="similar__icon item-card__icon icon-rub">
-                <use xlink:href="./img/svg/sprite.svg#rub"></use>
+                <use xlink:href="new-card2/img/svg/sprite.svg#rub"></use>
               </svg>
             </div>
           </div>
@@ -919,22 +924,22 @@
         >
           <img
             class="similar__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
           <img
             class="similar__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
           <img
             class="similar__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
           <img
             class="similar__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
         </div>
@@ -949,13 +954,13 @@
             <div class="similar__price old-price item-card__price">
               <span class="price">165 290</span>
               <svg class="similar__icon icon-rub item-card__icon">
-                <use xlink:href="./img/svg/sprite.svg#rub"></use>
+                <use xlink:href="new-card2/img/svg/sprite.svg#rub"></use>
               </svg>
             </div>
             <div class="similar__price item-card__price">
               <span class="price">165 290</span>
               <svg class="similar__icon item-card__icon icon-rub">
-                <use xlink:href="./img/svg/sprite.svg#rub"></use>
+                <use xlink:href="new-card2/img/svg/sprite.svg#rub"></use>
               </svg>
             </div>
           </div>
@@ -996,22 +1001,22 @@
         >
           <img
             class="similar__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
           <img
             class="similar__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
           <img
             class="similar__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
           <img
             class="similar__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
         </div>
@@ -1026,13 +1031,13 @@
             <div class="similar__price old-price item-card__price">
               <span class="price">165 290</span>
               <svg class="similar__icon icon-rub item-card__icon">
-                <use xlink:href="./img/svg/sprite.svg#rub"></use>
+                <use xlink:href="new-card2/img/svg/sprite.svg#rub"></use>
               </svg>
             </div>
             <div class="similar__price item-card__price">
               <span class="price">165 290</span>
               <svg class="similar__icon item-card__icon icon-rub">
-                <use xlink:href="./img/svg/sprite.svg#rub"></use>
+                <use xlink:href="new-card2/img/svg/sprite.svg#rub"></use>
               </svg>
             </div>
           </div>
@@ -1086,17 +1091,17 @@
         <div class="recent__item-image-wrapper item-card__item-image-wrapper carousel-6">
           <img
             class="recent__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
           <img
             class="recent__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
           <img
             class="recent__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
         </div>
@@ -1111,13 +1116,13 @@
             <div class="recent__price old-price item-card__price">
               <span class="price">165 290</span>
               <svg class="recent__icon icon-rub item-card__icon">
-                <use xlink:href="./img/svg/sprite.svg#rub"></use>
+                <use xlink:href="new-card2/img/svg/sprite.svg#rub"></use>
               </svg>
             </div>
             <div class="recent__price item-card__price">
               <span class="price">165 290</span>
               <svg class="recent__icon item-card__icon icon-rub">
-                <use xlink:href="./img/svg/sprite.svg#rub"></use>
+                <use xlink:href="new-card2/img/svg/sprite.svg#rub"></use>
               </svg>
             </div>
           </div>
@@ -1156,17 +1161,17 @@
         <div class="recent__item-image-wrapper item-card__item-image-wrapper carousel-7">
           <img
             class="recent__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
           <img
             class="recent__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
           <img
             class="recent__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
         </div>
@@ -1181,13 +1186,13 @@
             <div class="recent__price old-price item-card__price">
               <span class="price">165 290</span>
               <svg class="recent__icon icon-rub item-card__icon">
-                <use xlink:href="./img/svg/sprite.svg#rub"></use>
+                <use xlink:href="new-card2/img/svg/sprite.svg#rub"></use>
               </svg>
             </div>
             <div class="recent__price item-card__price">
               <span class="price">165 290</span>
               <svg class="recent__icon item-card__icon icon-rub">
-                <use xlink:href="./img/svg/sprite.svg#rub"></use>
+                <use xlink:href="new-card2/img/svg/sprite.svg#rub"></use>
               </svg>
             </div>
           </div>
@@ -1226,17 +1231,17 @@
         <div class="recent__item-image-wrapper item-card__item-image-wrapper carousel-8">
           <img
             class="recent__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
           <img
             class="recent__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
           <img
             class="recent__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
         </div>
@@ -1251,13 +1256,13 @@
             <div class="recent__price old-price item-card__price">
               <span class="price">165 290</span>
               <svg class="recent__icon icon-rub item-card__icon">
-                <use xlink:href="./img/svg/sprite.svg#rub"></use>
+                <use xlink:href="new-card2/img/svg/sprite.svg#rub"></use>
               </svg>
             </div>
             <div class="recent__price item-card__price">
               <span class="price">165 290</span>
               <svg class="recent__icon item-card__icon icon-rub">
-                <use xlink:href="./img/svg/sprite.svg#rub"></use>
+                <use xlink:href="new-card2/img/svg/sprite.svg#rub"></use>
               </svg>
             </div>
           </div>
@@ -1296,17 +1301,17 @@
         <div class="recent__item-image-wrapper item-card__item-image-wrapper carousel-9">
           <img
             class="recent__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
           <img
             class="recent__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
           <img
             class="recent__item-picture item-card__item-picture"
-            src="./img/item.jpg"
+            src="new-card2/img/item.jpg"
             alt="Фото"
           />
         </div>
@@ -1321,13 +1326,13 @@
             <div class="recent__price old-price item-card__price">
               <span class="price">165 290</span>
               <svg class="recent__icon icon-rub item-card__icon">
-                <use xlink:href="./img/svg/sprite.svg#rub"></use>
+                <use xlink:href="new-card2/img/svg/sprite.svg#rub"></use>
               </svg>
             </div>
             <div class="recent__price item-card__price">
               <span class="price">165 290</span>
               <svg class="recent__icon item-card__icon icon-rub">
-                <use xlink:href="./img/svg/sprite.svg#rub"></use>
+                <use xlink:href="new-card2/img/svg/sprite.svg#rub"></use>
               </svg>
             </div>
           </div>
@@ -1439,7 +1444,7 @@
                 </span>
     
                 <div class="selectboxss salon__metro__option">
-                    <div class="selectboxssvalue"><span>Выбрать</span><img src="img/arrow.png" class="arrowselect" />
+                    <div class="selectboxssvalue"><span>Выбрать</span><img src="new-card2/img/arrow.png" class="arrowselect" />
                     </div>
                     <ul class="selectboxssmenu">
                         <li class="selectoption selectoption__line"><span class="flag-ru"></span>Любая</li>
@@ -1454,7 +1459,7 @@
                 </span>
     
                 <div class="selectboxss salon__metro__option">
-                    <div class="selectboxssvalue"><span>Выбрать</span><img src="img/arrow.png" class="arrowselect" />
+                    <div class="selectboxssvalue"><span>Выбрать</span><img src="new-card2/img/arrow.png" class="arrowselect" />
                     </div>
                     <ul class="selectboxssmenu">
                         <li class="selectoption selectoption__station"><span class="flag-ru"></span>Любая</li>
@@ -1482,7 +1487,7 @@
         
                     <!-- option start -->
                     <div class="selectboxss salon__metro__option">
-                        <div class="selectboxssvalue"><span>Выбрать</span><img src="img/arrow.png" class="arrowselect" />
+                        <div class="selectboxssvalue"><span>Выбрать</span><img src="new-card2/img/arrow.png" class="arrowselect" />
                         </div>
                         <ul class="selectboxssmenu">
                             <li class="selectoption selectoption__line">Любая</li>
@@ -1499,7 +1504,7 @@
         
                     <!-- option start -->
                     <div class="selectboxss salon__metro__option">
-                        <div class="selectboxssvalue"><span>Выбрать</span><img src="img/arrow.png" class="arrowselect" />
+                        <div class="selectboxssvalue"><span>Выбрать</span><img src="new-card2/img/arrow.png" class="arrowselect" />
                         </div>
                         <ul class="selectboxssmenu">
                             <li class="selectoption selectoption__station">Любая</li>
@@ -1693,5 +1698,4 @@
 </section>      
 </body>
 
-
-</html>
+<? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

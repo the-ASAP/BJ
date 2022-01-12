@@ -2,15 +2,7 @@
 import * as $ from 'jquery';
 import './../vendors/ez-zoom.js';
 import '../scss/index.scss';
-// import header from '../components/header.html';
-// import card from '../components/card.html';
-// import about from '../components/about.html';
-// import offer from '../components/offer.html';
-// import include from '../components/include.html';
-// import similar from '../components/similar.html';
-// import recent from '../components/recent.html';
-// import modal from '../components/modal.html';
-// import footer from '../components/footer.html';
+
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel';
 
@@ -22,13 +14,15 @@ import 'slick-slider/slick/slick.min.js';
 
 import mark from '../img/mark.png'
 
+// import header from '../components/header.html';
+// import card from '../components/card.html';
+// import about from '../components/about.html';
+// import offer from '../components/offer.html';
+// import include from '../components/include.html';
+// import similar from '../components/similar.html';
+// import recent from '../components/recent.html';
+// import modal from '../components/modal.html';
 // import footer from '../components/footer.html';
-
-// MyIconLayout = ymaps.templateLayoutFactory.createClass([
-//     '<svg width="46" height="46" style="position: absolute; top: -23px; left: -23px;">',
-//         '<use href="#sym01"/>',
-//     '</svg>'
-// ].join('')),
 
 const addresses = [
     {
@@ -79,17 +73,6 @@ const addresses = [
 
 
 $(() => {
-    
-    // $('#root').prepend(header);
-    // $('#root').append(modal);
-    // $('#root').append(card);
-    // $('#root').append(about);
-    // $('#root').append(offer);
-    // $('#root').append(include);
-    // $('#root').append(similar);
-    // $('#root').append(recent);
-    //   $('#root').append(footer);
-
     $('.selectboxss').selectbox();
 
     const mapsId = ['yandexMap', 'yandexMap-mobile']
@@ -140,17 +123,6 @@ $(() => {
                             store.stations
                         )
                     )
-                    // console.log(store)
-                    // $('.salon__list').append(`
-                    //     <li class="salon__item">
-                    //         <p class="salon__title">${store.title}</p>
-                    //         <ul class="salon__address-list">
-                    //             <li class="salon__address-list--item">${store.lines[1]}</li>        
-                    //         </ul>
-                    //         <span class="salon__time">Станция: ${store.stations[1]}</span>
-                    //         <span class="salon__time">${store.address}</span>
-                    //     </li>
-                    // `)
                 })
 
                 let line = 'Любая'
@@ -573,45 +545,18 @@ $(() => {
 
   
 
-    setTimeout(() => {
+    
         const firstLeft = $('.about__button--property')[0].getBoundingClientRect().left
         const secondLeft = $('.about__button--description')[0].getBoundingClientRect().left
 
         const elem = $('.about__property-column').first()
         const propertyLeft = $('.about__property-column').first()[0].getBoundingClientRect().left
         const propertyWidth = $('.about__property-column').first()[0].offsetWidth
-
-        const infoWidth = $('.about__info-column').first()[0].offsetWidth
         
         $(elem).css('margin-right', `${secondLeft - (propertyLeft + propertyWidth)}px`)
         if(document.documentElement.clientWidth > 523) $('.about__description-column').first().css('width', `${secondLeft - firstLeft}px`)
         $('.about__info-column').first().css('margin-right', `${secondLeft - (propertyLeft + 240)}px`)
-    }, 1000)
-
 });
-
-
-// ----------------section about scripts
-
-
-// let additionalButton = document.querySelector('.about__item-btn--additional');
-
-
-// let additionalColumn = document.querySelector('.about__property-column--additional');
-// let additionalMobileRow = document.querySelector('.about__property-row--mobile');
-
-// let radioProperty = document.querySelector('.about__radio--property');
-// let buttonProperty = document.querySelector('.about__item-btn--property');
-
-// let radioDescription = document.querySelector('.about__radio--description');
-// let buttonDescription = document.querySelector('.about__item-btn--description');
-
-// let radioInfo = document.querySelector('.about__radio--info');
-// let buttonInfo = document.querySelector('.about__item-btn--info');
-
-
-
-
 
 $.fn.selectbox = function () {
     var selectDefaultHeight = $('.selectboxss').height();
