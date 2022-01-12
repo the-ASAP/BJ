@@ -139,8 +139,10 @@
 }
     
 .recent__list .item-card__item {
-    min-width: 50%;
-    margin-right: 0;
+    @media (max-width: 523px) {
+        min-width: 50%;
+        margin-right: 0;
+    }
 }
 
 
