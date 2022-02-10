@@ -68,7 +68,7 @@ module.exports = {
       },
       //Обработка файлов изображений
       {
-        test: /\.(gif|png|jpe?g|svg)$/i,
+        test: /\.(gif|png|jpe?g|svg|json)$/i,
         type: 'asset',
         generator: {
           filename: 'img/[name][ext]'

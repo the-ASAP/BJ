@@ -13,6 +13,7 @@ import 'slick-slider/slick/slick.css';
 import 'slick-slider/slick/slick.min.js';
 
 import mark from '../img/mark.png'
+import testjson from '../img/address.json'; // адреса для карты
 
 // import header from '../components/header.html';
 // import card from '../components/card.html';
@@ -24,162 +25,86 @@ import mark from '../img/mark.png'
 // import modal from '../components/modal.html';
 // import footer from '../components/footer.html';
 
-const addresses = [
-    {
-        title: 'Бронницкий ювелир» в ТРК «Облака',
-        address: 'Бронницкий ювелир» в ТРК «Облака',
-        coors: [55.612045, 37.732718],
-        lines: ["Любая", "Замоскворецкая"],
-        stations: ["Любая", "Красногвардейская"],
-    },
-    {
-        title: 'Бронницкий ювелир» в ТРЦ «Райкин плаза',
-        address: 'Москва, Шереметьевская ул., 6, к.1, 1 этаж',
-        coors: [55.795403, 37.617033],
-        lines: ["Любая", "Люблинско-Дмитровская"],
-        stations: ["Любая", "Марьина роща"],
-    },
-    {
-        title: 'Бронницкий ювелир» в ТРЦ «МЕГА Белая Дача',
-        address: 'Московская обл., г. Котельники, 1-ый Покровский проезд, д. 5 ("Ашан" и "Икеа")',
-        coors: [55.653299, 37.844217],
-        lines: ["Любая", "Люблинско-Дмитровская"],
-        stations: ["Любая", "Люблино"]
-    },
-    {
-        title: 'Бронницкий ювелир» в ТРЦ «Фестиваль',
-        address: 'Москва, Мичуринский пр-т, Олимпийская деревня, д. 3, корп. 1',
-        coors: [55.677956, 37.466646],
-        lines: ["Любая", "Калининско-Солнцевская"],
-        stations: ["Любая", "Юго-западная"]
-    },
-    {
-        title: 'Бронницкий ювелир» в ТЦ «Июнь',
-        address: 'Московская обл., Мытищинский район, Мытищи, улица Мира, стр. 51',
-        coors: [55.919962, 37.708491],
-        lines: ['Любая', 'Калининско-Солнцевская'],
-        stations: ['Любая', 'Медведково']
-    },
-    {
-        title: 'Бронницкий ювелир» в ТЦ «Капитолий-Беляево',
-        address: 'Москва, Миклухо-Маклая ул., 32а, 1 этаж',
-        coors: [55.641031, 37.530355],
-        lines: ['Любая', "Калининско-Солнцевская"],
-        stations: ['Любая', 'Беляево']
-    },
-]
+let addresses = []
+
+fetch(testjson)
+    .then((response) => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error('Server error!');
+        }
+    })
+    .then((data) => {
+        addresses = data;
+});
+
+// $.ajax({
+//     url: 'url',
+//     type: 'get',
+//     data: 'query params',
+// }.done(function(res) {
+//     const content = $(res)
+//     // действия  с контентом
+//     createOwlCarousel()
+//     createSlickCarousel()
+// }))
+
+const createOwlCarousel = () => {
+    let similarGalleryPageCounter = document.querySelector('.similar__counter--current');
+    let similarGalleryPageSize = document.querySelector('.similar__counter--max');
+
+    $('.owl-carousel').owlCarousel({
+
+        items: 4,
+        loop: true,
+        onInitialized: function (e) {
+            similarGalleryPageSize.innerHTML = Math.ceil(this.items().length / e.page.size)
 
 
+        },
+        responsive: {
+            0: {
+                items: 2,
+
+            },
+            766: {
+                items: 3,
+
+            },
+            1200: {
+                items: 3, 
+
+            },
+            1440: {
+                items: 4
+
+            }
+        },
+    });
+
+    let owl = $('.owl-carousel');
+    $('.similar__button--next').click(function () {
+        owl.trigger('next.owl.carousel');
+    })
+
+    $('.similar__button--prev').click(function () {
+        owl.trigger('prev.owl.carousel');
+    })
 
 
-$(() => {
-    $('.selectboxss').selectbox();
+    owl.on('initialized.owl.carousel', function (e) {
+        similarGalleryPageSize.innerHTML = --e.page.count;
+    });
 
-    const mapsId = ['yandexMap', 'yandexMap-mobile']
-    function returnMaps() {
-        mapsId.map(id => {
-            ymaps
-            .load('https://api-maps.yandex.ru/2.1/?apikey=2b543523-54f1-4a9f-af8a-8333795718cd&lang=ru_RU')
-            .then((maps) => {
-                function createHint(maps, address, object, coorArr, line, station) {
-                    let myPlacemark = new maps.Placemark(
-                      [coorArr[0], coorArr[1]],
-                      {
-                        address,
-                        object,
-                        balloonContentHeader: object,
-                        balloonContentBody: address,
-                        balloonContentFooter: line?.length && station?.length ?
-                          `<p class="yandexMap__hint">` + `Линия: ${line[1]}` + '</p>' + 
-                          `<p class="yandexMap__hint">` + `Станция: ${station[1]}` + '</p>'
-                           : 
-                           ""
-                      },
-                      {
-                        iconLayout: 'default#imageWithContent',
-                        iconImageSize: [32, 48],
-                        iconImageHref: mark,
-                        iconColor: '#000'
-                      }
-                    );
-                  
-                    return myPlacemark;
-                }
+    owl.on('changed.owl.carousel', function (e) {
+      
+        similarGalleryPageCounter.innerHTML = ++e.page.index;
+        similarGalleryPageSize.innerHTML = e.page.count;
+    });
+}
 
-                const Map = new maps.Map(id, {
-                    center: [55.76, 37.64],
-                    zoom: 10,
-                    controls: ["zoomControl"],
-                });
-                Map.behaviors.disable("scrollZoom");
-                addresses.map(store => {
-                    Map.geoObjects.add(
-                        createHint(
-                            maps,
-                            store.address,
-                            store.title,
-                            store.coors,
-                            store.lines,
-                            store.stations
-                        )
-                    )
-                })
-
-                let line = 'Любая'
-                let station = 'Любая'
-                function createListMark() {
-                    let newAddresses = addresses.filter(store => store.lines.includes(line) && store.stations.includes(station))
-                    Map.geoObjects.removeAll()
-                    $('.salon__list').html('')
-                    newAddresses.map(store => {
-                        Map.geoObjects.add(
-                            createHint(
-                                maps,
-                                store.address,
-                                store.title,
-                                store.coors,
-                                store.lines,
-                                store.stations
-                            )
-                        )
-
-                        $('.salon__list').append(`
-                            <li class="salon__item">
-                                <p class="salon__title">${store.title}</p>
-                                <ul class="salon__address-list">
-                                    <li class="salon__address-list--item">${store.lines[1]}</li>        
-                                </ul>
-                                <span class="salon__time">Станция: ${store.stations[1]}</span>
-                                <span class="salon__time">${store.address}</span>
-                            </li>
-                        `)
-                    })
-                }
-
-                $('.selectoption__line').on('click', function() {
-                    line = $(this).text()
-                    createListMark()
-                })
-                $('.selectoption__station').on('click', function() {
-                    station = $(this).text()
-                    createListMark()  
-                }) 
-            
-            })
-            .catch((error) => console.log('Failed to load Yandex Maps', error));
-        })    
-    }
-    returnMaps()
-
-
-    // *************************Slick
-
-
-    
-
-    const preview = '.gallery__preview-list';
-    const slide = '.gallery__big-slide';
-
+const createSlickCarousel = () => {  
     $('.gallery__big-list').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -249,61 +174,111 @@ $(() => {
         currentSlide === 1 ? leftArrow.style.opacity = 0.5 : leftArrow.style.opacity = 1;
         currentSlide === slick.slideCount ? rightArrow.style.opacity = 0.5 : rightArrow.style.opacity = 1;
     });
+}
 
 
-    // *****************************OWL
 
-    let similarGalleryPageCounter = document.querySelector('.similar__counter--current');
-    let similarGalleryPageSize = document.querySelector('.similar__counter--max');
-
-    $('.owl-carousel').owlCarousel({
-
-        items: 4,
-        loop: true,
-        onInitialized: function (e) {
-            similarGalleryPageSize.innerHTML = Math.ceil(this.items().length / e.page.size)
-
-
-        },
-        responsive: {
-            0: {
-                items: 2,
-
-            },
-            766: {
-                items: 3,
-
-            },
-            1200: {
-                items: 3, 
-
-            },
-            1440: {
-                items: 4
-
+const mapsId = ['yandexMap', 'yandexMap-mobile']
+function returnMaps() {
+    mapsId.map(id => {
+        ymaps
+        .load('https://api-maps.yandex.ru/2.1/?apikey=2b543523-54f1-4a9f-af8a-8333795718cd&lang=ru_RU')
+        .then((maps) => {
+            function createHint(maps, address, object, coorArr, line, station) {
+                let myPlacemark = new maps.Placemark(
+                  [coorArr[0], coorArr[1]],
+                  {
+                    address,
+                    object,
+                    balloonContentHeader: object,
+                    balloonContentBody: address,
+                    balloonContentFooter: line?.length && station?.length ?
+                      `<p class="yandexMap__hint">` + `Линия: ${line[1]}` + '</p>' + 
+                      `<p class="yandexMap__hint">` + `Станция: ${station[1]}` + '</p>'
+                       : 
+                       ""
+                  },
+                  {
+                    iconLayout: 'default#imageWithContent',
+                    iconImageSize: [32, 48],
+                    iconImageHref: mark,
+                    iconColor: '#000'
+                  }
+                );
+              
+                return myPlacemark;
             }
-        },
-    });
 
-    let owl = $('.owl-carousel');
-    $('.similar__button--next').click(function () {
-        owl.trigger('next.owl.carousel');
-    })
+            const Map = new maps.Map(id, {
+                center: [55.76, 37.64],
+                zoom: 10,
+                controls: ["zoomControl"],
+            });
+            Map.behaviors.disable("scrollZoom");
+            addresses.map(store => {
+                Map.geoObjects.add(
+                    createHint(
+                        maps,
+                        store.address,
+                        store.title,
+                        store.coors,
+                        store.lines,
+                        store.stations
+                    )
+                )
+            })
 
-    $('.similar__button--prev').click(function () {
-        owl.trigger('prev.owl.carousel');
-    })
+            let line = 'Любая'
+            let station = 'Любая'
+            function createListMark() {
+                let newAddresses = addresses.filter(store => store.lines.includes(line) && store.stations.includes(station))
+                Map.geoObjects.removeAll()
+                $('.salon__list').html('')
+                newAddresses.map(store => {
+                    Map.geoObjects.add(
+                        createHint(
+                            maps,
+                            store.address,
+                            store.title,
+                            store.coors,
+                            store.lines,
+                            store.stations
+                        )
+                    )
+
+                    $('.salon__list').append(`
+                        <li class="salon__item">
+                            <p class="salon__title">${store.title}</p>
+                            <ul class="salon__address-list">
+                                <li class="salon__address-list--item">${store.lines[1]}</li>        
+                            </ul>
+                            <span class="salon__time">Станция: ${store.stations[1]}</span>
+                            <span class="salon__time">${store.address}</span>
+                        </li>
+                    `)
+                })
+            }
+
+            $('.selectoption__line').on('click', function() {
+                line = $(this).text()
+                createListMark()
+            })
+            $('.selectoption__station').on('click', function() {
+                station = $(this).text()
+                createListMark()  
+            }) 
+        
+        })
+        .catch((error) => console.log('Failed to load Yandex Maps', error));
+    })    
+}
 
 
-    owl.on('initialized.owl.carousel', function (e) {
-        similarGalleryPageSize.innerHTML = --e.page.count;
-    });
-
-    owl.on('changed.owl.carousel', function (e) {
-      
-        similarGalleryPageCounter.innerHTML = ++e.page.index;
-        similarGalleryPageSize.innerHTML = e.page.count;
-    });
+$(() => {
+    $('.selectboxss').selectbox();
+    returnMaps()
+    createSlickCarousel()
+    createOwlCarousel()
 
     let noSizeButton = document.querySelector('.product-detail__no-size');
 
@@ -332,14 +307,7 @@ $(() => {
 
 
     let modalSalon = document.querySelector('.salon__modal');
-    let modalSalonWindow = document.querySelector('.salon');
-    let modalBtnClose = document.querySelector('.salon__close');
-
     let modalWrapper = document.querySelector('.modal__wrapper');
-
-
-    let modalBtnDelivery = document.querySelector('.about__info-link--delivery');
-
     let modalWindowDelivery = document.querySelector('.modal__delivery');
     let modalBtnDeliveryClose = document.querySelector('.modal__close--delivery');
 
@@ -352,12 +320,7 @@ $(() => {
     let modalBtnCallbackClose = document.querySelector('.modal__close--callback');
     let modalWindowCallback = document.querySelector('.modal__callback');
 
-
-    let modalSizesBtn = document.querySelector('.product-detail__sizes-list');
-    let modalSizesWindow = document.querySelector('.product-detail__modal-window');
-
     // Функция изменения z-indexа wrappera модалки
-    
     
 
     function setWrapperToTop(toTop) {
@@ -577,3 +540,4 @@ $.fn.selectbox = function () {
         $(this).closest(".selectboxss").find('.selectboxssvalue span').text($(this).text());
     });
 };
+
