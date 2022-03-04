@@ -58,6 +58,10 @@ const createOwlCarousel = () => {
 
         items: 4,
         loop: true,
+        mouseDrag: false,
+        touchDrag: true,
+        pullDrag: true,
+        freeDrag: true,
         onInitialized: function (e) {
             similarGalleryPageSize.innerHTML = Math.ceil(this.items().length / e.page.size)
 
