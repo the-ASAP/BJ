@@ -117,7 +117,6 @@ const createSlickCarousel = () => {
        
     });
 
-
     const $slideshow = $('.gallery__preview-list').slick({
         slidesToShow: 3,
         slidesToScroll: 1,
@@ -127,9 +126,7 @@ const createSlickCarousel = () => {
         arrows: false,
         verticalSwiping: true,
         centerPadding: 0,
-       
         responsive: [
-       
             {
                 breakpoint: 517,
                 settings: {
@@ -139,14 +136,12 @@ const createSlickCarousel = () => {
                     centerPadding: 0,
                     adaptiveHeight: true,   
                     adaptiveWidth: true
-                   
                 }
             },
             {
               
             }
         ]
-
     });
     $('.slick-slide').each((index, item) => {
         $(item).on('click', () => {
@@ -179,8 +174,6 @@ const createSlickCarousel = () => {
         currentSlide === slick.slideCount ? rightArrow.style.opacity = 0.5 : rightArrow.style.opacity = 1;
     });
 }
-
-
 
 const mapsId = ['yandexMap', 'yandexMap-mobile']
 function returnMaps() {
@@ -342,128 +335,153 @@ $(() => {
     });
   }
 
-    modalBtnPayment.addEventListener('click', e => {
-        e.preventDefault();
-        setWrapperToTop(true)
-        modalWindowPayment.classList.add('modal--show')
-    })
+    if(modalBtnPayment){
+        modalBtnPayment.addEventListener('click', e => {
+            e.preventDefault();
+            setWrapperToTop(true)
+            modalWindowPayment.classList.add('modal--show')
+        })
+    }
+    
+    if(modalBtnDeliveryClose){
+        modalBtnDeliveryClose.addEventListener('click', e => {
+            e.preventDefault();
+            setWrapperToTop(false)
+            modalWindowDelivery.classList.remove('modal--show')
+        })
+    }
 
-    modalBtnDeliveryClose.addEventListener('click', e => {
-        e.preventDefault();
-        setWrapperToTop(false)
-        modalWindowDelivery.classList.remove('modal--show')
-    })
-
-    modalWindowDelivery.addEventListener('click', e => {
-        e.preventDefault();
-        setWrapperToTop(false)
-        if (e.target.classList.contains('modal__delivery')) {
-            modalWindowDelivery.classList.remove('modal--show');
-        }
-    })
-
+    
+    if(modalWindowDelivery){
+        modalWindowDelivery.addEventListener('click', e => {
+            e.preventDefault();
+            setWrapperToTop(false)
+            if (e.target.classList.contains('modal__delivery')) {
+                modalWindowDelivery.classList.remove('modal--show');
+            }
+        })
+    }
+    
 
     //**************** */
-    modalWindowPayment.addEventListener('click', e => {
+    if(modalWindowPayment){
+        modalWindowPayment.addEventListener('click', e => {
 
-        e.preventDefault();
-        if (e.target.classList.contains('modal__payment')) {
+            e.preventDefault();
+            if (e.target.classList.contains('modal__payment')) {
+                setWrapperToTop(false)
+                modalWindowPayment.classList.remove('modal--show');
+            }
+        })
+    }
+
+    if(modalWindowDelivery){
+        modalWindowDelivery.addEventListener('click', e => {
+
+            e.preventDefault();
+            if (e.target.classList.contains('modal__delivery')) {
+                setWrapperToTop(false)
+                modalWindowDelivery.classList.remove('modal--show');
+            }
+        })
+    }
+
+    if(modalBtnPaymentClose){
+        modalBtnPaymentClose.addEventListener('click', e => {
+            e.preventDefault();
             setWrapperToTop(false)
-            modalWindowPayment.classList.remove('modal--show');
-        }
-    })
-
-    modalWindowDelivery.addEventListener('click', e => {
-
-        e.preventDefault();
-        if (e.target.classList.contains('modal__delivery')) {
+            modalWindowPayment.classList.remove('modal--show')
+        })
+    }
+    
+    if(modalBtnCallbackClose){
+        modalBtnCallbackClose.addEventListener('click', e => {
+            e.preventDefault();
             setWrapperToTop(false)
-            modalWindowDelivery.classList.remove('modal--show');
-        }
-    })
+            modalWindowCallback.classList.remove('modal--show')
+        })
+    }
 
+    if(modalWindowCallback){
+        modalWindowCallback.addEventListener('click', e => {
+            if (e.target.classList.contains('modal__callback')) {
+                setWrapperToTop(false)
+                modalWindowCallback.classList.remove('modal--show');
+            }
+        })
+    }
 
-    modalBtnPaymentClose.addEventListener('click', e => {
-        e.preventDefault();
-        setWrapperToTop(false)
-        modalWindowPayment.classList.remove('modal--show')
-    })
-
-
-
-    modalBtnCallbackClose.addEventListener('click', e => {
-        e.preventDefault();
-        setWrapperToTop(false)
-        modalWindowCallback.classList.remove('modal--show')
-    })
-
-    modalWindowCallback.addEventListener('click', e => {
-        if (e.target.classList.contains('modal__callback')) {
-            setWrapperToTop(false)
-            modalWindowCallback.classList.remove('modal--show');
-        }
-      
-    })
-
-    modalBtnCallback.addEventListener('click', e => {
-        e.preventDefault();
-        setWrapperToTop(true)
-        modalWindowCallback.classList.add('modal--show')
-    })
- 
-
-    takeBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        modalSalon.classList.add('salon__modal--show');
-        setWrapperToTop(true)
-
-    })
-
-    modalSalon.addEventListener('click', (e) => {
+    if(modalBtnCallback){
+        modalBtnCallback.addEventListener('click', e => {
+            e.preventDefault();
+            setWrapperToTop(true)
+            modalWindowCallback.classList.add('modal--show')
+        })
+    }
+    
+    if(takeBtn){
+        takeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            modalSalon.classList.add('salon__modal--show');
+            setWrapperToTop(true)
+    
+        })
+    }
+    
+    if(modalSalon){
+        modalSalon.addEventListener('click', (e) => {
    
-        if (e.target.classList.contains('salon__modal')) {
-            modalSalon.classList.remove('salon__modal--show');
-            setWrapperToTop(false)
-        }
-    })
+            if (e.target.classList.contains('salon__modal')) {
+                modalSalon.classList.remove('salon__modal--show');
+                setWrapperToTop(false)
+            }
+        })
+    }
 
-    modalWrapper.addEventListener('click', (e) => {
-        e.preventDefault();
-        modalSalon.classList.remove('salon--show');
-        modalSalon.classList.add('salon--hide');
-        modalWrapper.classList.remove('active')
-    })
+    if(modalWrapper){
+        modalWrapper.addEventListener('click', (e) => {
+            e.preventDefault();
+            modalSalon.classList.remove('salon--show');
+            modalSalon.classList.add('salon--hide');
+            modalWrapper.classList.remove('active')
+        })
+    }
+    
+    if(noSizeButton){
+        noSizeButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            setWrapperToTop(true)
+            modalCard.classList.add('modal-card--open');
+        })
+    }
 
-
-    noSizeButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        setWrapperToTop(true)
-        modalCard.classList.add('modal-card--open');
-    })
-
-
-    modalCardMobile.addEventListener('click', (e) => {
-        e.preventDefault();
-        modalCard.classList.remove('modal-card--close');
-        modalCard.classList.add('modal-card--open');
-    })
-
-
-    modalCardCloseBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        setWrapperToTop(false)
-        modalCard.classList.remove('modal-card--open');
-    })
-
-    modalCard.addEventListener('click', (e) => {
-        e.preventDefault();
-
-        if (e.target.classList.contains('modal-card')) {
+    if(modalCardMobile){
+        modalCardMobile.addEventListener('click', (e) => {
+            e.preventDefault();
+            modalCard.classList.remove('modal-card--close');
+            modalCard.classList.add('modal-card--open');
+        })
+    }
+    
+    if(modalCardCloseBtn){
+        modalCardCloseBtn.addEventListener('click', (e) => {
+            e.preventDefault();
             setWrapperToTop(false)
             modalCard.classList.remove('modal-card--open');
-        }
-    })
-
+        })
+    }
+    
+    if(modalCard){
+        modalCard.addEventListener('click', (e) => {
+            e.preventDefault();
+    
+            if (e.target.classList.contains('modal-card')) {
+                setWrapperToTop(false)
+                modalCard.classList.remove('modal-card--open');
+            }
+        })
+    }
+    
 
     let additionalButton = document.querySelector('.about__item-btn--additional');
 
@@ -480,23 +498,31 @@ $(() => {
     let radioInfo = document.querySelector('.about__radio--info');
     let buttonInfo = document.querySelector('.about__item-btn--info');
 
-    buttonProperty.addEventListener('click', () => {
-        radioProperty.checked = !radioProperty.checked
-    })
+    if(buttonProperty){
+        buttonProperty.addEventListener('click', () => {
+            radioProperty.checked = !radioProperty.checked
+        })
+    }
 
-    buttonDescription.addEventListener('click', () => {
-        radioDescription.checked = !radioDescription.checked
-    })
+    if(buttonDescription){
+        buttonDescription.addEventListener('click', () => {
+            radioDescription.checked = !radioDescription.checked
+        })
+    }
 
-    buttonInfo.addEventListener('click', () => {
-        radioInfo.checked = !radioInfo.checked
-    })
+    if(buttonInfo){
+        buttonInfo.addEventListener('click', () => {
+            radioInfo.checked = !radioInfo.checked
+        })
+    }
 
-    additionalButton.addEventListener('click', () => {
-
-        additionalMobileRow.classList.toggle('about__additional-open');
-        additionalColumn.classList.toggle('open');
-    })
+    
+    if(additionalButton){
+        additionalButton.addEventListener('click', () => {
+            additionalMobileRow.classList.toggle('about__additional-open');
+            additionalColumn.classList.toggle('open');
+        })
+    }
 
     // $('.about__description-column--hidden')
     $('.about__more').on('click', function() {
