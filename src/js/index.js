@@ -58,14 +58,10 @@ const createOwlCarousel = () => {
 
         items: 4,
         loop: true,
-        // onDragged: function(){
-
-        // },
         mouseDrag: false,
+        touchDrag: false,
         onInitialized: function (e) {
             similarGalleryPageSize.innerHTML = Math.ceil(this.items().length / e.page.size)
-
-
         },
         responsive: {
             0: {
@@ -95,18 +91,6 @@ const createOwlCarousel = () => {
     $('.similar__button--prev').click(function () {
         owl.trigger('prev.owl.carousel');
     })
-
-    // $('.owl-item').mouseover(function(){
-       
-    //     owl.owlCarousel({
-    //         mouseDrag: true,
-    //     })
-    // })
-    // $('.owl-item').mouseout(function(){
-    //     owl.owlCarousel({
-    //         mouseDrag: false,
-    //     })
-    // })
 
     owl.on('initialized.owl.carousel', function (e) {
         similarGalleryPageSize.innerHTML = --e.page.count;
