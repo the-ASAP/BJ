@@ -946,7 +946,7 @@ button {
   }
 }
 .product-detail__modal-size-item:hover {
-  color: black;
+  color: rgb(0, 0, 0);
 }
 .product-detail__no-size--modal {
   width: 200px;
@@ -1679,7 +1679,7 @@ button {
 }
 .about__button:hover {
   border-bottom: 1px solid rgba(187, 85, 157, 0.6);
-  color: black;
+  color: rgb(0, 0, 0);
 }
 @media (max-width: 664px) {
   .about__button--property {
@@ -2005,7 +2005,7 @@ button {
   background-repeat: no-repeat;
 }
 .about__radio--property:checked ~ .about__list .about__button--property, .about__radio--description:checked ~ .about__list .about__button--description, .about__radio--info:checked ~ .about__list .about__button--info {
-  color: black;
+  color: rgb(0, 0, 0);
   border-bottom: 1px solid rgba(187, 85, 157, 0.6);
 }
 .about__radio--property:checked ~ .about__list .about__item-btn--property {
@@ -2186,7 +2186,7 @@ button {
   color: rgba(0, 0, 0, 0.5);
 }
 .similar__counter--current {
-  color: black;
+  color: rgb(0, 0, 0);
 }
 .similar__button {
   font-family: "Muller";
@@ -2762,10 +2762,10 @@ footer {
   }
 }
 .salon__radio--location:checked ~ .salon__label--location {
-  color: black;
+  color: rgb(0, 0, 0);
 }
 .salon__radio--map:checked ~ .salon__label--map {
-  color: black;
+  color: rgb(0, 0, 0);
 }
 .salon__radio--location:checked ~ .salon__label--location span {
   border-bottom: 2px solid rgba(187, 85, 157, 0.6);
@@ -3260,7 +3260,7 @@ ul.selectboxssmenu > li.selectoption {
   border-top: 1px solid #000;
 }
 ul.selectboxssmenu > li.selectoption:hover {
-  color: black;
+  color: rgb(0, 0, 0);
   background: #e1e1e1;
   -webkit-transition: 0.2s;
   -o-transition: 0.2s;
