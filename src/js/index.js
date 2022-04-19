@@ -58,10 +58,10 @@ const createOwlCarousel = () => {
 
         items: 4,
         loop: true,
+        // onDragged: function(){
+
+        // },
         mouseDrag: false,
-        touchDrag: true,
-        pullDrag: true,
-        freeDrag: true,
         onInitialized: function (e) {
             similarGalleryPageSize.innerHTML = Math.ceil(this.items().length / e.page.size)
 
@@ -86,7 +86,7 @@ const createOwlCarousel = () => {
             }
         },
     });
-
+    
     let owl = $('.owl-carousel');
     $('.similar__button--next').click(function () {
         owl.trigger('next.owl.carousel');
@@ -96,6 +96,17 @@ const createOwlCarousel = () => {
         owl.trigger('prev.owl.carousel');
     })
 
+    // $('.owl-item').mouseover(function(){
+       
+    //     owl.owlCarousel({
+    //         mouseDrag: true,
+    //     })
+    // })
+    // $('.owl-item').mouseout(function(){
+    //     owl.owlCarousel({
+    //         mouseDrag: false,
+    //     })
+    // })
 
     owl.on('initialized.owl.carousel', function (e) {
         similarGalleryPageSize.innerHTML = --e.page.count;
@@ -107,7 +118,6 @@ const createOwlCarousel = () => {
         similarGalleryPageSize.innerHTML = e.page.count;
     });
 }
-
 const createSlickCarousel = () => {  
     $('.gallery__big-list').slick({
         slidesToShow: 1,
