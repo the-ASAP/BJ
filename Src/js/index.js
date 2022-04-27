@@ -58,8 +58,8 @@ const createOwlCarousel = () => {
 
         items: 4,
         loop: true,
-        mouseDrag: false,
-        touchDrag: false,
+        mouseDrag: true,
+        touchDrag: true,
         onInitialized: function (e) {
             similarGalleryPageSize.innerHTML = Math.ceil(this.items().length / e.page.size)
         },
@@ -108,7 +108,6 @@ const createSlickCarousel = () => {
         slidesToScroll: 1,
         arrows: true,
         asNavFor: '.gallery__preview-list',
-       
     });
 
     const $slideshow = $('.gallery__preview-list').slick({
@@ -154,11 +153,7 @@ const createSlickCarousel = () => {
     leftArrow.style.opacity = 0.5;
 
     $('.gallery__preview-list').on('init reInit afterChange', function (event, slick) {
-
         sliderCount.innerHTML = slick.slideCount;
-      
-        
-      
     });
 
     $('.gallery__preview-list').on("afterChange", function (event, slick, currentSlide, nextSlide) {
@@ -271,6 +266,32 @@ $(() => {
     createSlickCarousel()
     createOwlCarousel()
 
+    for (let i = 0; i <= 12; i++) {
+        $(`.carousel-${i}`).slick({
+        prevArrow: $(`.control-prev-${i}`),
+        nextArrow: $(`.control-next-${i}`)
+        });
+    }
+    for (let i = 101; i <= 105; i++) {
+        $(`.carousel-${i}`).slick({
+        swipe: false,
+        prevArrow: $(`.control-prev-${i}`),
+        nextArrow: $(`.control-next-${i}`)
+        });
+    }
+    // let caros = document.getElementsByClassName('caros');
+    // for(let i = 0; i < caros.length; i++){
+    //     caros[i].classList.add(`carousel-${i+30}`)
+    //     let next = caros[i].querySelector('.control-next');
+    //     next.classList.add(`control-next-${i+30}`);
+
+    //     let prev = caros[i].querySelector('.control-prev');
+    //     prev.classList.add(`control-prev-${i+30}`);
+    //     $(`.carousel${i+30}`).slick({
+    //         prevArrow: $(`.control-prev-${i+30}`),
+    //         nextArrow: $(`.control-next-${i+30}`),
+    //     });
+    // }
     let noSizeButton = document.querySelector('.product-detail__no-size');
 
     let modalCard = document.querySelector('.modal-card');
@@ -322,12 +343,6 @@ $(() => {
         }
     }
 
-  for (let i = 0; i <= 12; i++) {
-    $(`.carousel-${i}`).slick({
-      prevArrow: $(`.control-prev-${i}`),
-      nextArrow: $(`.control-next-${i}`)
-    });
-  }
 
     if(modalBtnPayment){
         modalBtnPayment.addEventListener('click', e => {
